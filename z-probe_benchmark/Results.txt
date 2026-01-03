@@ -1,0 +1,13 @@
+FYSETC Super Pinda
+
+Start Condition:
+- Bed Temperature: 27.3
+- Nozzle Temperature: 26.1
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 2.15 µm / 0.69 µm
+- Phase 1 Diff/StdDev: 1.03 µm / 0.33 µm
+- Phase 2 Diff/StdDev: 2.45 µm / 0.78 µm
+- Phase 3 Diff/StdDev: 1.96 µm / 0.63 µm
+- Phase 4 Diff/StdDev: 2.02 µm / 0.65 µm
+
