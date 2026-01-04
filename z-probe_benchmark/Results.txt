@@ -1,13 +1,47 @@
-FYSETC Super Pinda
+Prusa Super Pinda
 
 Start Condition:
-- Bed Temperature: 27.3
-- Nozzle Temperature: 26.1
+- Bed Temperature: 26.8
+- Nozzle Temperature: 27.2
 
 Stats for Moving Window of 10 Consecutive Elements:
-- Total Diff/StdDev: 2.15 µm / 0.69 µm
-- Phase 1 Diff/StdDev: 1.03 µm / 0.33 µm
-- Phase 2 Diff/StdDev: 2.45 µm / 0.78 µm
-- Phase 3 Diff/StdDev: 1.96 µm / 0.63 µm
-- Phase 4 Diff/StdDev: 2.02 µm / 0.65 µm
+- Total Diff/StdDev: 3.06 µm / 0.93 µm
+- Phase 1 Diff/StdDev: 2.80 µm / 0.82 µm
+- Phase 2 Diff/StdDev: 3.17 µm / 0.96 µm
+- Phase 3 Diff/StdDev: 2.60 µm / 0.79 µm
+- Phase 4 Diff/StdDev: 3.52 µm / 1.09 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 6.75
+- Nozzle Power On: 4.34
+
+Offset Shift By Test Duration:
+- Reference (2 min): 1501.70 µm
+- dZ @12 min: 79.02 µm
+- dZ @35 min: -49.65 µm
+- dZ @41 min: 11.51 µm
+- dZ @54 min: -7.02 µm
+
+
+For tab:
+26.8
+27.2
+2.80
+3.17
+2.60
+3.52
+3.06
+0.82
+0.96
+0.79
+1.09
+0.93
+6.75
+4.34
+1501.70
+79.02
+-49.65
+11.51
+-7.02
+
 
