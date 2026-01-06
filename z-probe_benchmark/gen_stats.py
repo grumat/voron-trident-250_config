@@ -34,7 +34,7 @@ class HeatSoak(object):
 		self.sd = 0.0
 		self.diff = 0.0
 		self.avg = 0.0
-	def ComputeSoak(self, data : list[tuple[float, float]], cold : float):
+	def ComputeSoak(self, data : list[tuple[float, float]], cold : float, z_min : float):
 		offset = data[0][0]
 		start = self.soak_time * 60.0 + offset
 		samples = [z for ts, z in data if ts >= start]
@@ -42,6 +42,7 @@ class HeatSoak(object):
 		self.diff = max(samples) - min(samples)
 		self.avg = fmean(samples)
 		self.displace = self.avg - cold
+		self.displace0 = self.avg - z_min
 	def Print(self):
 		if self.soak_time == 0:
 			print("Total")
@@ -54,7 +55,8 @@ class HeatSoak(object):
 
 
 class SoakStats(object):
-	def __init__(self, cold :list[float], data : list[tuple[float, float]]) -> None:
+	def __init__(self, z_min : float, cold :list[float], data : list[tuple[float, float]]) -> None:
+		self.z_min = z_min
 		self.cold = cold
 		self.cold_avg = fmean(cold)
 		self.data = data
@@ -64,12 +66,12 @@ class SoakStats(object):
 		self.m3 = HeatSoak(3)
 		self.m5 = HeatSoak(5)
 		self.m10 = HeatSoak(10)
-		self.total.ComputeSoak(data, self.cold_avg)
-		self.m1.ComputeSoak(data, self.cold_avg)
-		self.m2.ComputeSoak(data, self.cold_avg)
-		self.m3.ComputeSoak(data, self.cold_avg)
-		self.m5.ComputeSoak(data, self.cold_avg)
-		self.m10.ComputeSoak(data, self.cold_avg)
+		self.total.ComputeSoak(data, self.cold_avg, z_min)
+		self.m1.ComputeSoak(data, self.cold_avg, z_min)
+		self.m2.ComputeSoak(data, self.cold_avg, z_min)
+		self.m3.ComputeSoak(data, self.cold_avg, z_min)
+		self.m5.ComputeSoak(data, self.cold_avg, z_min)
+		self.m10.ComputeSoak(data, self.cold_avg, z_min)
 	def Print(self):
 		print("===Heat Soak Statistics===")
 		self.total.Print()
@@ -95,9 +97,11 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 
 	min_ts = data[0]['ts']
 
+	z_min = min([x['z'] for x in data if 'z' in x])
+	
 	ztrace = pgo.Scatter(
 		x=[x['ts'] - min_ts for x in data if 'z' in x],
-		y=[x['z'] for x in data if 'z' in x],
+		y=[(x['z'] - z_min) for x in data if 'z' in x],
 		name='Z',
 		mode='lines',
 		line={'color': 'black'},
@@ -106,10 +110,8 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	assert ztrace is not None, "Unknown error on plotly"
 	assert ztrace.y is not None, "Unknown error on plotly"
 
-	z_low = min([x['z'] for x in data if 'z' in x])
-	z_low = (int(z_low * 10) - 1) / 10
-	z_max = max([x['z'] for x in data if 'z' in x])
-	z_hi = z_low + 0.3
+	z_max = max(ztrace.y)
+	z_hi = 0.3
 	while z_hi < z_max:
 		z_hi += 0.2
 	
@@ -202,7 +204,7 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	if alt:
 		zrange = None
 	else:
-		zrange = [z_low,z_hi]
+		zrange = [-0.1,z_hi]
 
 	fig.update_layout(
 		title=dict(
@@ -264,7 +266,8 @@ def real_world_stats(data : list) -> SoakStats:
 				cold.append(z)
 			if start_found:
 				samples.append((ts, z))
-	return SoakStats(cold, samples)
+	z_min = min([x['z'] for x in data if 'z' in x])
+	return SoakStats(z_min, cold, samples)
 
 
 

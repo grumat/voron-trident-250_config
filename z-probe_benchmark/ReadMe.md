@@ -43,6 +43,12 @@ Note that although stability of the reading NPN probes has the disadvantage that
 Heat soaking is mandatory.
 
 
+## Panasonic GX-H15A
+
+![](data/probe_accuracy_GX-H15A.jpg)
+
+
+
 # Heat Soaking Tables
 
 ## Average Z Value (in mm)
@@ -55,6 +61,7 @@ The mean value of the absolute Z reading.
 | FYSETC Super Pinda | 0.8885  | 0.8876 | 0.8862 | 0.8848 | 0.8825 | 0.8788 |
 | OMRON TL-Q5MC2-Z   | 2.8547  | 2.8572 | 2.8590 | 2.8604 | 2.8621 | 2.8635 |
 | OMRON TL-Q5MC1-Z   | 2.1258  | 2.1273 | 2.1274 | 2.1270 | 2.1252 | 2.1197 |
+| Panasonic GX-H15A  | 1.6053  | 1.6062 | 1.6068 | 1.6073 | 1.6078 | 1.6085 |
 
 *It is meaningless to compare different rows. Use it to compare the evolution according to heat soak time.*
 
@@ -69,6 +76,7 @@ This table is more important than the previous. It shown how much the Z value sh
 | FYSETC Super Pinda |  0.0702 | 0.0693 | 0.0679 | 0.0665 | 0.0642 | 0.0605 |
 | OMRON TL-Q5MC2-Z   |  0.2140 | 0.2165 | 0.2183 | 0.2197 | 0.2214 | 0.2228 |
 | OMRON TL-Q5MC1-Z   |  0.1947 | 0.1963 | 0.1964 | 0.1960 | 0.1942 | 0.1886 |
+| Panasonic GX-H15A  |  0.1127 | 0.1136 | 0.1142 | 0.1147 | 0.1152 | 0.1159 |
 
 *Prusa Super Pinda is a leap forward.*
 
@@ -83,8 +91,9 @@ The classic standard deviation gives a picture of the noise average that is expe
 | FYSETC Super Pinda |  9.8947 | 9.4208 | 8.2352 | 6.7604 | 4.6141 | 2.3757 |
 | OMRON TL-Q5MC2-Z   | 12.7220 | 9.2573 | 6.6763 | 4.8226 | 2.8565 | 2.0003 |
 | OMRON TL-Q5MC1-Z   |  8.9575 | 6.7112 | 6.8881 | 6.9792 | 6.3167 | 2.6888 |
+| Panasonic GX-H15A  |  4.6047 | 3.1959 | 2.2468 | 1.7201 | 1.1786 | 1.0973 |
 
-*In general if a system is calibrated on a very specific temperature and enough time is given for stability, on every print or calibrate, every Z-probe is able to produce a decent first layer. Prusa Super Pinda is a leap forward and tolerate not strictly controlled use cases.*
+*In general if a system is calibrated on a very specific temperature and enough time is given for stability, on every print or calibrate, every Z-probe is able to produce a decent first layer. Prusa and Panasonic are really more stable than other models. But note that this levels cannot produce significant printing artifacts regardless of the probe brand.*
 
 
 ## Amplitude Difference (µm)
@@ -97,8 +106,8 @@ The min an max Z values, may contaminate single samples, causing spurious hill o
 | FYSETC Super Pinda | 32.8130 | 32.8130 | 30.3130 | 26.8750 | 18.1250 |  8.1250 |
 | OMRON TL-Q5MC2-Z   | 55.6250 | 39.6870 | 32.5000 | 24.3750 | 14.6870 |  9.3750 |
 | OMRON TL-Q5MC1-Z   | 48.4370 | 21.5620 | 21.5620 | 21.5620 | 21.2500 | 10.0000 |
+| Panasonic GX-H15A  | 24.3750 | 17.8120 | 13.1250 | 10.3120 | 10.0000 | 10.0000 |
 
-
-
+Note that this noise level is acceptable on every probe, since it is too low to produce printing artifacts.
 
 

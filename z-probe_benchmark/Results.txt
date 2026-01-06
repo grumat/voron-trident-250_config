@@ -318,3 +318,83 @@ After 10 min
     Z diff = 10.0000 µm
 
 
+Panasonic GX-H15A
+
+Start Condition:
+- Bed Temperature: 25.3
+- Nozzle Temperature: 26.0
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 1.88 µm / 0.59 µm
+- Phase 1 Diff/StdDev: 0.89 µm / 0.28 µm
+- Phase 2 Diff/StdDev: 1.85 µm / 0.59 µm
+- Phase 3 Diff/StdDev: 2.47 µm / 0.71 µm
+- Phase 4 Diff/StdDev: 1.60 µm / 0.51 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 6.61
+- Nozzle Power On: 1.00
+
+Offset Shift By Test Duration:
+- Reference (2 min): 1493.14 µm
+- dZ @12 min: 84.49 µm
+- dZ @35 min: 9.94 µm
+- dZ @41 min: 11.68 µm
+- dZ @54 min: 9.74 µm
+
+
+For tab:
+25.3
+26.0
+0.89
+1.85
+2.47
+1.60
+1.88
+0.28
+0.59
+0.71
+0.51
+0.59
+6.61
+1.00
+1493.14
+84.49
+9.94
+11.68
+9.74
+
+
+===Heat Soak Statistics===
+Total
+    Z avg = 1.6053 mm
+    Z disp = 0.1127 mm
+    Z stdev = 4.6047 µm
+    Z diff = 24.3750 µm
+After 1 min
+    Z avg = 1.6062 mm
+    Z disp = 0.1136 mm
+    Z stdev = 3.1959 µm
+    Z diff = 17.8120 µm
+After 2 min
+    Z avg = 1.6068 mm
+    Z disp = 0.1142 mm
+    Z stdev = 2.2468 µm
+    Z diff = 13.1250 µm
+After 3 min
+    Z avg = 1.6073 mm
+    Z disp = 0.1147 mm
+    Z stdev = 1.7201 µm
+    Z diff = 10.3120 µm
+After 5 min
+    Z avg = 1.6078 mm
+    Z disp = 0.1152 mm
+    Z stdev = 1.1786 µm
+    Z diff = 10.0000 µm
+After 10 min
+    Z avg = 1.6085 mm
+    Z disp = 0.1159 mm
+    Z stdev = 1.0973 µm
+    Z diff = 10.0000 µm
+
+
