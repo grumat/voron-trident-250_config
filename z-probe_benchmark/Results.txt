@@ -45,3 +45,276 @@ For tab:
 -7.02
 
 
+===Heat Soak Statistics===
+Total
+    Z avg = 1.5381 mm
+    Z disp = 0.0366 mm
+    Z stdev = 3.0130 µm
+    Z diff = 14.6870 µm
+After 1 min
+    Z avg = 1.5375 mm
+    Z disp = 0.0360 mm
+    Z stdev = 2.0204 µm
+    Z diff = 13.1250 µm
+After 2 min
+    Z avg = 1.5371 mm
+    Z disp = 0.0356 mm
+    Z stdev = 1.4497 µm
+    Z diff = 8.4370 µm
+After 3 min
+    Z avg = 1.5369 mm
+    Z disp = 0.0354 mm
+    Z stdev = 1.3144 µm
+    Z diff = 7.5000 µm
+After 5 min
+    Z avg = 1.5366 mm
+    Z disp = 0.0351 mm
+    Z stdev = 1.1678 µm
+    Z diff = 6.5620 µm
+After 10 min
+    Z avg = 1.5358 mm
+    Z disp = 0.0344 mm
+    Z stdev = 0.9506 µm
+    Z diff = 5.3120 µm
+
+
+FYSETC Super Pinda
+
+Start Condition:
+- Bed Temperature: 27.3
+- Nozzle Temperature: 26.1
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 2.15 µm / 0.69 µm
+- Phase 1 Diff/StdDev: 1.03 µm / 0.33 µm
+- Phase 2 Diff/StdDev: 2.45 µm / 0.78 µm
+- Phase 3 Diff/StdDev: 1.96 µm / 0.63 µm
+- Phase 4 Diff/StdDev: 2.02 µm / 0.65 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 6.22
+- Nozzle Power On: 7.66
+
+Offset Shift By Test Duration:
+- Reference (2 min): 817.11 µm
+- dZ @12 min: 102.08 µm
+- dZ @35 min: -43.90 µm
+- dZ @41 min: 29.51 µm
+- dZ @54 min: -28.14 µm
+
+
+For tab:
+27.3
+26.1
+1.03
+2.45
+1.96
+2.02
+2.15
+0.33
+0.78
+0.63
+0.65
+0.69
+6.22
+7.66
+817.11
+102.08
+-43.90
+29.51
+-28.14
+
+
+===Heat Soak Statistics===
+Total
+    Z avg = 0.8885 mm
+    Z disp = 0.0702 mm
+    Z stdev = 9.8947 µm
+    Z diff = 32.8130 µm
+After 1 min
+    Z avg = 0.8876 mm
+    Z disp = 0.0693 mm
+    Z stdev = 9.4208 µm
+    Z diff = 32.8130 µm
+After 2 min
+    Z avg = 0.8862 mm
+    Z disp = 0.0679 mm
+    Z stdev = 8.2352 µm
+    Z diff = 30.3130 µm
+After 3 min
+    Z avg = 0.8848 mm
+    Z disp = 0.0665 mm
+    Z stdev = 6.7604 µm
+    Z diff = 26.8750 µm
+After 5 min
+    Z avg = 0.8825 mm
+    Z disp = 0.0642 mm
+    Z stdev = 4.6141 µm
+    Z diff = 18.1250 µm
+After 10 min
+    Z avg = 0.8788 mm
+    Z disp = 0.0605 mm
+    Z stdev = 2.3757 µm
+    Z diff = 8.1250 µm
+
+
+OMRON TL-Q5MC2-Z
+
+Start Condition:
+- Bed Temperature: 25.6
+- Nozzle Temperature: 25.5
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 6.37 µm / 1.93 µm
+- Phase 1 Diff/StdDev: 6.23 µm / 1.90 µm
+- Phase 2 Diff/StdDev: 6.25 µm / 1.90 µm
+- Phase 3 Diff/StdDev: 6.53 µm / 1.96 µm
+- Phase 4 Diff/StdDev: 6.57 µm / 1.98 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 7.95
+- Nozzle Power On: 3.56
+
+Offset Shift By Test Duration:
+- Reference (2 min): 2640.34 µm
+- dZ @12 min: 127.69 µm
+- dZ @35 min: 32.19 µm
+- dZ @41 min: 33.22 µm
+- dZ @54 min: 30.91 µm
+
+
+For tab:
+25.6
+25.5
+6.23
+6.25
+6.53
+6.57
+6.37
+1.90
+1.90
+1.96
+1.98
+1.93
+7.95
+3.56
+2640.34
+127.69
+32.19
+33.22
+30.91
+
+
+===Heat Soak Statistics===
+Total
+    Z avg = 2.8547 mm
+    Z disp = 0.2140 mm
+    Z stdev = 12.7220 µm
+    Z diff = 55.6250 µm
+After 1 min
+    Z avg = 2.8572 mm
+    Z disp = 0.2165 mm
+    Z stdev = 9.2573 µm
+    Z diff = 39.6870 µm
+After 2 min
+    Z avg = 2.8590 mm
+    Z disp = 0.2183 mm
+    Z stdev = 6.6763 µm
+    Z diff = 32.5000 µm
+After 3 min
+    Z avg = 2.8604 mm
+    Z disp = 0.2197 mm
+    Z stdev = 4.8226 µm
+    Z diff = 24.3750 µm
+After 5 min
+    Z avg = 2.8621 mm
+    Z disp = 0.2214 mm
+    Z stdev = 2.8565 µm
+    Z diff = 14.6870 µm
+After 10 min
+    Z avg = 2.8635 mm
+    Z disp = 0.2228 mm
+    Z stdev = 2.0003 µm
+    Z diff = 9.3750 µm
+
+
+OMRON TL-Q5MC1-Z
+
+Start Condition:
+- Bed Temperature: 27.9
+- Nozzle Temperature: 28.7
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 2.21 µm / 0.71 µm
+- Phase 1 Diff/StdDev: 0.81 µm / 0.26 µm
+- Phase 2 Diff/StdDev: 2.38 µm / 0.76 µm
+- Phase 3 Diff/StdDev: 2.19 µm / 0.70 µm
+- Phase 4 Diff/StdDev: 2.30 µm / 0.74 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 5.48
+- Nozzle Power On: 9.45
+
+Offset Shift By Test Duration:
+- Reference (2 min): 1930.53 µm
+- dZ @12 min: 142.97 µm
+- dZ @35 min: -7.72 µm
+- dZ @41 min: 65.25 µm
+- dZ @54 min: -14.33 µm
+
+
+For tab:
+27.9
+28.7
+0.81
+2.38
+2.19
+2.30
+2.21
+0.26
+0.76
+0.70
+0.74
+0.71
+5.48
+9.45
+1930.53
+142.97
+-7.72
+65.25
+-14.33
+
+
+===Heat Soak Statistics===
+Total
+    Z avg = 2.1258 mm
+    Z disp = 0.1947 mm
+    Z stdev = 8.9575 µm
+    Z diff = 48.4370 µm
+After 1 min
+    Z avg = 2.1273 mm
+    Z disp = 0.1963 mm
+    Z stdev = 6.7112 µm
+    Z diff = 21.5620 µm
+After 2 min
+    Z avg = 2.1274 mm
+    Z disp = 0.1964 mm
+    Z stdev = 6.8881 µm
+    Z diff = 21.5620 µm
+After 3 min
+    Z avg = 2.1270 mm
+    Z disp = 0.1960 mm
+    Z stdev = 6.9792 µm
+    Z diff = 21.5620 µm
+After 5 min
+    Z avg = 2.1252 mm
+    Z disp = 0.1942 mm
+    Z stdev = 6.3167 µm
+    Z diff = 21.2500 µm
+After 10 min
+    Z avg = 2.1197 mm
+    Z disp = 0.1886 mm
+    Z stdev = 2.6888 µm
+    Z diff = 10.0000 µm
+
+
