@@ -398,3 +398,83 @@ After 10 min
     Z diff = 10.0000 µm
 
 
+Fresh Test
+
+Start Condition:
+- Bed Temperature: 27.8
+- Nozzle Temperature: 28.0
+
+Stats for Moving Window of 10 Consecutive Elements:
+- Total Diff/StdDev: 3.22 µm / 0.96 µm
+- Phase 1 Diff/StdDev: 2.72 µm / 0.83 µm
+- Phase 2 Diff/StdDev: 3.03 µm / 0.92 µm
+- Phase 3 Diff/StdDev: 4.57 µm / 1.28 µm
+- Phase 4 Diff/StdDev: 2.00 µm / 0.63 µm
+
+Offset Shift for Power Supply Load:
+- Bed Power On: 7.05
+- Nozzle Power On: -2.58
+
+Offset Shift By Test Duration:
+- Reference (2 min): 1739.33 µm
+- dZ @12 min: 95.37 µm
+- dZ @35 min: 3.71 µm
+- dZ @41 min: 4.90 µm
+- dZ @54 min: 4.12 µm
+
+
+For tab:
+27.8
+28.0
+2.72
+3.03
+4.57
+2.00
+3.22
+0.83
+0.92
+1.28
+0.63
+0.96
+7.05
+-2.58
+1739.33
+95.37
+3.71
+4.90
+4.12
+
+
+===Heat Soak Statistics===
+Total
+    Z avg = 1.8466 mm
+    Z disp = 0.1072 mm
+    Z stdev = 3.1889 µm
+    Z diff = 24.0630 µm
+After 1 min
+    Z avg = 1.8472 mm
+    Z disp = 0.1079 mm
+    Z stdev = 2.2368 µm
+    Z diff = 16.5630 µm
+After 2 min
+    Z avg = 1.8476 mm
+    Z disp = 0.1082 mm
+    Z stdev = 1.8490 µm
+    Z diff = 16.5630 µm
+After 3 min
+    Z avg = 1.8478 mm
+    Z disp = 0.1085 mm
+    Z stdev = 1.6538 µm
+    Z diff = 16.5630 µm
+After 5 min
+    Z avg = 1.8480 mm
+    Z disp = 0.1086 mm
+    Z stdev = 1.6318 µm
+    Z diff = 15.6250 µm
+After 10 min
+    Z avg = 1.8477 mm
+    Z disp = 0.1084 mm
+    Z stdev = 1.6779 µm
+    Z diff = 15.6250 µm
+
+
