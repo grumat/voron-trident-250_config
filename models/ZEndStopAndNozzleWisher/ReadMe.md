@@ -2,7 +2,7 @@
 
 This design was developed to replace the Z-Endstop of the Voron Trident design by an improved version, that also features a support for a silicone nozzle wisher.
 
-I chose the Nozzle Silicone Brush for the Creality K1, K1C, since it is easily available. In my case bought it here: [AliExpress FYSETC Official Store](https://de.aliexpress.com/item/1005008164354026.html?spm=a2g0o.order_list.order_list_main.390.65e41802IvWLmR&gatewayAdapt=glo2deu).
+I chose the Nozzle Silicone Brush for the Creality K1, K1C, since it is easily available. In my case bought it here: [AliExpress FYSETC Official Store](https://de.aliexpress.com/item/1005008164354026.html).
 
 This is the body of this part:
 
