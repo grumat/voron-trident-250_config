@@ -1,50 +1,32 @@
-# OS Installation
+# OS Download
 
-Checked a series of options:
+# General Install Instructions (Debian Minimal)
 
-## Debian Minimal
+The official Debian Minimal installation is very straightforward in Windows. Download and unzip package ( in my case `rk3399-usb-debian-trixie-core-4.19-arm64-20260112.zip`).
 
-Official. Easy to install. Seems to be frozen and generally outdated
+[One Drive &rarr; 01_Official images &rarr; 02_SD-t-eMMC Images &rarr; rk3399-eflasher-debian-trixie-core-4.19-arm64-20260112.img.gz](http://download.friendlyelec.com/NanoPC-T4)
 
-## Armbian
+Extract it on a known location.
 
-Community Edition. Difficult to Install (needs Linux or official linux on SD card). Up to Date.
-Boot still contains some quirks and unhandled minor hardware exceptions ignored.
+> The application that install is `.\rk3399-usb-debian-trixie-core-4.19-arm64-20260112\RKDevTool.exe`.  
+**Do not run it** until drivers and everything is working OK.
 
-## DietPi
 
-Very Stable. Difficult to Install (needs Linux or official linux on SD card). Up to Date. Uses less disk space. Seems to have better support for this specific hardware.
-THis was the chosen one.
+## Download Device Driver (Single TIme Only)
 
-# General Install Instructions
+Download it from the official site:
 
-The easiest for is to have a Linux machine. I have Ubuntu, so my examples are taken from there.
+[One Drive &rarr; 05_Tools &rarr; DriverAssistant_v5.12.zip](http://download.friendlyelec.com/NanoPC-T4)
 
-## Prepare Ubuntu Linux machine
+Extract it on a known location.
 
-Apply updates:
-```sh
-sudo -i
-apt update
-apt upgrade
-apt install -y rkdeveloptool usbutils
-```
-
-## Obtain the `MiniLoaderAll.bin` from Official FriendlyElec Site
-
-A loader is required to work with low level tools. This file is called `MiniLoaderAll.bin` and is distributed with the RkDevTool (mine is v3.37) found on FriendlyElec site.
-
-Copy the `MiniLoaderAll.bin` boot loader to Ubuntu home directory (`root` user plz). I use WinSCP for this.
-
-## Copy the Image File
-
-Since I chose DiatPi, I copied the `DietPi_NanoPCT4-ARMv8-Trixie.img` file into the root home directory, also using WinSCP.
 
 ## Connecting PC
 
-Use an USB-C cable and connect to your Linux PC.
+Use an USB-C cable and connect to your Windows PC.
 
-### Optional COM port
+
+### Optional COM port (Highly Recommended)
 
 I also installed a USB/Serial TTL converter like the **CP2204** running on my Windows machine to monitor the SBC.  
 The connection is at the side of the USB-C connector. Pin 1 begins at the side of the flat cable connector.
@@ -53,7 +35,10 @@ The connection is at the side of the USB-C connector. Pin 1 begins at the side o
 - **Pin 3:** RX from the **CP2204**
 - **Pin 4:** TX from the **CP2204**
 
-Configure **Putty** or similar for the detected COM port using **1500000** as BAUD rate.
+![](images/nanopc-t4_com_port.jpg)
+
+Configure **Putty** or similar for the detected COM port using **1500000** as BAUD rate.  
+This way you won't need a keyboard+monitor to run the initial configuration steps.
 
 
 ## Booting SBC in MaskRom Mode
@@ -69,118 +54,60 @@ Procedure:
 - Keep `BOOT` pressed for **5 seconds**, then release it.
 
 
+## Install Device Drivers (once)
+
+Locate the DriverAssistant you've downloaded and install device drivers running `DriverInstall.exe`.
+
+
+# Flashing Linux
+
+## Open `RKDevTool.exe`
+
+On the Debian package you've downloaded open the `RKDevTool.exe`
+
+![](images/rkdevtool.jpg)
+
+
 ## Check Connection
 
-Type on Linux:
-
-```sh
-lsusb
-```
-
-Which approximately results:
-
-```raw
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 001 Device 002: ID 26ce:01a2 ASRock LED Controller
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 003 Device 002: ID 0bda:5411 Realtek Semiconductor Corp. RTS5411 Hub
-Bus 003 Device 003: ID 4348:7048 WinChipHead CH545
-Bus 003 Device 004: ID 001f:0b21 Generic USB Audio
-Bus 003 Device 005: ID 046a:0113 CHERRY KC 6000 Slim Keyboard
-Bus 003 Device 006: ID 09da:3be3 A4Tech Co., Ltd. USB Device
-Bus 003 Device 007: ID 1a86:e010 QinHeng Electronics HKS0401A3U
-Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 004 Device 002: ID 0bda:0411 Realtek Semiconductor Corp. Hub
-Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 005 Device 003: ID 2207:330c Fuzhou Rockchip Electronics Company RK3399 in Mask ROM mode
-Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-```
-
-> Note that the SBC USB device (`ID 2207:330c`) is attached to the virtual machine.
+You must see the `Found One MASKROM device` message. If not repeat the SBC boot.
 
 
-## Check RK3399 Connection
+## Flash Linux
 
-Lets make sure you are using root account. Type 'sudo -i` if needed.
+Just click `[Run]` button.
 
-Check with:
-```sh
-$ rkdeveloptool ld
-DevNo=1 Vid=0x2207,Pid=0x330c,LocationID=101    Maskrom
-```
-
-## Load Boot Loader
+A couple of minutes and device is automatically restarted:
+- Disconnect the USB-C cable
+- You can close the Windows flashing tool.
+- Hopefully you are using the Serial Console, which is a way to proceed without an additional keyboard/Monitor.
 
 
-```sh
-rkdeveloptool db MiniLoaderAll.bin
-```
+# Configuration
 
-## Erase eMMC
+## Login
 
-```sh
-rkdeveloptool ef
-```
+- login: **pi**
+- password: **pi**
 
-> This command is very fast and needs less than 10s to clear eMMC completely.
-
-## Write Image
-
-```sh
-rkdeveloptool wl 0 DietPi_NanoPCT4-ARMv8-Trixie.img
-```
-
-> This command needs a couple of minutes, but it is considerably faster than the SD Card method.
-
-## Reset the device
-
-```sh
-rkdeveloptool ef
-```
-
-If you are using the serial port, you can notice a classic Linux boot happening, which is done in more than one iteration.
-
-Wait until you receive the login prompt.
-
-If you are not using the serial port, you have to attach a keyboard/screen to your SBC to continue.
 
 ## Initial Configuration
 
 Keep a LAN cable connected to help initial setup without the need of WiFi.
 
-**Login:** root  
-**Password:** dietpi
+To check IP address:
 
-Wait for software installation and follow Wizard.
-- Set new passwords
-- **DietPi-Config** tool:
-  - Performance Options:
-    - CPU Governor: **performance**
-  - Language/Regional Options:
-    - Locale: **en_US.UTF-8**
-	- Timezone: **Europe/Vienna**
-	- Keyboard: **us**
-  - Security Options:
-	- Hostname: **Trident**
-  - Network Options: 
-    - Enable WiFi
-	  - Scan and Configure SSID
-	  - Set Country: **AT**
-  - Software:
-    - Browse Software:
-      - 3: MC
-	  - 17: Git
-	  - 130: Python
-    - SSH Server: **OpenSSH Server**
-  - Press **Install** to apply changes
+```sh
+ip a
+```
 
 
-## Install SSH Keys
+## Install SSH Keys (Optional)
 
 Install SSH Keys for better Putty WinSCP integration:
 
 ```sh
+sudo -i
 cd ~
 mkdir .ssh			# only if not exists
 chmod 0700 .ssh
@@ -193,135 +120,197 @@ chmod 0600 authorized_keys
 ```
 
 
-## Combine Both Net Interfaces Into a Single IP Address
-
-Since board supports both interfaces it is recommended to profit from an interesting feature. Use the following settings:
-
-### Create the `/etc/network/interfaces.d/lan-wifi` File
-
-This example uses the `192.168.0.20` IP address, which you should reserve on your router.
-
-```ini
-# Loopback
-auto lo
-iface lo inet loopback
-
-# Ethernet (PRIMARY)
-allow-hotplug eth0
-iface eth0 inet static
-    address 192.168.0.20
-    netmask 255.255.255.0
-    gateway 192.168.0.1
-    dns-nameservers 1.1.1.1 8.8.8.8
-    metric 100
-
-# WiFi (FALLBACK)
-allow-hotplug wlan0
-iface wlan0 inet static
-    address 192.168.0.20
-    netmask 255.255.255.0
-    gateway 192.168.0.1
-    dns-nameservers 1.1.1.1 8.8.8.8
-    metric 200
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-    pre-up iw dev wlan0 set power_save off
-    post-down iw dev wlan0 set power_save on
-```
-
-> The `metric` value ensures LAN has lower priority over WiFi.
-
-### Check the `/etc/wpa_supplicant/wpa_supplicant.conf` File
-
-Ideally is to setup WiFi using `dietpi-config`, like suggested in the **Initial Configuration** topic above. 
-
-Below follows a minimal reference, which highly depends on your WLAN router settings:
-
-```ini
-ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=AT
-
-network={
-    ssid="MYROUTER"
-    psk="your-wlan-password"
-}
-```
-
-### Fix the `/etc/network/interfaces` File
-
-Use your editor and remove interface contents and ensure this minimal contents:
-
-```ini
-source /etc/network/interfaces.d/*
-```
-
-### Reboot Your SBC
-
-Reboot your SBC so that the new settings takes over. Now you should use the static address you selected before.
-
-These are commands to check your settings:
+## Editing WLAN password
 
 ```sh
-ip addr show
-ip route
+nmtui
 ```
 
-Use your Windows host machine to ping the static address you chose.
+- Activate a connection
+    - Select your WiFI network
+	- Type in your password
+- Set System Hostname
+	- Hostname: **Trident**
+
+
+## Preparing the `bond0` connection
+
+We make sure to disable `networking.service`, since recent **Debian** uses **Network Manager**, which supersedes the older one. Mixing configuration among them may cause conflicts.
+
+```sh
+systemctl stop networking.service
+systemctl disable networking.service
+apt install -y ifenslave
+echo "bonding" >> /etc/modules-load.d/bonding.conf
+echo "options bonding mode=active-backup miimon=100 max_bonds=1" >> /etc/modprobe.d/bonding.conf
+modprobe bonding
+```
+
+## Creating the `bond0` connection
+
+Check if you have `eth0` and `wlan0` up and running:
+
+```sh
+nmcli device status
+```
+
+Lets start adding the bond network
+
+```sh
+# Specify how bond0 will be
+$ nmcli con add type bond con-name bond0 ifname bond0 bond.options "mode=active-backup,fail_over_mac=active,miimon=100,primary=eth0"
+$ nmcli con modify bond0 ipv4.addresses 192.168.0.30/24 ipv4.gateway 192.168.0.138 ipv4.dns "8.8.8.8,1.1.1.1" ipv4.method manual
+
+# Regular LAN cable connection
+$ nmcli con add type ethernet slave-type bond con-name bond-eth0 ifname eth0 master bond0
+
+# Please enter the real SSID
+$ nmcli con add type wifi slave-type bond con-name bond-wlan0 ifname wlan0 master bond0 ssid MyHome
+# Please enter the real password
+$ nmcli con modify bond-wlan0 wifi-sec.key-mgmt wpa-psk wifi-sec.psk 123456
+
+$ nmcli con up bond0
+```
+
+Reboot and check your network connection.
+
+```sh
+root@TridentNew:~# nmcli device status
+DEVICE         TYPE      STATE                   CONNECTION
+bond0          bond      connected               bond0
+eth0           ethernet  connected               bond-eth0
+wlan0          wifi      connected               bond-wlan0
+lo             loopback  connected (externally)  lo
+p2p-dev-wlan0  wifi-p2p  disconnected            --
+```
+
+
+## Install Other Packages
+
+Always using `root`, install:
+
+```sh
+sudo -i	    # use this to enter root
+
+apt update
+apt upgrade
+apt install -y git
+apt install -y build-essential
+apt install -y python3 python3-pip
+apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
+apt install dosfstools
+apt install rsync
+```
 
 
 ## CANBUS Support
 
-Add the `/etc/network/interfaces.d/can0` file to your system:
+- Always using `root`, type:
 
-```ini
-allow-hotplug can0
-iface can0 can static
-    bitrate 1000000
-    up ip link set $IFACE txqueuelen 40
-	pre-up ip link set can0 type can bitrate 1000000
-	pre-up ip link set can0 txqueuelen 40
+```sh
+$ modprobe can
 
-	post-up tc qdisc replace dev can0 root fq_codel
-	post-down tc qdisc del dev can0 root || true
+$ modprobe can_raw
+$ nmcli connection add type generic con-name can0-conn ifname can0 ipv4.method disabled ipv6.method disabled connection.autoconnect yes
 ```
 
-> Note tat Klipper docs recommend a `txqueuelen` of `128` bytes. Some statistical testing demonstrates a subtle improvement in timeout errors during probe calibration (on an umbilical system, this is a scenario that uses two controllers: one reading the probe and the other controlling stepper).
+- Add a dispatcher script:  
+`nano /etc/NetworkManager/dispatcher.d/99-can0-tuning`
+
+```sh
+#!/bin/bash
+
+INTERFACE=$1
+ACTION=$2
+
+if [ "$INTERFACE" = "can0" ]; then
+    case "$ACTION" in
+        up)
+            # Pre-up & Up: Set bitrate and txqueuelen
+            /sbin/ip link set can0 type can bitrate 1000000
+            /sbin/ip link set can0 txqueuelen 40
+            
+            # Post-up: Replace qdisc with fq_codel
+            /sbin/tc qdisc replace dev can0 root fq_codel
+            ;;
+        down)
+            # Post-down: Clean up qdisc
+            /sbin/tc qdisc del dev can0 root || true
+            ;;
+    esac
+fi
+```
+
+- Set permissions:  
+`chmod +x /etc/NetworkManager/dispatcher.d/99-can0-tuning`
+
+- Reload udev:  
+`udevadm control --reload-rules && sudo udevadm trigger`
+
+- Persistence of modprobe:  
+`nano /etc/modules-load.d/can.conf`
+
+```ini
+can
+can_raw
+```
+
+> Note that Klipper docs recommend a `txqueuelen` of `128` bytes. Some statistical testing demonstrates a subtle improvement in timeout errors during probe calibration (on an umbilical system, this is a scenario that uses two controllers: one reading the probe and the other controlling stepper).
 
 Check https://canbus.esoterical.online/mainboard_flashing for lots of CANBUS information.
 
 
-## Other Packages
+## Locale Fine Tuning (Optional)
 
-Always using root, install:
+I personally like English messages, but metrics system. So do the following:
 
-```sh
-apt install build-essential
-apt install python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
+- Edit `/etc/locale.gen` and uncomment the `de_AT.UTF-8 UTF-8` line.
+- Edit `/etc/locale.conf` and ensure this looks like:
+
+```ini
+#  File generated by update-locale
+LANG=C.UTF-8
+LC_CTYPE=de_AT.UTF-8
+LC_TIME=de_AT.UTF-8
+LC_COLLATE=de_AT.UTF-8
+LC_MONETARY=de_AT.UTF-8
+LC_PAPER=de_AT.UTF-8
 ```
 
-## Create the `klipper` user
+- Finally command:
 
 ```sh
-adduser klipper
+locale-gen
+update-locale
 ```
 
-- You’ll be prompted for a password
-- You can leave the extra fields blank
 
-This creates:
+## Rename `pi` account to `klipper`
 
-- `/home/klipper`
-- A normal (non-root) user
-
-### Grant sudo privileges (recommended way)
-
-DietPi uses the standard Debian `sudo` setup.
-
-Add the user to the `sudo` group:
+Always using `root`account, do:
 
 ```sh
-sudo usermod -aG sudo klipper
+# Kill any active processes for user pi
+pkill -u pi
+usermod -l klipper -d /home/klipper -m pi
+groupmod -n klipper pi
 ```
+
+Final verification:
+
+```sh
+id klipper
+ls -ld /home/klipper
+```
+
+In the case you want to use the same SSH keys with the klipper user:
+
+```sh
+mkdir /home/klipper/.ssh
+cp ~/.ssh/authorized_keys /home/klipper/.ssh/
+chown -R klipper:klipper /home/klipper/.ssh
+```
+
 
 ### (Optional but recommended) Allow passwordless sudo for Klipper
 
@@ -330,7 +319,7 @@ Klipper scripts often assume non-interactive sudo.
 Create a dedicated sudoers drop-in:
 
 ```sh
-sudo visudo -f /etc/sudoers.d/klipper
+nano /etc/sudoers.d/klipper
 ```
 
 Add **exactly** this line:
@@ -349,41 +338,3 @@ Add the user to required groups:
 usermod -aG dialout,tty,video,input klipper
 newgrp dialout
 ```
-
-### Copy SSH keys for easy Login
-
-Copy the keys used for `root` also for the `klipper` user.
-
-```sh
-cp ~/.ssh/authorized_keys /home/klipper/.ssh/
-chown klipper:klipper /home/klipper/.ssh/authorized_keys
-```
-
-## Install Klipper
-
-Switch to `klipper` user:
-
-```sh
-su - klipper
-```
-
-### Installing Via `kiauh`
-
-> This needs `git`, which was installed on the **Initial Configuration** step.
-
-```sh
-cd ~ && git clone https://github.com/dw-0/kiauh.git
-./kiauh/kiauh.sh
-```
-
-Follow these menu/steps:
-- 1) [Install]
-  - 1) [Klipper]
-    - Number of instances: **1**
-	- Create example.cfg: **Yes**
-  - 2) [Moonraker]
-    - Create moonraker.conf: **Yes**
-  - 4) [Fluidd]
-    - Download recommended Fluidd-Config: **Yes**
-	- Port: **80**
-
