@@ -1,5 +1,22 @@
 # NanoPC-T4 Holder for Voron Printer
 
+I found used FriendyELEC NanoPC-T4 boards at very good prices and since RK3399 was one of the most powerful beasts of its era. Comparably it is almost as good as a RPi5.  
+This particular board, is a very complete set and features:
+- 6 Core ARM CPU
+- 4GB RAM
+- Embedded 16 GB eMMC
+- 1 x USB 3 port
+- 1 x USB-C OTG port, reconfigurable as host USB
+- 2 x USB 2 port
+- WiFi, including antennas
+- 12V very stable barrel power supply connector
+- Just a bit bigger than standard RPi
+- Possibility to use a big chipset heatsink and benefit from passive heating
+- µSD card reader
+- NVME PCIe 2080 slot
+- RTC
+
+
 ## Bill Of Materials
 
 | Quantity | Description | Usage / Reference |
