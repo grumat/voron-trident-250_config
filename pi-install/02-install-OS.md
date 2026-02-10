@@ -120,15 +120,12 @@ chmod 0600 authorized_keys
 ```
 
 
-## Editing WLAN password
+## Changing Hostname
 
 ```sh
 nmtui
 ```
 
-- Activate a connection
-    - Select your WiFI network
-	- Type in your password
 - Set System Hostname
 	- Hostname: **Trident**
 
@@ -138,9 +135,10 @@ nmtui
 We make sure to disable `networking.service`, since recent **Debian** uses **Network Manager**, which supersedes the older one. Mixing configuration among them may cause conflicts.
 
 ```sh
+apt install -y ifenslave
+systemctl disable systemd-networkd-wait-online.service
 systemctl stop networking.service
 systemctl disable networking.service
-apt install -y ifenslave
 echo "bonding" >> /etc/modules-load.d/bonding.conf
 echo "options bonding mode=active-backup miimon=100 max_bonds=1" >> /etc/modprobe.d/bonding.conf
 modprobe bonding
@@ -154,7 +152,7 @@ Check if you have `eth0` and `wlan0` up and running:
 nmcli device status
 ```
 
-Lets start adding the bond network
+Lets start adding the bond network (**check the IP addresses for your specific case**):
 
 ```sh
 # Specify how bond0 will be
@@ -185,21 +183,13 @@ p2p-dev-wlan0  wifi-p2p  disconnected            --
 ```
 
 
-## Install Other Packages
-
-Always using `root`, install:
+## Update Current Packages
 
 ```sh
 sudo -i	    # use this to enter root
 
 apt update
 apt upgrade
-apt install -y git
-apt install -y build-essential
-apt install -y python3 python3-pip
-apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
-apt install dosfstools
-apt install rsync
 ```
 
 
@@ -208,56 +198,76 @@ apt install rsync
 - Always using `root`, type:
 
 ```sh
-$ modprobe can
-
-$ modprobe can_raw
-$ nmcli connection add type generic con-name can0-conn ifname can0 ipv4.method disabled ipv6.method disabled connection.autoconnect yes
+nano /etc/network/interfaces.d/can0
 ```
-
-- Add a dispatcher script:  
-`nano /etc/NetworkManager/dispatcher.d/99-can0-tuning`
-
-```sh
-#!/bin/bash
-
-INTERFACE=$1
-ACTION=$2
-
-if [ "$INTERFACE" = "can0" ]; then
-    case "$ACTION" in
-        up)
-            # Pre-up & Up: Set bitrate and txqueuelen
-            /sbin/ip link set can0 type can bitrate 1000000
-            /sbin/ip link set can0 txqueuelen 40
-            
-            # Post-up: Replace qdisc with fq_codel
-            /sbin/tc qdisc replace dev can0 root fq_codel
-            ;;
-        down)
-            # Post-down: Clean up qdisc
-            /sbin/tc qdisc del dev can0 root || true
-            ;;
-    esac
-fi
-```
-
-- Set permissions:  
-`chmod +x /etc/NetworkManager/dispatcher.d/99-can0-tuning`
-
-- Reload udev:  
-`udevadm control --reload-rules && sudo udevadm trigger`
-
-- Persistence of modprobe:  
-`nano /etc/modules-load.d/can.conf`
 
 ```ini
-can
-can_raw
+allow-hotplug can0
+iface can0 can static
+    bitrate 1000000
+    up ip link set $IFACE txqueuelen 40
+	pre-up ip link set can0 type can bitrate 1000000
+	pre-up ip link set can0 txqueuelen 40
+
+	post-up tc qdisc replace dev can0 root fq_codel
+	post-down tc qdisc del dev can0 root || true
 ```
 
 > Note that Klipper docs recommend a `txqueuelen` of `128` bytes. Some statistical testing demonstrates a subtle improvement in timeout errors during probe calibration (on an umbilical system, this is a scenario that uses two controllers: one reading the probe and the other controlling stepper).
 
+```sh
+$ modprobe can
+$ modprobe can_raw
+$ modprobe can_dev
+$ nano /etc/modules-load.d/can.conf
+```
+
+Add to the `/etc/modules-load.d/can.conf` file:
+```ini
+can
+can_raw
+can_dev
+```
+
 Check https://canbus.esoterical.online/mainboard_flashing for lots of CANBUS information.
+
+
+## General Network Interfaces Checkup
+
+```sh
+$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master bond0 state UP group default qlen 1000
+    link/ether 3a:9f:cb:2c:d0:ea brd ff:ff:ff:ff:ff:ff
+3: can0: <NOARP,UP,LOWER_UP,ECHO> mtu 16 qdisc fq_codel state UP group default qlen 20
+    link/can
+4: wlan0: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc fq_codel master bond0 state UP group default qlen 1000
+    link/ether 08:fb:ea:57:a2:78 brd ff:ff:ff:ff:ff:ff
+5: bond0: <BROADCAST,MULTICAST,MASTER,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 3a:9f:cb:2c:d0:ea brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.30/24 brd 192.168.0.255 scope global noprefixroute bond0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::25c5:9ae2:e461:9354/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+## Install Other Packages
+
+Always using `root`, install:
+
+```sh
+apt install -y git
+apt install -y build-essential
+apt install -y python3 python3-pip
+apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
+apt install dosfstools
+apt install rsync
+```
 
 
 ## Locale Fine Tuning (Optional)

@@ -31,6 +31,32 @@ Follow these menu/steps:
     - Install? **Y**
 
 
+## Increase Klipper Responsiveness
+
+According to *Esotherical* timeout issues with multi-MCU setups when homing and input shaping can be resolved by increasing the priority of klipper service.
+
+```sh
+sudo nano /etc/systemd/system/klipper.service
+```
+
+```ini
+...
+[Service]
+...
+Nice=-10
+
+```
+
+# Install `Katapult`
+
+This is the bootloader for Klipper and is recommended to be used, so you can update firmware of your MCU without having access to the hardware buttons.
+
+```sh
+$ cd ~
+$ git clone https://github.com/Arksine/katapult
+```
+
+
 # Install `KAMP` Plugin (Optional)
 
 This is the *Klipper Adaptive Meshing Purging*, which I use the Line Purge feature.  
