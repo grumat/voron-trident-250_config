@@ -35,6 +35,8 @@ Follow these menu/steps:
 
 According to *Esotherical* timeout issues with multi-MCU setups when homing and input shaping can be resolved by increasing the priority of klipper service.
 
+Also, CPU Core 4 and 5 was set to *performance* so that they don't produce jitter. REcall that these cores are the BIG cores and have the best performance.
+
 ```sh
 sudo nano /etc/systemd/system/klipper.service
 ```
@@ -44,7 +46,7 @@ sudo nano /etc/systemd/system/klipper.service
 [Service]
 ...
 Nice=-10
-
+CPUAffinity=0,1,2,3
 ```
 
 # Install `Katapult`

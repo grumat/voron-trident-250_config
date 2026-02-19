@@ -205,9 +205,9 @@ nano /etc/network/interfaces.d/can0
 allow-hotplug can0
 iface can0 can static
     bitrate 1000000
-    up ip link set $IFACE txqueuelen 40
+    up ip link set $IFACE txqueuelen 128
 	pre-up ip link set can0 type can bitrate 1000000
-	pre-up ip link set can0 txqueuelen 40
+	pre-up ip link set can0 txqueuelen 128
 
 	post-up tc qdisc replace dev can0 root fq_codel
 	post-down tc qdisc del dev can0 root || true
@@ -267,6 +267,7 @@ apt install -y python3 python3-pip
 apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
 apt install dosfstools
 apt install rsync
+apt install python3-serial
 ```
 
 
@@ -294,6 +295,38 @@ locale-gen
 update-locale
 ```
 
+
+## System Fine Tuning
+
+```sh
+$ systemctl stop pwm-fan.service
+$ systemctl disable pwm-fan.service
+$ systemctl stop lcd2usb.service
+$ systemctl disable lcd2usb.service
+$ nano /etc/systemd/system/set-cpu-governor.service
+```
+
+Store the following contents on `/etc/systemd/system/set-cpu-governor.service` file:
+
+```ini
+[Unit]
+Description=Set CPU governor for cores 4 and 5 to performance
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor'
+ExecStart=/bin/sh -c 'echo schedutil > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor'
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Start the service
+
+```sh
+$ systemctl start set-cpu-governor.service
+$ systemctl enable set-cpu-governor.service
+```
 
 ## Rename `pi` account to `klipper`
 
