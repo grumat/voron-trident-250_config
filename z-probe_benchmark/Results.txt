@@ -1,6 +1,98 @@
 Prusa Super Pinda
 
 Start Condition:
+- Bed Temperature: 28.0
+- Nozzle Temperature: 30.2
+
+Stats for Moving Window of 10 Consecutive Elements:
+- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  100.00 µm / 25.26 µm  |   3.08 µm /  0.99 µm
+- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  10.00 µm /  1.58 µm  |   3.25 µm /  0.98 µm
+- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  68.75 µm / 24.24 µm  |  18.63 µm /  6.09 µm
+- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  56.25 µm / 15.00 µm  |   2.39 µm /  0.77 µm
+- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  45.00 µm / 10.12 µm  |   3.22 µm /  1.06 µm
+
+===Heat Soak Statistics===
+Extrapolation = 0.0235 mm
+Total
+    Z avg =  0.063 mm
+    Z comp =  0.039 mm
+    Z disp =  0.036 mm
+    Z stdev = 15.176 µm
+    Z diff =  56.25 µm
+After 0 min
+    Z avg =  0.095 mm
+    Z comp =  0.071 mm
+    Z disp =  0.068 mm
+    Z stdev =  4.595 µm
+    Z diff =  16.25 µm
+After 1 min
+    Z avg =  0.097 mm
+    Z comp =  0.073 mm
+    Z disp =  0.070 mm
+    Z stdev =  1.571 µm
+    Z diff =   5.00 µm
+    Z prev =  1.582 µm/min
+After 2 min
+    Z avg =  0.091 mm
+    Z comp =  0.068 mm
+    Z disp =  0.065 mm
+    Z stdev =  2.431 µm
+    Z diff =   8.75 µm
+    Z prev = -5.125 µm/min
+After 3 min
+    Z avg =  0.086 mm
+    Z comp =  0.062 mm
+    Z disp =  0.059 mm
+    Z stdev =  1.354 µm
+    Z diff =   5.00 µm
+    Z prev = -5.667 µm/min
+After 5 min
+    Z avg =  0.078 mm
+    Z comp =  0.054 mm
+    Z disp =  0.051 mm
+    Z stdev =  1.045 µm
+    Z diff =   3.75 µm
+    Z prev = -3.896 µm/min
+After 7 min
+    Z avg =  0.072 mm
+    Z comp =  0.049 mm
+    Z disp =  0.046 mm
+    Z stdev =  0.673 µm
+    Z diff =   2.50 µm
+    Z prev = -2.792 µm/min
+After 10 min
+    Z avg =  0.067 mm
+    Z comp =  0.043 mm
+    Z disp =  0.040 mm
+    Z stdev =  1.304 µm
+    Z diff =   6.25 µm
+    Z prev = -1.903 µm/min
+After 15 min
+    Z avg =  0.058 mm
+    Z comp =  0.035 mm
+    Z disp =  0.032 mm
+    Z stdev =  0.745 µm
+    Z diff =   2.50 µm
+    Z prev = -1.667 µm/min
+After 20 min
+    Z avg =  0.053 mm
+    Z comp =  0.029 mm
+    Z disp =  0.026 mm
+    Z stdev =  0.652 µm
+    Z diff =   2.50 µm
+    Z prev = -1.125 µm/min
+After 25 min
+    Z avg =  0.047 mm
+    Z comp =  0.024 mm
+    Z disp =  0.020 mm
+    Z stdev =  0.756 µm
+    Z diff =   2.50 µm
+    Z prev = -1.133 µm/min
+
+
+Covered Super Pinda
+
+Start Condition:
 - Bed Temperature: 30.3
 - Nozzle Temperature: 32.3
 
@@ -12,67 +104,177 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  37.50 µm /  8.45 µm  |   3.19 µm /  1.06 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.0277 mm
 Total
-    Z avg = 0.0301 mm
-    Z disp = 0.0537 mm
+    Z avg =  0.058 mm
+    Z comp =  0.030 mm
+    Z disp =  0.054 mm
     Z stdev =  8.909 µm
     Z diff =  33.75 µm
+After 0 min
+    Z avg =  0.062 mm
+    Z comp =  0.035 mm
+    Z disp =  0.058 mm
+    Z stdev =  9.237 µm
+    Z diff =  31.25 µm
 After 1 min
-    Z avg = 0.0472 mm
-    Z disp = 0.0707 mm
+    Z avg =  0.075 mm
+    Z comp =  0.047 mm
+    Z disp =  0.071 mm
     Z stdev =  0.909 µm
     Z diff =   2.50 µm
+    Z prev = 12.409 µm/min
 After 2 min
-    Z avg = 0.0463 mm
-    Z disp = 0.0699 mm
+    Z avg =  0.074 mm
+    Z comp =  0.046 mm
+    Z disp =  0.070 mm
     Z stdev =  0.786 µm
     Z diff =   3.75 µm
     Z prev = -0.833 µm/min
 After 3 min
-    Z avg = 0.0449 mm
-    Z disp = 0.0684 mm
+    Z avg =  0.072 mm
+    Z comp =  0.045 mm
+    Z disp =  0.068 mm
     Z stdev =  0.875 µm
     Z diff =   2.50 µm
     Z prev = -1.458 µm/min
 After 5 min
-    Z avg = 0.0410 mm
-    Z disp = 0.0645 mm
+    Z avg =  0.068 mm
+    Z comp =  0.041 mm
+    Z disp =  0.065 mm
     Z stdev =  0.882 µm
     Z diff =   3.75 µm
     Z prev = -1.954 µm/min
 After 7 min
-    Z avg = 0.0384 mm
-    Z disp = 0.0620 mm
+    Z avg =  0.066 mm
+    Z comp =  0.038 mm
+    Z disp =  0.062 mm
     Z stdev =  0.850 µm
     Z diff =   3.75 µm
     Z prev = -1.276 µm/min
 After 10 min
-    Z avg = 0.0354 mm
-    Z disp = 0.0589 mm
+    Z avg =  0.063 mm
+    Z comp =  0.035 mm
+    Z disp =  0.059 mm
     Z stdev =  0.737 µm
     Z diff =   2.50 µm
     Z prev = -1.004 µm/min
 After 15 min
-    Z avg = 0.0285 mm
-    Z disp = 0.0521 mm
+    Z avg =  0.056 mm
+    Z comp =  0.028 mm
+    Z disp =  0.052 mm
     Z stdev =  0.728 µm
     Z diff =   2.50 µm
     Z prev = -1.372 µm/min
 After 20 min
-    Z avg = 0.0240 mm
-    Z disp = 0.0475 mm
+    Z avg =  0.051 mm
+    Z comp =  0.024 mm
+    Z disp =  0.048 mm
     Z stdev =  0.652 µm
     Z diff =   2.50 µm
     Z prev = -0.917 µm/min
 After 25 min
-    Z avg = 0.0210 mm
-    Z disp = 0.0445 mm
+    Z avg =  0.049 mm
+    Z comp =  0.021 mm
+    Z disp =  0.045 mm
     Z stdev =  0.595 µm
     Z diff =   2.50 µm
     Z prev = -0.592 µm/min
 
 
 FYSETC Super Pinda
+
+Start Condition:
+- Bed Temperature: 26.9
+- Nozzle Temperature: 29.5
+
+Stats for Moving Window of 10 Consecutive Elements:
+- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  126.25 µm / 32.32 µm  |   3.34 µm /  1.08 µm
+- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  16.25 µm /  3.86 µm  |   2.65 µm /  0.89 µm
+- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  106.25 µm / 37.04 µm  |  22.04 µm /  7.13 µm
+- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  56.25 µm / 15.27 µm  |   2.80 µm /  0.88 µm
+- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  47.50 µm / 15.18 µm  |   2.63 µm /  0.92 µm
+
+===Heat Soak Statistics===
+Extrapolation = 0.0418 mm
+Total
+    Z avg =  0.097 mm
+    Z comp =  0.055 mm
+    Z disp =  0.089 mm
+    Z stdev = 15.172 µm
+    Z diff =  60.00 µm
+After 0 min
+    Z avg =  0.093 mm
+    Z comp =  0.051 mm
+    Z disp =  0.085 mm
+    Z stdev = 10.823 µm
+    Z diff =  40.00 µm
+After 1 min
+    Z avg =  0.108 mm
+    Z comp =  0.067 mm
+    Z disp =  0.101 mm
+    Z stdev =  1.267 µm
+    Z diff =   5.00 µm
+    Z prev = 15.677 µm/min
+After 2 min
+    Z avg =  0.112 mm
+    Z comp =  0.070 mm
+    Z disp =  0.104 mm
+    Z stdev =  1.179 µm
+    Z diff =   5.00 µm
+    Z prev =  3.583 µm/min
+After 3 min
+    Z avg =  0.115 mm
+    Z comp =  0.073 mm
+    Z disp =  0.107 mm
+    Z stdev =  1.443 µm
+    Z diff =   6.25 µm
+    Z prev =  2.917 µm/min
+After 5 min
+    Z avg =  0.121 mm
+    Z comp =  0.079 mm
+    Z disp =  0.113 mm
+    Z stdev =  1.233 µm
+    Z diff =   3.75 µm
+    Z prev =  2.750 µm/min
+After 7 min
+    Z avg =  0.123 mm
+    Z comp =  0.081 mm
+    Z disp =  0.115 mm
+    Z stdev =  2.637 µm
+    Z diff =   8.75 µm
+    Z prev =  1.292 µm/min
+After 10 min
+    Z avg =  0.108 mm
+    Z comp =  0.066 mm
+    Z disp =  0.100 mm
+    Z stdev =  0.769 µm
+    Z diff =   2.50 µm
+    Z prev = -5.014 µm/min
+After 15 min
+    Z avg =  0.096 mm
+    Z comp =  0.054 mm
+    Z disp =  0.088 mm
+    Z stdev =  0.850 µm
+    Z diff =   2.50 µm
+    Z prev = -2.375 µm/min
+After 20 min
+    Z avg =  0.086 mm
+    Z comp =  0.044 mm
+    Z disp =  0.078 mm
+    Z stdev =  0.994 µm
+    Z diff =   5.00 µm
+    Z prev = -1.992 µm/min
+After 25 min
+    Z avg =  0.083 mm
+    Z comp =  0.041 mm
+    Z disp =  0.075 mm
+    Z stdev =  0.909 µm
+    Z diff =   3.75 µm
+    Z prev = -0.725 µm/min
+
+
+Covered FYSETC
 
 Start Condition:
 - Bed Temperature: 29.3
@@ -86,61 +288,79 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  55.00 µm / 19.50 µm  |   2.67 µm /  0.91 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.0503 mm
 Total
-    Z avg = 0.1020 mm
-    Z disp = 0.1059 mm
+    Z avg =  0.112 mm
+    Z comp =  0.062 mm
+    Z disp =  0.106 mm
     Z stdev = 17.628 µm
     Z diff =  66.25 µm
+After 0 min
+    Z avg =  0.097 mm
+    Z comp =  0.047 mm
+    Z disp =  0.091 mm
+    Z stdev =  9.780 µm
+    Z diff =  33.75 µm
 After 1 min
-    Z avg = 0.1020 mm
-    Z disp = 0.1060 mm
+    Z avg =  0.112 mm
+    Z comp =  0.062 mm
+    Z disp =  0.106 mm
     Z stdev =  2.360 µm
     Z diff =   8.75 µm
+    Z prev = 15.066 µm/min
 After 2 min
-    Z avg = 0.1070 mm
-    Z disp = 0.1110 mm
+    Z avg =  0.117 mm
+    Z comp =  0.067 mm
+    Z disp =  0.111 mm
     Z stdev =  2.177 µm
     Z diff =  10.00 µm
     Z prev =  5.000 µm/min
 After 3 min
-    Z avg = 0.1109 mm
-    Z disp = 0.1148 mm
+    Z avg =  0.121 mm
+    Z comp =  0.071 mm
+    Z disp =  0.115 mm
     Z stdev =  1.852 µm
     Z diff =   6.25 µm
     Z prev =  3.875 µm/min
 After 5 min
-    Z avg = 0.1198 mm
-    Z disp = 0.1237 mm
+    Z avg =  0.130 mm
+    Z comp =  0.079 mm
+    Z disp =  0.124 mm
     Z stdev =  2.143 µm
     Z diff =   7.50 µm
-    Z prev =  4.437 µm/min
+    Z prev =  4.438 µm/min
 After 7 min
-    Z avg = 0.1261 mm
-    Z disp = 0.1300 mm
+    Z avg =  0.136 mm
+    Z comp =  0.086 mm
+    Z disp =  0.130 mm
     Z stdev =  1.007 µm
     Z diff =   3.75 µm
     Z prev =  3.146 µm/min
 After 10 min
-    Z avg = 0.1278 mm
-    Z disp = 0.1318 mm
+    Z avg =  0.138 mm
+    Z comp =  0.088 mm
+    Z disp =  0.132 mm
     Z stdev =  0.786 µm
     Z diff =   2.50 µm
     Z prev =  0.583 µm/min
 After 15 min
-    Z avg = 0.1059 mm
-    Z disp = 0.1098 mm
+    Z avg =  0.116 mm
+    Z comp =  0.066 mm
+    Z disp =  0.110 mm
     Z stdev =  1.375 µm
     Z diff =   5.00 µm
     Z prev = -4.392 µm/min
 After 20 min
-    Z avg = 0.0907 mm
-    Z disp = 0.0946 mm
+    Z avg =  0.101 mm
+    Z comp =  0.050 mm
+    Z disp =  0.095 mm
     Z stdev =  1.194 µm
     Z diff =   5.00 µm
     Z prev = -3.033 µm/min
 After 25 min
-    Z avg = 0.0827 mm
-    Z disp = 0.0866 mm
+    Z avg =  0.093 mm
+    Z comp =  0.042 mm
+    Z disp =  0.087 mm
     Z stdev =  0.954 µm
     Z diff =   3.75 µm
     Z prev = -1.608 µm/min
@@ -160,61 +380,79 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  95.00 µm / 30.11 µm  |   6.67 µm /  2.06 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.2235 mm
 Total
-    Z avg = 0.1889 mm
-    Z disp = 0.1944 mm
+    Z avg =  0.201 mm
+    Z comp = -0.022 mm
+    Z disp =  0.194 mm
     Z stdev = 40.133 µm
     Z diff = 183.75 µm
+After 0 min
+    Z avg =  0.068 mm
+    Z comp = -0.156 mm
+    Z disp =  0.061 mm
+    Z stdev = 12.166 µm
+    Z diff =  41.25 µm
 After 1 min
-    Z avg = 0.0856 mm
-    Z disp = 0.0910 mm
+    Z avg =  0.098 mm
+    Z comp = -0.125 mm
+    Z disp =  0.091 mm
     Z stdev =  7.561 µm
     Z diff =  26.25 µm
+    Z prev = 30.262 µm/min
 After 2 min
-    Z avg = 0.1133 mm
-    Z disp = 0.1187 mm
+    Z avg =  0.126 mm
+    Z comp = -0.098 mm
+    Z disp =  0.119 mm
     Z stdev =  7.572 µm
     Z diff =  31.25 µm
     Z prev = 27.667 µm/min
 After 3 min
-    Z avg = 0.1350 mm
-    Z disp = 0.1405 mm
+    Z avg =  0.148 mm
+    Z comp = -0.076 mm
+    Z disp =  0.140 mm
     Z stdev =  7.688 µm
     Z diff =  31.25 µm
     Z prev = 21.750 µm/min
 After 5 min
-    Z avg = 0.1669 mm
-    Z disp = 0.1723 mm
+    Z avg =  0.179 mm
+    Z comp = -0.044 mm
+    Z disp =  0.172 mm
     Z stdev =  3.829 µm
     Z diff =  15.00 µm
-    Z prev = 15.938 µm/min
+    Z prev = 15.937 µm/min
 After 7 min
-    Z avg = 0.1798 mm
-    Z disp = 0.1852 mm
+    Z avg =  0.192 mm
+    Z comp = -0.031 mm
+    Z disp =  0.185 mm
     Z stdev =  3.012 µm
     Z diff =  13.75 µm
     Z prev =  6.437 µm/min
 After 10 min
-    Z avg = 0.2005 mm
-    Z disp = 0.2059 mm
+    Z avg =  0.213 mm
+    Z comp = -0.011 mm
+    Z disp =  0.206 mm
     Z stdev =  2.250 µm
     Z diff =  10.00 µm
     Z prev =  6.903 µm/min
 After 15 min
-    Z avg = 0.2119 mm
-    Z disp = 0.2173 mm
+    Z avg =  0.224 mm
+    Z comp =  0.001 mm
+    Z disp =  0.217 mm
     Z stdev =  1.638 µm
     Z diff =   8.75 µm
     Z prev =  2.275 µm/min
 After 20 min
-    Z avg = 0.2107 mm
-    Z disp = 0.2161 mm
+    Z avg =  0.223 mm
+    Z comp = -0.000 mm
+    Z disp =  0.216 mm
     Z stdev =  2.229 µm
     Z diff =   8.75 µm
     Z prev = -0.233 µm/min
 After 25 min
-    Z avg = 0.2117 mm
-    Z disp = 0.2172 mm
+    Z avg =  0.224 mm
+    Z comp =  0.001 mm
+    Z disp =  0.217 mm
     Z stdev =  1.953 µm
     Z diff =   7.50 µm
     Z prev =  0.208 µm/min
@@ -234,61 +472,79 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  81.25 µm / 25.25 µm  |   2.41 µm /  0.85 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.2134 mm
 Total
-    Z avg = 0.2365 mm
-    Z disp = 0.2685 mm
+    Z avg =  0.272 mm
+    Z comp =  0.058 mm
+    Z disp =  0.269 mm
     Z stdev = 33.999 µm
     Z diff = 231.25 µm
+After 0 min
+    Z avg =  0.131 mm
+    Z comp = -0.083 mm
+    Z disp =  0.128 mm
+    Z stdev = 32.396 µm
+    Z diff = 107.50 µm
 After 1 min
-    Z avg = 0.1705 mm
-    Z disp = 0.2025 mm
+    Z avg =  0.205 mm
+    Z comp = -0.008 mm
+    Z disp =  0.202 mm
     Z stdev = 12.676 µm
     Z diff =  43.75 µm
+    Z prev = 74.773 µm/min
 After 2 min
-    Z avg = 0.1997 mm
-    Z disp = 0.2317 mm
+    Z avg =  0.235 mm
+    Z comp =  0.021 mm
+    Z disp =  0.232 mm
     Z stdev =  5.636 µm
     Z diff =  18.75 µm
     Z prev = 29.208 µm/min
 After 3 min
-    Z avg = 0.2172 mm
-    Z disp = 0.2492 mm
+    Z avg =  0.252 mm
+    Z comp =  0.039 mm
+    Z disp =  0.249 mm
     Z stdev =  4.737 µm
     Z diff =  16.25 µm
     Z prev = 17.583 µm/min
 After 5 min
-    Z avg = 0.2477 mm
-    Z disp = 0.2797 mm
+    Z avg =  0.283 mm
+    Z comp =  0.069 mm
+    Z disp =  0.280 mm
     Z stdev =  3.732 µm
     Z diff =  12.50 µm
     Z prev = 15.208 µm/min
 After 7 min
-    Z avg = 0.2641 mm
-    Z disp = 0.2961 mm
+    Z avg =  0.299 mm
+    Z comp =  0.086 mm
+    Z disp =  0.296 mm
     Z stdev =  1.161 µm
     Z diff =   3.75 µm
     Z prev =  8.208 µm/min
 After 10 min
-    Z avg = 0.2672 mm
-    Z disp = 0.2992 mm
+    Z avg =  0.302 mm
+    Z comp =  0.089 mm
+    Z disp =  0.299 mm
     Z stdev =  0.500 µm
     Z diff =   1.25 µm
     Z prev =  1.056 µm/min
 After 15 min
-    Z avg = 0.2554 mm
-    Z disp = 0.2874 mm
+    Z avg =  0.290 mm
+    Z comp =  0.077 mm
+    Z disp =  0.287 mm
     Z stdev =  1.028 µm
     Z diff =   3.75 µm
     Z prev = -2.375 µm/min
 After 20 min
-    Z avg = 0.2412 mm
-    Z disp = 0.2732 mm
+    Z avg =  0.276 mm
+    Z comp =  0.063 mm
+    Z disp =  0.273 mm
     Z stdev =  1.021 µm
     Z diff =   2.50 µm
     Z prev = -2.825 µm/min
 After 25 min
-    Z avg = 0.2310 mm
-    Z disp = 0.2630 mm
+    Z avg =  0.266 mm
+    Z comp =  0.053 mm
+    Z disp =  0.263 mm
     Z stdev =  0.529 µm
     Z diff =   1.25 µm
     Z prev = -2.058 µm/min
@@ -308,67 +564,177 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  55.00 µm / 16.03 µm  |   2.06 µm /  0.71 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.1086 mm
 Total
-    Z avg = 0.0946 mm
-    Z disp = 0.1186 mm
+    Z avg =  0.122 mm
+    Z comp =  0.013 mm
+    Z disp =  0.119 mm
     Z stdev = 14.249 µm
     Z diff =  77.50 µm
+After 0 min
+    Z avg =  0.069 mm
+    Z comp = -0.040 mm
+    Z disp =  0.065 mm
+    Z stdev =  5.918 µm
+    Z diff =  21.25 µm
 After 1 min
-    Z avg = 0.0580 mm
-    Z disp = 0.0820 mm
+    Z avg =  0.085 mm
+    Z comp = -0.023 mm
+    Z disp =  0.082 mm
     Z stdev =  4.114 µm
     Z diff =  15.00 µm
+    Z prev = 16.749 µm/min
 After 2 min
-    Z avg = 0.0713 mm
-    Z disp = 0.0954 mm
+    Z avg =  0.099 mm
+    Z comp = -0.010 mm
+    Z disp =  0.095 mm
     Z stdev =  3.369 µm
     Z diff =  11.25 µm
     Z prev = 13.375 µm/min
 After 3 min
-    Z avg = 0.0809 mm
-    Z disp = 0.1050 mm
+    Z avg =  0.108 mm
+    Z comp = -0.000 mm
+    Z disp =  0.105 mm
     Z stdev =  2.886 µm
     Z diff =  11.25 µm
     Z prev =  9.583 µm/min
 After 5 min
-    Z avg = 0.0950 mm
-    Z disp = 0.1191 mm
+    Z avg =  0.122 mm
+    Z comp =  0.014 mm
+    Z disp =  0.119 mm
     Z stdev =  1.677 µm
     Z diff =   7.50 µm
     Z prev =  7.042 µm/min
 After 7 min
-    Z avg = 0.1017 mm
-    Z disp = 0.1257 mm
+    Z avg =  0.129 mm
+    Z comp =  0.021 mm
+    Z disp =  0.126 mm
     Z stdev =  0.812 µm
     Z diff =   2.50 µm
     Z prev =  3.333 µm/min
 After 10 min
-    Z avg = 0.1049 mm
-    Z disp = 0.1289 mm
+    Z avg =  0.132 mm
+    Z comp =  0.024 mm
+    Z disp =  0.129 mm
     Z stdev =  0.747 µm
     Z diff =   3.75 µm
     Z prev =  1.069 µm/min
 After 15 min
-    Z avg = 0.1025 mm
-    Z disp = 0.1266 mm
+    Z avg =  0.130 mm
+    Z comp =  0.021 mm
+    Z disp =  0.127 mm
     Z stdev =  0.913 µm
     Z diff =   5.00 µm
     Z prev = -0.475 µm/min
 After 20 min
-    Z avg = 0.0993 mm
-    Z disp = 0.1233 mm
+    Z avg =  0.127 mm
+    Z comp =  0.018 mm
+    Z disp =  0.123 mm
     Z stdev =  0.692 µm
     Z diff =   2.50 µm
     Z prev = -0.650 µm/min
 After 25 min
-    Z avg = 0.0960 mm
-    Z disp = 0.1201 mm
+    Z avg =  0.124 mm
+    Z comp =  0.015 mm
+    Z disp =  0.120 mm
     Z stdev =  0.567 µm
     Z diff =   2.50 µm
     Z prev = -0.642 µm/min
 
 
 Panasonic GX-H12A
+
+Start Condition:
+- Bed Temperature: 26.4
+- Nozzle Temperature: 29.9
+
+Stats for Moving Window of 10 Consecutive Elements:
+- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  81.25 µm / 24.13 µm  |   1.18 µm /  0.43 µm
+- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   3.75 µm /  0.79 µm  |   0.44 µm /  0.17 µm
+- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  41.25 µm / 13.35 µm  |   8.35 µm /  2.72 µm
+- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  40.00 µm /  8.25 µm  |   0.93 µm /  0.36 µm
+- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  31.25 µm /  9.28 µm  |   1.21 µm /  0.45 µm
+
+===Heat Soak Statistics===
+Extrapolation = 0.0416 mm
+Total
+    Z avg =  0.068 mm
+    Z comp =  0.027 mm
+    Z disp =  0.064 mm
+    Z stdev = 10.323 µm
+    Z diff =  56.25 µm
+After 0 min
+    Z avg =  0.034 mm
+    Z comp = -0.008 mm
+    Z disp =  0.030 mm
+    Z stdev =  5.279 µm
+    Z diff =  16.25 µm
+After 1 min
+    Z avg =  0.046 mm
+    Z comp =  0.004 mm
+    Z disp =  0.042 mm
+    Z stdev =  2.424 µm
+    Z diff =   8.75 µm
+    Z prev = 12.290 µm/min
+After 2 min
+    Z avg =  0.054 mm
+    Z comp =  0.013 mm
+    Z disp =  0.050 mm
+    Z stdev =  2.343 µm
+    Z diff =   8.75 µm
+    Z prev =  8.292 µm/min
+After 3 min
+    Z avg =  0.062 mm
+    Z comp =  0.020 mm
+    Z disp =  0.058 mm
+    Z stdev =  2.179 µm
+    Z diff =   6.25 µm
+    Z prev =  7.708 µm/min
+After 5 min
+    Z avg =  0.073 mm
+    Z comp =  0.032 mm
+    Z disp =  0.069 mm
+    Z stdev =  1.315 µm
+    Z diff =   3.75 µm
+    Z prev =  5.625 µm/min
+After 7 min
+    Z avg =  0.080 mm
+    Z comp =  0.038 mm
+    Z disp =  0.076 mm
+    Z stdev =  0.602 µm
+    Z diff =   2.50 µm
+    Z prev =  3.354 µm/min
+After 10 min
+    Z avg =  0.080 mm
+    Z comp =  0.039 mm
+    Z disp =  0.077 mm
+    Z stdev =  0.602 µm
+    Z diff =   1.25 µm
+    Z prev =  0.167 µm/min
+After 15 min
+    Z avg =  0.074 mm
+    Z comp =  0.032 mm
+    Z disp =  0.070 mm
+    Z stdev =  0.624 µm
+    Z diff =   2.50 µm
+    Z prev = -1.308 µm/min
+After 20 min
+    Z avg =  0.069 mm
+    Z comp =  0.027 mm
+    Z disp =  0.065 mm
+    Z stdev =  0.000 µm
+    Z diff =   0.00 µm
+    Z prev = -1.033 µm/min
+After 25 min
+    Z avg =  0.065 mm
+    Z comp =  0.023 mm
+    Z disp =  0.061 mm
+    Z stdev =  0.523 µm
+    Z diff =   1.25 µm
+    Z prev = -0.806 µm/min
+
+
+Covered GX-H12A
 
 Start Condition:
 - Bed Temperature: 24.1
@@ -382,61 +748,79 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  32.50 µm /  9.05 µm  |   1.22 µm /  0.47 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.0482 mm
 Total
-    Z avg = 0.0330 mm
-    Z disp = 0.0733 mm
+    Z avg =  0.077 mm
+    Z comp =  0.029 mm
+    Z disp =  0.073 mm
     Z stdev = 12.436 µm
     Z diff =  65.00 µm
+After 0 min
+    Z avg =  0.036 mm
+    Z comp = -0.012 mm
+    Z disp =  0.033 mm
+    Z stdev =  4.353 µm
+    Z diff =  15.00 µm
 After 1 min
-    Z avg = 0.0041 mm
-    Z disp = 0.0444 mm
+    Z avg =  0.048 mm
+    Z comp = -0.000 mm
+    Z disp =  0.044 mm
     Z stdev =  2.996 µm
     Z diff =  10.00 µm
+    Z prev = 11.706 µm/min
 After 2 min
-    Z avg = 0.0142 mm
-    Z disp = 0.0545 mm
+    Z avg =  0.058 mm
+    Z comp =  0.010 mm
+    Z disp =  0.054 mm
     Z stdev =  2.820 µm
     Z diff =  10.00 µm
     Z prev = 10.042 µm/min
 After 3 min
-    Z avg = 0.0226 mm
-    Z disp = 0.0629 mm
+    Z avg =  0.066 mm
+    Z comp =  0.018 mm
+    Z disp =  0.063 mm
     Z stdev =  2.370 µm
     Z diff =   7.50 µm
     Z prev =  8.417 µm/min
 After 5 min
-    Z avg = 0.0365 mm
-    Z disp = 0.0768 mm
+    Z avg =  0.080 mm
+    Z comp =  0.032 mm
+    Z disp =  0.077 mm
     Z stdev =  1.603 µm
     Z diff =   5.00 µm
     Z prev =  6.979 µm/min
 After 7 min
-    Z avg = 0.0444 mm
-    Z disp = 0.0847 mm
+    Z avg =  0.088 mm
+    Z comp =  0.040 mm
+    Z disp =  0.085 mm
     Z stdev =  1.057 µm
     Z diff =   3.75 µm
     Z prev =  3.938 µm/min
 After 10 min
-    Z avg = 0.0486 mm
-    Z disp = 0.0889 mm
+    Z avg =  0.092 mm
+    Z comp =  0.044 mm
+    Z disp =  0.089 mm
     Z stdev =  0.425 µm
     Z diff =   1.25 µm
     Z prev =  1.389 µm/min
 After 15 min
-    Z avg = 0.0400 mm
-    Z disp = 0.0803 mm
+    Z avg =  0.084 mm
+    Z comp =  0.036 mm
+    Z disp =  0.080 mm
     Z stdev =  0.456 µm
     Z diff =   2.50 µm
     Z prev = -1.717 µm/min
 After 20 min
-    Z avg = 0.0340 mm
-    Z disp = 0.0743 mm
+    Z avg =  0.078 mm
+    Z comp =  0.030 mm
+    Z disp =  0.074 mm
     Z stdev =  0.529 µm
     Z diff =   1.25 µm
     Z prev = -1.192 µm/min
 After 25 min
-    Z avg = 0.0294 mm
-    Z disp = 0.0697 mm
+    Z avg =  0.073 mm
+    Z comp =  0.025 mm
+    Z disp =  0.070 mm
     Z stdev =  0.624 µm
     Z diff =   1.25 µm
     Z prev = -0.925 µm/min
@@ -445,74 +829,92 @@ After 25 min
 BAOLSEN N3F-H4NB
 
 Start Condition:
-- Bed Temperature: 29.9
-- Nozzle Temperature: 32.0
+- Bed Temperature: 27.9
+- Nozzle Temperature: 30.5
 
 Stats for Moving Window of 10 Consecutive Elements:
-- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  101.25 µm / 29.60 µm  |   3.34 µm /  1.06 µm
-- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  1.23 µm  |   2.80 µm /  0.88 µm
-- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  57.50 µm / 20.35 µm  |  15.65 µm /  5.10 µm
-- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  50.00 µm / 10.62 µm  |   2.88 µm /  0.93 µm
-- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  38.75 µm / 11.34 µm  |   3.63 µm /  1.11 µm
+- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  98.75 µm / 28.48 µm  |   3.25 µm /  1.05 µm
+- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   8.75 µm /  2.00 µm  |   2.60 µm /  0.80 µm
+- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  48.75 µm / 16.06 µm  |  11.31 µm /  3.60 µm
+- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  53.75 µm / 10.82 µm  |   2.85 µm /  0.94 µm
+- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  41.25 µm / 12.28 µm  |   3.59 µm /  1.13 µm
 
 ===Heat Soak Statistics===
+Extrapolation = 0.0608 mm
 Total
-    Z avg = 0.0633 mm
-    Z disp = 0.0843 mm
-    Z stdev = 11.547 µm
-    Z diff =  51.25 µm
-After 1 min
-    Z avg = 0.0308 mm
-    Z disp = 0.0518 mm
-    Z stdev =  1.564 µm
+    Z avg =  0.084 mm
+    Z comp =  0.023 mm
+    Z disp =  0.079 mm
+    Z stdev = 11.869 µm
+    Z diff =  53.75 µm
+After 0 min
+    Z avg =  0.048 mm
+    Z comp = -0.012 mm
+    Z disp =  0.044 mm
+    Z stdev =  1.427 µm
     Z diff =   6.25 µm
+After 1 min
+    Z avg =  0.051 mm
+    Z comp = -0.010 mm
+    Z disp =  0.046 mm
+    Z stdev =  2.898 µm
+    Z diff =  10.00 µm
+    Z prev =  2.113 µm/min
 After 2 min
-    Z avg = 0.0387 mm
-    Z disp = 0.0597 mm
-    Z stdev =  2.904 µm
+    Z avg =  0.061 mm
+    Z comp =  0.000 mm
+    Z disp =  0.056 mm
+    Z stdev =  2.775 µm
     Z diff =  11.25 µm
-    Z prev =  7.875 µm/min
+    Z prev = 10.417 µm/min
 After 3 min
-    Z avg = 0.0473 mm
-    Z disp = 0.0683 mm
-    Z stdev =  3.046 µm
+    Z avg =  0.071 mm
+    Z comp =  0.010 mm
+    Z disp =  0.066 mm
+    Z stdev =  3.365 µm
     Z diff =  11.25 µm
-    Z prev =  8.625 µm/min
+    Z prev =  9.625 µm/min
 After 5 min
-    Z avg = 0.0637 mm
-    Z disp = 0.0848 mm
-    Z stdev =  0.994 µm
-    Z diff =   3.75 µm
-    Z prev =  8.208 µm/min
+    Z avg =  0.089 mm
+    Z comp =  0.028 mm
+    Z disp =  0.084 mm
+    Z stdev =  2.085 µm
+    Z diff =   7.50 µm
+    Z prev =  9.021 µm/min
 After 7 min
-    Z avg = 0.0717 mm
-    Z disp = 0.0928 mm
-    Z stdev =  1.392 µm
-    Z diff =   5.00 µm
-    Z prev =  4.021 µm/min
+    Z avg =  0.093 mm
+    Z comp =  0.032 mm
+    Z disp =  0.088 mm
+    Z stdev =  0.940 µm
+    Z diff =   3.75 µm
+    Z prev =  2.188 µm/min
 After 10 min
-    Z avg = 0.0745 mm
-    Z disp = 0.0956 mm
-    Z stdev =  0.829 µm
+    Z avg =  0.095 mm
+    Z comp =  0.035 mm
+    Z disp =  0.091 mm
+    Z stdev =  0.921 µm
     Z diff =   3.75 µm
-    Z prev =  0.917 µm/min
+    Z prev =  0.806 µm/min
 After 15 min
-    Z avg = 0.0706 mm
-    Z disp = 0.0916 mm
-    Z stdev =  0.898 µm
+    Z avg =  0.090 mm
+    Z comp =  0.030 mm
+    Z disp =  0.086 mm
+    Z stdev =  1.037 µm
     Z diff =   3.75 µm
-    Z prev = -0.783 µm/min
+    Z prev = -0.992 µm/min
 After 20 min
-    Z avg = 0.0660 mm
-    Z disp = 0.0871 mm
-    Z stdev =  0.973 µm
-    Z diff =   3.75 µm
-    Z prev = -0.908 µm/min
-After 25 min
-    Z avg = 0.0625 mm
-    Z disp = 0.0836 mm
-    Z stdev =  0.791 µm
+    Z avg =  0.086 mm
+    Z comp =  0.025 mm
+    Z disp =  0.081 mm
+    Z stdev =  0.672 µm
     Z diff =   2.50 µm
-    Z prev = -0.708 µm/min
+    Z prev = -0.917 µm/min
+After 25 min
+    Z avg =  0.082 mm
+    Z comp =  0.021 mm
+    Z disp =  0.078 mm
+    Z stdev =  0.896 µm
+    Z diff =   2.50 µm
+    Z prev = -0.731 µm/min
 
 

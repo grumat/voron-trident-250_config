@@ -39,7 +39,7 @@ class HeatSoak(object):
 		self.sd = 0.0
 		self.diff = 0.0
 		self.avg = 0.0
-	def ComputeSoak(self, data : list[tuple[float, float]], cold : float, z_min : float):
+	def ComputeSoak(self, data : list[tuple[float, float]], cold : float):
 		offset = data[0][0]
 		start = self.soak_time_from * 60.0 + offset
 		if self.soak_time_to > 0:
@@ -51,63 +51,104 @@ class HeatSoak(object):
 		self.diff = max(samples) - min(samples)
 		self.avg = fmean(samples)
 		self.displace = self.avg - cold
-		self.displace0 = self.avg - z_min
-	def Print(self, prev : HeatSoak|None = None):
-		if self.soak_time_from == 0:
+	def Print(self, z_extrapolated : float, prev : HeatSoak|None = None):
+		if self.soak_time_to < 0:
 			print("Total")
 		else:
 			print(f"After {self.soak_time_from} min")
-		print(f"    Z avg = {self.avg:6.4f} mm")
-		print(f"    Z disp = {self.displace:6.4f} mm")
+		print(f"    Z avg = {self.avg:6.3f} mm")
+		print(f"    Z comp = {self.avg-z_extrapolated:6.3f} mm")
+		print(f"    Z disp = {self.displace:6.3f} mm")
 		print(f"    Z stdev = {1000.0 * self.sd:6.3f} µm")
 		print(f"    Z diff = {1000.0 * self.diff:6.2f} µm")
 		if prev:
 			rate = 1000.0*(self.avg - prev.avg)/float(self.soak_time_from - prev.soak_time_from)
 			print(f"    Z prev = {rate:6.3f} µm/min")
 
+def ExpDecayFunc(t, V0, tau):
+	"""Define the model with V0 expressed in terms of tau"""
+	return V0 * np.exp(-t / tau)
+
 
 class SoakStats(object):
-	def __init__(self, z_min : float, cold :list[float], data : list[tuple[float, float]]) -> None:
-		self.z_min = z_min
+	def __init__(self, cold :list[float], data : list[tuple[float, float]]) -> None:
 		self.cold = cold
 		self.cold_avg = fmean(cold)
 		self.data = data
 		self.total = HeatSoak(0)
-		self.m0 = HeatSoak(0, 1)
-		self.m1 = HeatSoak(1, 2)
-		self.m2 = HeatSoak(2, 3)
-		self.m3 = HeatSoak(3, 4)
-		self.m5 = HeatSoak(5, 6)
-		self.m7 = HeatSoak(7, 8)
-		self.m10 = HeatSoak(10, 11)
-		self.m15 = HeatSoak(15, 16)
-		self.m20 = HeatSoak(20, 21)
-		self.m25 = HeatSoak(25, 26)
-		self.m29 = HeatSoak(29, 30)
-		self.total.ComputeSoak(data, self.cold_avg, z_min)
-		self.m0.ComputeSoak(data, self.cold_avg, z_min)
-		self.m1.ComputeSoak(data, self.cold_avg, z_min)
-		self.m2.ComputeSoak(data, self.cold_avg, z_min)
-		self.m3.ComputeSoak(data, self.cold_avg, z_min)
-		self.m5.ComputeSoak(data, self.cold_avg, z_min)
-		self.m7.ComputeSoak(data, self.cold_avg, z_min)
-		self.m10.ComputeSoak(data, self.cold_avg, z_min)
-		self.m15.ComputeSoak(data, self.cold_avg, z_min)
-		self.m20.ComputeSoak(data, self.cold_avg, z_min)
-		self.m25.ComputeSoak(data, self.cold_avg, z_min)
-		self.m29.ComputeSoak(data, self.cold_avg, z_min)
+		self.total.ComputeSoak(data, self.cold_avg)
+		self.m : list[HeatSoak] = []
+		for i in range(30):
+			hs = HeatSoak(i, i+1)
+			hs.ComputeSoak(data, self.cold_avg)
+			self.m.append(hs)
+	def ExpDecayFunc(self, t, tau = None):
+		if not tau:
+			tau = self.tau_fit
+		V0 = self.z_last * np.exp(self.t_last / tau)
+		return V0 * np.exp(-t / tau)
+	def make_decay_(self, t, z):
+		# Last point (anchor)
+		self.t_last, self.z_last = t[-1], z[-1]
+		# Fit the model to the data (only tau is fitted)
+		params, _ = curve_fit(self.ExpDecayFunc, np.array(t), np.array(z), p0=[2])
+		self.tau_fit = params[0]
+		# Calculate V0 using the fitted tau
+		#self.z0_fit = self.z_last * np.exp(self.t_last / self.tau_fit)
+
+	def select_by_error(self, max_err : float):
+		t_soak = 29
+		z_soak = self.z_extrapolated
+		for i in range(29, 0, -1):
+			za = self.m[i].avg
+			dif = abs(za - self.ExpDecayFunc(i))
+			if dif >= max_err:
+				break
+			t_soak = i
+			z_soak = za
+		return (t_soak, z_soak, dif)
+
+	def MakeFit(self):
+		# Collect all data
+		ts = []
+		z = []
+		for i in range(30):
+			ts.append(self.m[i].soak_time_from)
+			z.append(self.m[i].avg)
+		# First approach used the tail samples
+		self.make_decay_(ts[15:], z[15:])
+		ts2 = ts.copy()
+		z2 = z.copy()
+		self.z_extrapolated = self.ExpDecayFunc(60.0)
+		# Lear peak error rate and doubles it
+		err_max = (SOAK_QUALITY + 3*max(abs(self.m[i].avg - self.ExpDecayFunc(i)) for i in range(15,30))) / 4.0
+
+		# Widens the range accepting more error
+		t_soak, z_soak, err_max = self.select_by_error(err_max)
+		# Recompute if improved
+		if t_soak < 15:
+			self.make_decay_(ts[t_soak:], z[t_soak:])
+			self.z_extrapolated = self.ExpDecayFunc(60.0)
+		# Now compute the absolute distance to extrapolated Z
+		self.t_soak = 29
+		self.z_soak = self.m[29].avg
+		for i in range(29, 0, -1):
+			za = self.m[i].avg
+			dif = abs(za - self.z_extrapolated)
+			if dif >= SOAK_QUALITY:
+				break
+			self.t_soak = i
+			self.z_soak = za
+
 	def Print(self):
 		print("===Heat Soak Statistics===")
-		self.total.Print()
-		self.m1.Print()
-		self.m2.Print(self.m1)
-		self.m3.Print(self.m2)
-		self.m5.Print(self.m3)
-		self.m7.Print(self.m5)
-		self.m10.Print(self.m7)
-		self.m15.Print(self.m10)
-		self.m20.Print(self.m15)
-		self.m25.Print(self.m20)
+		print(f"Extrapolation = {self.z_extrapolated:6.4f} mm")
+		self.total.Print(self.z_extrapolated)
+		self.m[0].Print(self.z_extrapolated)
+		prev = 0
+		for i in [1, 2, 3, 5, 7, 10, 15, 20, 25]:
+			self.m[i].Print(self.z_extrapolated, self.m[prev])
+			prev = i
 
 
 
@@ -115,7 +156,14 @@ def load_data(data_file: str) -> list:
 	if not os.path.isabs(data_file):
 		data_file = os.path.normpath(os.path.join(SCRIPT_DIR, data_file))
 	with open(data_file, 'r') as f:
-		return [json.loads(line) for line in f]
+		data = [json.loads(line) for line in f]
+	# Find minimum Z
+	z_min = min([x['z'] for x in data if 'z' in x])
+	# Anchor all z samples to that reference (this highly depends on current z_offset calibration from Klipper)
+	for sample in data:
+		if 'z' in sample:
+			sample['z'] = sample['z'] - z_min
+	return data
 
 
 def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak_stats : SoakStats):
@@ -123,92 +171,55 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	if not os.path.isabs(output_file):
 		output_file = os.path.normpath(os.path.join(SCRIPT_DIR, output_file))
 
-	min_ts = data[0]['ts']
-	z_min = min([x['z'] for x in data if 'z' in x])
+	soak_start = soak_stats.data[0][0] / -60
 
+	def SecToMin(v):
+		return v / 60 + soak_start;
 
-	ztrace = pgo.Scatter(
-		x=[x['ts'] - min_ts for x in data if 'z' in x],
-		y=[(x['z'] - z_min) for x in data if 'z' in x],
+	z_trace = pgo.Scatter(
+		x=[SecToMin(x['ts']) for x in data if 'z' in x],
+		y=[z['z'] for z in data if 'z' in z],
 		name='Z',
 		mode='lines',
 		line={'color': 'orange'},
 		yaxis='y2'
 	)
-	#######################################################################################################
-	## Discharge curve Calculation
-	#######################################################################################################
-	soak_start = soak_stats.data[0][0] - min_ts
 
-	time_data = np.array([5, 7, 10, 15, 20, 25, 29])
-	z_avg_data = np.array([soak_stats.m5.avg - z_min, soak_stats.m7.avg - z_min, 
-						  soak_stats.m10.avg - z_min, soak_stats.m15.avg - z_min, 
-						  soak_stats.m20.avg - z_min, soak_stats.m25.avg - z_min, 
-						  soak_stats.m29.avg - z_min])
-	# Apply transformation
-	time_data_transformed = (time_data * 60) + soak_start
-	# Last point (anchor)
-	t_last, z_last = time_data[-1], z_avg_data[-1]
+	z_extrapolated = pgo.Scatter(
+		#x=[-5, 41],
+		#y=[soak_stats.extrapolated_z, soak_stats.extrapolated_z],
+		x=[SecToMin(x['ts']) for x in data if 'z' in x],
+		y=[soak_stats.z_extrapolated for z in data if 'z' in z],
+		line={'color': 'orange'},
+		showlegend=False,
+		mode='none',
+		fill='tonexty',
+		fillcolor='rgba(255,165,0,0.3)',
+		yaxis='y2'
+	)
 
-	# Define the model with V0 expressed in terms of tau
-	def exp_decay_anchored(t, tau):
-		V0 = z_last * np.exp(t_last / tau)
-		return V0 * np.exp(-t / tau)
-	# Fit the model to the data (only tau is fitted)
-	params, covariance = curve_fit(exp_decay_anchored, time_data, z_avg_data, p0=[2])
-	tau_fit = params[0]
-	# Calculate V0 using the fitted tau
-	z0_fit = z_last * np.exp(t_last / tau_fit)
-	# Generate fitted curve
-	time_fit = np.linspace(-5, 40, 20)
-	z_fit = exp_decay_anchored(time_fit, tau_fit)
-	time_fit_transformed = (time_fit * 60) + soak_start
-
-	z_dots = pgo.Scatter(
-		x=time_data_transformed, y=z_avg_data,
+	z_thr = pgo.Scatter(
+		x=[soak_stats.t_soak], y=[soak_stats.z_soak],
 		mode='markers',
-		name='Approximation',
+		name='Heat soak threshold',
 		marker=dict(size=8, color='blue'),
 		yaxis='y2'
 	)
+
+	# Generate fitted curve
+	time_fit = np.linspace(-5, 41, 20)
+	z_fit = soak_stats.ExpDecayFunc(time_fit, soak_stats.tau_fit)
 	z_discharge = pgo.Scatter(
-		x=time_fit_transformed, y=z_fit,
+		x=time_fit, y=z_fit,
 		mode='lines',
-		name=f'Fit: $V_0 e^{{-t/\\tau}}$, $V_0$={z0_fit:.2f}, $\\tau$={tau_fit:.2f}',
+		name=f'Fit: $V_0 e^{{-t/\\tau}}$',
 		line=dict(color='darkgreen', width=2),
 		yaxis='y2'
 	)
 
-	zn = exp_decay_anchored(60, tau_fit)
-	for t in range(60, 2, -1):
-		zt = exp_decay_anchored(t, tau_fit)
-		if abs(zt - zn) > SOAK_QUALITY:
-			break
-	if t > 30:
-		t = 30
-	z_thr = pgo.Scatter(
-		x=[(t * 60) + soak_start], y=[zt],
-		mode='markers',
-		name=f'Z thr',
-		marker=dict(size=8, color='darkolivegreen'),
-		yaxis='y2'
-	)
-	#######################################################################################################
-	#######################################################################################################
-
-	z_max = max(ztrace.y)
-	z_hi = 0.3
-	while z_hi < z_max:
-		z_hi += 0.2
-	
-	sdy_local = [pstdev(ztrace.y[i-9:i+1]) * 1000 for i, ts in enumerate(ztrace.y) if i >= 9]
-	final = fmean(sdy_local)
-	dif_local = [(max(ztrace.y[i-9:i+1]) - min(ztrace.y[i-9:i+1])) for i, ts in enumerate(ztrace.y) if i >= 9]
-	dif_local = fmean(dif_local)
-
 	z_stdev_trace = pgo.Scatter(
-		x=[ts for i, ts in enumerate(ztrace.x) if i >= 4],
-		y=[pstdev(ztrace.y[i-4:i+1]) * 1000 for i, ts in enumerate(ztrace.y) if i >= 4],
+		x=[ts for i, ts in enumerate(z_trace.x) if i >= 4],
+		y=[pstdev(z_trace.y[i-4:i+1]) * 1000 for i, ts in enumerate(z_trace.y) if i >= 4],
 		name='Z stddev',
 		mode='markers',
 		line={'color': 'gray'},
@@ -216,27 +227,27 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	)
 
 	bed_trace = pgo.Scatter(
-		x=[x['ts'] - min_ts for x in data if 'btemp' in x],
+		x=[SecToMin(x['ts']) for x in data if 'btemp' in x],
 		y=[x['btemp'] for x in data if 'btemp' in x],
-		name='bed temperature',
+		name='Bed temperature',
 		mode='lines',
 		line={'color': 'blue'}
 	)
 
 	extruder_trace = pgo.Scatter(
-		x=[x['ts'] - min_ts for x in data if 'etemp' in x],
+		x=[SecToMin(x['ts']) for x in data if 'etemp' in x],
 		y=[x['etemp'] for x in data if 'etemp' in x],
-		name='extruder temperature',
+		name='Extruder temperature',
 		mode='lines',
 		line={'color': 'red'}
 	)
 	soaking_bkg = pgo.Scatter(
-		x=[x['ts'] - min_ts for x in data if ('eset' in x) and soak_start <= (x['ts'] - min_ts)],
-		y=[x['eset'] for x in data if ('eset' in x) and soak_start <= (x['ts'] - min_ts)],
+		x=[SecToMin(x['ts']) for x in data if ('eset' in x) and 0 <= x['ts']],
+		y=[soak_stats.z_extrapolated for z in data if ('eset' in z) and 0 <= z['ts']],
 		showlegend=False,
 		mode='none',
 		fill='tozeroy',
-		fillcolor='rgba(255,128,128,0.3)'
+		fillcolor='rgba(255,160,160,0.3)'
 	)
 
 	layout = pgo.Layout(
@@ -245,12 +256,13 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 		height=600
 	)
 	fig = pgo.Figure(layout=layout)
-	fig.add_trace(ztrace)
+	fig.add_trace(z_trace)
+	fig.add_trace(z_extrapolated)
 	fig.add_trace(z_stdev_trace)
 	fig.add_trace(z_discharge)
 	fig.add_trace(bed_trace)
 	fig.add_trace(extruder_trace)
-	fig.add_trace(soaking_bkg)
+	#fig.add_trace(soaking_bkg)
 	fig.add_trace(z_thr)
 	#fig.add_trace(z_dots)
 
@@ -259,7 +271,7 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 		if not 'atherms' in d:
 			continue
 
-		ts = d['ts'] - min_ts
+		ts = SecToMin(d['ts'])
 		for ad in d['atherms']:
 			therm_id = ad['id']
 			temp = ad['temp']
@@ -284,6 +296,10 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	if alt:
 		zrange = None
 	else:
+		z_max = max(z_trace.y)
+		z_hi = 0.3
+		while z_hi < z_max:
+			z_hi += 0.2
 		zrange = [-0.1,z_hi]
 
 	fig.update_layout(
@@ -294,14 +310,14 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 			x=1.1
 		),
 		xaxis=dict(
-			title='seconds',
+			title='minutes',
 			domain=[0, 0.9]
 		),
 		yaxis=dict(
 			title='°C',
 		),
 		yaxis2=dict(
-			title='Z soak = 60 min / {2:.3f} mm → {0} min / Δ {1:.3f} mm'.format(t, zt-zn, zn),
+			title='Z soak = 60 min / {0:.3f} mm → {1} min / Δ {2:.3f} mm'.format(soak_stats.z_extrapolated, soak_stats.t_soak, soak_stats.z_soak-soak_stats.z_extrapolated),
 			anchor='x',
 			overlaying='y',
 			side='right',
@@ -309,7 +325,7 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 			range=zrange
 		),
 		yaxis3=dict(
-			title='Z10+ stddev = {:.2f} µm'.format(1000.0 * soak_stats.m10.sd),
+			title='Z10+ stddev = {:.2f} µm'.format(1000.0 * soak_stats.m[10].sd),
 			rangemode='tozero',
 			anchor='free',
 			overlaying='y',
@@ -346,8 +362,11 @@ def real_world_stats(data : list) -> SoakStats:
 				cold.append(z)
 			if start_found:
 				samples.append((ts, z))
-	z_min = min([x['z'] for x in data if 'z' in x])
-	return SoakStats(z_min, cold, samples)
+	# Soaking statistics
+	soak_stats = SoakStats(cold, samples)
+	# Find a decay function
+	soak_stats.MakeFit()
+	return soak_stats
 
 
 

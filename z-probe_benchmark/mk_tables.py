@@ -1,16 +1,27 @@
 #!py -3
 # Takes results.txt and produces tables for markdown.
 
+import argparse
 import re
+import sys
+from contextlib import contextmanager
+
+parser = argparse.ArgumentParser()
+parser.add_argument('filename', default='Results.txt')
+parser.add_argument('--out', default=None)
+
 
 BLOCK1 = re.compile(r'.+Local Diff/StdDev:\s+([\d\.-]+)\sµm\s/\s+([\d\.-]+)\sµm\s+\|\s+([\d\.-]+)\sµm\s/\s+([\d\.-]+)\sµm')
-BLOCK2 = re.compile(r'\s+Z\s[adefigprstv]+\s=\s+([\d\.-]+)\s[mµ]m')
+EXTRAP = re.compile(r'Extrapolation = ([\d\.-]+) mm')
+BLOCK2 = re.compile(r'\s+Z\s[acdefigmoprstv]+\s=\s+([\d\.-]+)\s[mµ]m')
 
 class Sensor:
 	def __init__(self, title : str) -> None:
 		self.title = title
 		self.part1 = []
+		self.extrapolated = ""
 		self.avg = []
+		self.comp = []
 		self.disp = []
 		self.stddev = []
 		self.diff = []
@@ -48,10 +59,14 @@ class Tables:
 				mark = next(cursor).rstrip()
 			if mark == "===Heat Soak Statistics===":
 				found = True
+				m = EXTRAP.match(next(cursor).rstrip())
+				sensor.extrapolated = m[1]
 				next(cursor)	# eat title
-				for i in range(10):
+				for i in range(11):
 					m = BLOCK2.match(next(cursor).rstrip())
 					sensor.avg.append(m[1])
+					m = BLOCK2.match(next(cursor).rstrip())
+					sensor.comp.append(m[1])
 					m = BLOCK2.match(next(cursor).rstrip())
 					sensor.disp.append(m[1])
 					m = BLOCK2.match(next(cursor).rstrip())
@@ -83,90 +98,99 @@ class Tables:
 		except StopIteration:
 			pass
 
-	def Print(self):
-		print('### Sample Difference (µm)')
-		print()
-		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |')
-		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|')
+	def Print(self, fh):
+		print('### Sample Difference (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |', file=fh)
+		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[0])))
-		print()
-		print()
+			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[0])), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('### Standard Deviation (µm)')
-		print()
-		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |')
-		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|')
+		print('### Standard Deviation (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |', file=fh)
+		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[1])))
-		print()
-		print()
+			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[1])), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('### Sample Difference (µm)')
-		print()
-		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |')
-		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|')
+		print('### Sample Difference (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |', file=fh)
+		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[2])))
-		print()
-		print()
+			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[2])), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('### Standard Deviation (µm)')
-		print()
-		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |')
-		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|')
+		print('### Standard Deviation (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Overall | Phase 1 | Phase 2 | Phase 3 | Phase 4 |', file=fh)
+		print('|--------------------|:-------:|:-------:|:-------:|:-------:|:-------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[3])))
-		print()
-		print()
-		print()
+			print('| {0:19}| {1:>7} | {2:>7} | {3:>7} | {4:>7} | {5:>7} |'.format(sensor.title, *tuple(sensor.part1[3])), file=fh)
+		print(file=fh)
+		print(file=fh)
+		print(file=fh)
 
 		#####################################################################################
 
-		print('## Average Z Value (in mm)')
-		print()
-		print('| Z-Probe            | No Soak | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |')
-		print('|--------------------|:-------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|')
+		print('## Average Z Value (in mm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |', file=fh)
+		print('|--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} |'.format(sensor.title, *tuple(sensor.avg)))
-		print()
-		print()
+			print('| {0:19}| {1:>8} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} | {11:>6} |'.format(sensor.title, *tuple(sensor.avg)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('## Z Value Evolution (in µm/min)')
-		print()
-		print('| Z-Probe            |  1-2 Min  |  2-3 Min  |  3-5 Min  |  5-7 Min  | 7-10 Min  | 10-15 Min | 15-20 Min | 20-25 Min |')
-		print('|--------------------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|')
+		print('## Z Value Offset To Extrapolation (in mm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Extrapolation | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |', file=fh)
+		print('|--------------------|:-------------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>9} | {2:>9} | {3:>9} | {4:>9} | {5:>9} | {6:>9} | {7:>9} | {8:>9} |'.format(sensor.title, *tuple(sensor.prev)))
-		print()
-		print()
+			print('| {0:19}| {1:>13} | {2:>8} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} | {11:>6} | {12:>6} |'.format(sensor.title, sensor.extrapolated, *tuple(sensor.comp)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('Z Value Displacement (Cold to Hot Values in mm)')
-		print()
-		print('| Z-Probe            | No Soak | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |')
-		print('|--------------------|:-------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|')
+		print('## Z Value Evolution (in µm/min)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            |  0-1 Min  |  1-2 Min  |  2-3 Min  |  3-5 Min  |  5-7 Min  | 7-10 Min  | 10-15 Min | 15-20 Min | 20-25 Min |', file=fh)
+		print('|--------------------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} |'.format(sensor.title, *tuple(sensor.disp)))
-		print()
-		print()
+			print('| {0:19}| {1:>9} | {2:>9} | {3:>9} | {4:>9} | {5:>9} | {6:>9} | {7:>9} | {8:>9} | {9:>9} |'.format(sensor.title, *tuple(sensor.prev)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('## Standard Deviation (µm)')
-		print()
-		print('| Z-Probe            | No Soak | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |')
-		print('|--------------------|:-------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|')
+		print('Z Value Displacement (Cold to Hot Values in mm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |', file=fh)
+		print('|--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} |'.format(sensor.title, *tuple(sensor.stddev)))
-		print()
-		print()
+			print('| {0:19}| {1:>8} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} | {11:>6} |'.format(sensor.title, *tuple(sensor.disp)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
-		print('## Amplitude Difference (µm)')
-		print()
-		print('| Z-Probe            | No Soak | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |')
-		print('|--------------------|:-------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|')
+		print('## Standard Deviation (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |', file=fh)
+		print('|--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|', file=fh)
 		for sensor in self.sensors:
-			print('| {0:19}| {1:>7} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} |'.format(sensor.title, *tuple(sensor.diff)))
-		print()
-		print()
+			print('| {0:19}| {1:>8} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} | {11:>6} |'.format(sensor.title, *tuple(sensor.stddev)), file=fh)
+		print(file=fh)
+		print(file=fh)
+
+		print('## Amplitude Difference (µm)', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |', file=fh)
+		print('|--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|', file=fh)
+		for sensor in self.sensors:
+			print('| {0:19}| {1:>8} | {2:>6} | {3:>6} | {4:>6} | {5:>6} | {6:>6} | {7:>6} | {8:>6} | {9:>6} | {10:>6} | {11:>6} |'.format(sensor.title, *tuple(sensor.diff)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
 
 	def Do(self, fname : str):
@@ -176,10 +200,21 @@ class Tables:
 		cursor = None
 
 
+@contextmanager
+def open_or_stdout(file_path=None):
+	if file_path is None:
+		yield sys.stdout
+	else:
+		with open(file_path, 'w', encoding='UTF-8') as fh:
+			yield fh
+
+
 def main():
+	args = parser.parse_args()
 	t = Tables()
-	t.Do("Results.txt")
-	t.Print()
+	t.Do(args.filename)
+	with open_or_stdout(args.out) as fh:
+		t.Print(fh)
 
 if __name__ == '__main__':
 	main()
