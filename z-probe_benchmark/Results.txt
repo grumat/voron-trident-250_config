@@ -826,6 +826,98 @@ After 25 min
     Z prev = -0.925 µm/min
 
 
+Panasonic GX-H8A
+
+Start Condition:
+- Bed Temperature: 25.8
+- Nozzle Temperature: 28.1
+
+Stats for Moving Window of 10 Consecutive Elements:
+- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  126.25 µm / 38.65 µm  |   1.60 µm /  0.57 µm
+- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  1.53 µm  |   0.68 µm /  0.25 µm
+- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  52.50 µm / 17.20 µm  |  10.61 µm /  3.46 µm
+- Phase 3 Total Diff/StdDev (all)    |  Local Diff/StdDev:  70.00 µm / 12.55 µm  |   1.24 µm /  0.45 µm
+- Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  43.75 µm / 12.39 µm  |   1.67 µm /  0.60 µm
+
+===Heat Soak Statistics===
+Extrapolation = 0.0940 mm
+Total
+    Z avg =  0.113 mm
+    Z comp =  0.019 mm
+    Z disp =  0.109 mm
+    Z stdev = 15.909 µm
+    Z diff =  90.00 µm
+After 0 min
+    Z avg =  0.051 mm
+    Z comp = -0.043 mm
+    Z disp =  0.047 mm
+    Z stdev =  8.397 µm
+    Z diff =  27.50 µm
+After 1 min
+    Z avg =  0.073 mm
+    Z comp = -0.021 mm
+    Z disp =  0.070 mm
+    Z stdev =  5.018 µm
+    Z diff =  17.50 µm
+    Z prev = 22.200 µm/min
+After 2 min
+    Z avg =  0.088 mm
+    Z comp = -0.006 mm
+    Z disp =  0.085 mm
+    Z stdev =  3.693 µm
+    Z diff =  11.25 µm
+    Z prev = 15.208 µm/min
+After 3 min
+    Z avg =  0.100 mm
+    Z comp =  0.006 mm
+    Z disp =  0.096 mm
+    Z stdev =  2.936 µm
+    Z diff =  10.00 µm
+    Z prev = 11.417 µm/min
+After 5 min
+    Z avg =  0.117 mm
+    Z comp =  0.023 mm
+    Z disp =  0.113 mm
+    Z stdev =  2.131 µm
+    Z diff =   6.25 µm
+    Z prev =  8.458 µm/min
+After 7 min
+    Z avg =  0.125 mm
+    Z comp =  0.031 mm
+    Z disp =  0.121 mm
+    Z stdev =  0.683 µm
+    Z diff =   2.50 µm
+    Z prev =  4.146 µm/min
+After 10 min
+    Z avg =  0.126 mm
+    Z comp =  0.032 mm
+    Z disp =  0.122 mm
+    Z stdev =  0.529 µm
+    Z diff =   1.25 µm
+    Z prev =  0.306 µm/min
+After 15 min
+    Z avg =  0.120 mm
+    Z comp =  0.026 mm
+    Z disp =  0.116 mm
+    Z stdev =  0.224 µm
+    Z diff =   1.25 µm
+    Z prev = -1.183 µm/min
+After 20 min
+    Z avg =  0.117 mm
+    Z comp =  0.023 mm
+    Z disp =  0.113 mm
+    Z stdev =  0.602 µm
+    Z diff =   1.25 µm
+    Z prev = -0.667 µm/min
+After 25 min
+    Z avg =  0.114 mm
+    Z comp =  0.020 mm
+    Z disp =  0.110 mm
+    Z stdev =  0.375 µm
+    Z diff =   1.25 µm
+    Z prev = -0.617 µm/min
+
+
 BAOLSEN N3F-H4NB
 
 Start Condition:

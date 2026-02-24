@@ -7,6 +7,7 @@ py -3 gen_stats.py --data=.\data\probe_accuracy_TL-Q5MC1-Z.json --out=.\data\pro
 py -3 gen_stats.py --data=.\data\probe_accuracy_GX-H15A.json --out=.\data\probe_accuracy_GX-H15A.jpg --title="Panasonic GX-H15A" >> Results.txt
 py -3 gen_stats.py --data=.\data\probe_accuracy_GX-H12A.json --out=.\data\probe_accuracy_GX-H12A.jpg --title="Panasonic GX-H12A" >> Results.txt
 py -3 gen_stats.py --data=.\data\probe_accuracy_GX-H12A-covered.json --out=.\data\probe_accuracy_GX-H12A-covered.jpg --title="Covered GX-H12A" >> Results.txt
+py -3 gen_stats.py --data=.\data\probe_accuracy_GX-H8A.json --out=.\data\probe_accuracy_GX-H8A.jpg --title="Panasonic GX-H8A" >> Results.txt
 py -3 gen_stats.py --data=.\data\probe_accuracy_N3F-H4NB.json --out=.\data\probe_accuracy_N3F-H4NB.jpg --title="BAOLSEN N3F-H4NB" >> Results.txt
 
 IF EXIST ".\data\probe_accuracy.json" (
