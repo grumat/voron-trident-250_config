@@ -36,17 +36,20 @@ $ make menuconfig
 
 ![](images/katapult-octopus.jpg)
 
-Options:
-- Microcontroller **STMicrocontroller STM32**
-- Processor model **STM32F446**
-- Build Katapult deployment: **Do not build**
-- Clock Reference: **12 MHz**
-- Communication Interface: **USB on PA11/PA12**
-- Application start offset: **32KiB offset**
-- Support bootloader entry on rapid double click **YES**
-- Enable bootloader entry on button state **NO**
-- Enable Status LED **YES**
-- **PA13** Status LED
+#### Options
+
+| Option                           |             CAN             |             USB             |
+|----------------------------------|:---------------------------:|:---------------------------:|
+| Microcontroller                  | **STMicrocontroller STM32** | **STMicrocontroller STM32** |
+| Processor model                  |        **STM32F446**        |        **STM32F446**        |
+| Build Katapult deployment        |      **Do not build**       |      **Do not build**       |
+| Clock Reference                  |         **12 MHz**          |         **12 MHz**          |
+| Communication Interface          |    **USB on PA11/PA12**     |    **USB on PA11/PA12**     |
+| Application start offset         |      **32KiB offset**       |      **32KiB offset**       |
+| Support bootloader entry on rapid double click |    **YES**    |           **YES**           |
+| Enable bootloader entry on button state |        **NO**        |           **NO**            |
+| Enable Status LED                |           **YES**           |           **YES**           |
+| Status LED                       |          **PA13**           |          **PA13**           |
 
 
 
@@ -84,16 +87,21 @@ $ make menuconfig
 
 ![](images/klipper-octopus.jpg)
 
-Options:
-- Enable extra low-level configuration **YES**
-- Microcontroller **STMicrocontroller STM32**
-- Processor model **STM32F446**
-- Bootloader offset: **32KiB bootloader**
-- Clock Reference: **12 MHz**
-- Communication Interface: **USB on PA11/PA12**
-- USB ids **None**
-- Optimize stepper code for both edges **YES**
-- GPIO Pins **None**
+#### Options
+
+| Option                           |             CAN             |             USB             |
+|----------------------------------|:---------------------------:|:---------------------------:|
+| Enable extra low-level configuration |         **YES**         |           **YES**           |
+| Microcontroller                  | **STMicrocontroller STM32** | **STMicrocontroller STM32** |
+| Processor model                  |        **STM32F446**        |        **STM32F446**        |
+| Bootloader offset                |    **32KiB bootloader**     |    **32KiB bootloader**     |
+| Clock Reference                  |         **12 MHz**          |         **12 MHz**          |
+| Communication Interface    | **USB to CAN Bridge (PA11/PA12)** |    **USB on PA11/PA12**     |
+| CAN bus interface                |  **CAN bus (on PD0/PD1)**   |         **--//--**          |
+| USB ids                          |                             |                             |
+| CAN bus speed                    |         **1000000**         |         **--//--**          |
+| Optimize stepper code for both edges |         **YES**         |           **YES**           |
+| GPIO Pins                        |                             |                             |
 
 
 ```sh
@@ -140,21 +148,30 @@ $ cd ~/katapult
 $ make menuconfig
 ```
 
+#### CAN
+
 ![](images/katapult-h36.jpg)
 
-Options:
-- Microcontroller **STMicrocontroller STM32**
-- Processor model **STM32G0B1**
-- Build Katapult deployment: **Do not build**
-- Clock Reference: **12 MHz**
-- Communication Interface: **CAN bus on PD0/PD1**
-- Application start offset: **8KiB offset**
-- CAN bus speed **1000000**
-- GPIO pins to set on bootloader entry **!PA2**
-- Support bootloader entry on rapid double click **YES**
-- Enable bootloader entry on button state **NO**
-- Enable Status LED **YES**
-- Status LED **PA1**
+#### USB
+
+![](images/katapult-h36-usb.jpg)
+
+#### Options
+| Option | CAN | USB |
+|----------------------------------|:---:|:---:|
+| Microcontroller                  | **STMicrocontroller STM32** | **STMicrocontroller STM32** |
+| Processor model                  |        **STM32G0B1**        |        **STM32G0B1**        |
+| Build Katapult deployment        |      **Do not build**       |      **Do not build**       |
+| Clock Reference                  |         **12 MHz**          |         **12 MHz**          |
+| Communication Interface          |   **CAN bus on PD0/PD1**    |   **USB (on PA11/PA12)**    |
+| Application start offset         |       **8KiB offset**       |       **8KiB offset**       |
+| CAN bus speed                    |         **1000000**         |         **--//--**          |
+| USB ids                          |         **--//--**          |                             |
+| GPIO pins to set on bootloader entry |        **!PA2**         |           **PA2**           |
+| Support bootloader entry on rapid double click |    **YES**    |           **YES**           |
+| Enable bootloader entry on button state |        **NO**        |           **NO**            |
+| Enable Status LED                |           **YES**           |           **YES**           |
+| Status LED                       |           **PA1**           |           **PA1**           |
 
 
 
@@ -182,19 +199,30 @@ $ cd ~/klipper
 $ make menuconfig
 ```
 
+#### CAN
+
 ![](images/klipper-h36.jpg)
 
-Options:
-- Enable extra low-level configuration **YES**
-- Microcontroller **STMicrocontroller STM32**
-- Processor model **STM32F446**
-- Bootloader offset: **32KiB bootloader**
-- Clock Reference: **12 MHz**
-- Communication Interface: **USB on PA11/PA12**
-- USB ids **None**
-- Optimize stepper code for both edges **YES**
-- GPIO Pins **None**
+#### USB
 
+![](images/klipper-h36-usb.jpg)
+
+#### Options
+
+| Option | CAN | USB |
+|----------------------------------|:---------------------------:|:---------------------------:|
+| Enable extra low-level configuration |         **YES**         |           **YES**           |
+| Microcontroller                  | **STMicrocontroller STM32** | **STMicrocontroller STM32** |
+| Processor model                  |        **STM32G0B1**        |        **STM32G0B1**        |
+| Bootloader offset                |     **8KiB bootloader**     |     **8KiB bootloader**     |
+| Clock Reference                  |         **12 MHz**          |         **12 MHz**          |
+| Communication Interface          |  **CAN bus (on PD0/PD1)**   |    **USB on PA11/PA12**     |
+| CAN bus speed                    |         **1000000**         |         **--//--**          |
+| USB ids                          |         **--//--**          |                             |
+| Optimize stepper code for both edges |       **YES**           |           **YES**           |
+| GPIO Pins                        |          **!PA2**           |           **PA2**           |
+
+#### Flash
 
 ```sh
 $ make -j6
@@ -202,11 +230,23 @@ $ make -j6
 
 Find your serial device:
 
+For CAN:
 ```sh
 $ ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 Found canbus_uuid=2b53c68c7ce0, Application: Klipper
 Total 1 uuids found
 $ python3 ~/klipper/lib/canboot/flash_can.py -u 2b53c68c7ce0
+```
+
+For USB:
+```sh
+$ ls -al /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 80 Feb 27 18:34 .
+drwxr-xr-x 4 root root 80 Feb 27 17:56 ..
+lrwxrwxrwx 1 root root 13 Feb 27 17:56 usb-Klipper_stm32f446xx_390044001551303432323631-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root 13 Feb 27 18:34 usb-katapult_stm32g0b1xx_0B0028000950415742363820-if00 -> ../../ttyACM1
+$ make flash FLASH_DEVICE=/dev/serial/by-id/usb-katapult_stm32g0b1xx_0B0028000950415742363820-if00
 ```
 
 

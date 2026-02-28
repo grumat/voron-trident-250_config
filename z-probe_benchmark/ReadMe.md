@@ -1,52 +1,72 @@
 # Inductive Z-Probe Thermal Stability & Performance Report
 
-This report evaluates various inductive sensors used for 3D printer Z-probing. Inductive sensors are sensitive to temperature changes; as the heat bed and nozzle warm up, the sensor's internal circuitry and the physical expansion of the printer affect the "trigger point."
+This report evaluates inductive sensors for 3D printer Z-probing. Inductive sensors are highly susceptible to thermal drift; as the heat bed and nozzle warm up, the sensor's internal components and the printer's frame expand, shifting the "trigger point".
 
 ## Testing Methodology
 
-The sensors were put through a four-phase test procedure to measure drift and precision:
+Sensors were tested across four phases to measure drift and precision:
 
-1. **Phase 1: Cold State** (5 minutes) – Baseline at ambient temperature.
-2. **Phase 2: Heating** – Bed and Hot-end reaching working temperature.
-3. **Phase 3: Heat Soaking** (30 minutes) – Measuring the stabilization pattern.
-4. **Phase 4: Cool Down** (10 minutes) – Observing the return to ambient.
+1. **Phase 1: Cold State** (5 min) – Baseline at ambient.
+2. **Phase 2: Heating** – Reaching working temperatures.
+3. **Phase 4: Cool Down** (10 min) – Return to ambient.
+4. **Phase 3: Heat Soaking** (30 min) – Used to calculate the **Z-Offset Error** based on desired print quality.
+
+### Quality Tiers (Based on 0.2mm Layer Height)
+
+We categorize "Stability" by three error thresholds:
+
+- **Normal:** Error ≈ 1/4 layer (0.050 mm).
+- **Good:** Error ≈ 1/5 layer (0.040 mm).
+- **Best:** Error ≈ 1/6 layer (0.033 mm).
+
 
 * * *
+
 
 ## Comparative Sensor Analysis
 
 The following table summarizes the key performance metrics and physical characteristics of the tested probes.
 
-| **Sensor** | **Type** | **Price** | **Soak Time\*** | **Z @ 60min** | **Pros** | **Cons** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Panasonic GX-H15A** | NPN NO | €39.00 | **1 min** | 0.109 mm | Incredible thermal stability. | Higher price point. |
-| **Prusa Super Pinda** | 5V | €26.00 | 17 min | 0.024 mm | Proven reliability; good compensation. | Requires 5V interfacing. |
-| **Panasonic GX-H12A** | NPN NO | €27.00 | 15 min | 0.042 mm | Very high precision (lowest StdDev). | NO logic risk. |
-| **BAOLSEN N3F-H4NB** | NPN NC | €14.00 | 12 min | 0.061 mm | Best "budget" performance. | Known to be problematic on long cables. |
-| **FYSETC Super Pinda** | 5V | €17.00 | 29 min | 0.042 mm | Affordable alternative to Prusa. | Slowest to stabilize. |
-| **OMRON TL-Q5MC2-Z** | NPN NC | €67.00 | 7 min | 0.224 mm | Fast "stabilization." | **No compensation circuit.** |
-| **OMRON TL-Q5MC1-Z** | NPN NO | €67.00 | 29 min | 0.213 mm | High build quality. | Poor thermal performance. |
+| **Sensor** | **Type** | **Price** | **Soak (Best)** | **Z @ 60min** | **Sensing Distance** | **Pros** | **Cons** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Panasonic GX-H15A** | NO | €39.00 | **3 min** | 0.109 | 5mm | Extremely fast stabilization. | High price. |
+| **Panasonic GX-H8A** | NO | €27,00 | **3 min** | 0.094 | 2.5 mm | Very fast; Compact | NO logic risk. |
+| **Prusa Super Pinda** | 5V | €26.00 | 17 min | 0.024 | 2.5 mm | Most stable total displacement. | Requires 5V. |
+| **Panasonic GX-H12A** | NO | €27.00 | 15 min | 0.042 | 4 mm | Highest mechanical precision. | NO logic risk. |
+| **BAOLSEN N3F-H4NB** | NC | €14.00 | 12 min | 0.061 | 4 mm | Best budget stability. | NC safety. |
+| **FYSETC Super Pinda** | 5V | €17.00 | 29 min | 0.042 | 2.5 mm | Affordable. | Very slow to soak. |
+| **OMRON Q5MC1-Z** | NO | €67.00 | 29+ min | 0.224 | 5 mm |  | **Probably a chinese clone** |
+| **OMRON Q5MC2-Z** | NC | €67.00 | 7 min | 0.224 | 5 mm | Fast "leveling." | **No compensation.** |
 
-*\* Soak Time is the duration required to reach a drift of &lt; 0.033mm (1/6th of a 0.2mm layer).*
 
-## Key Findings & Guidance
+## Key Findings & Data Insights
 
-### 1. The "Normally Open" (NO) vs. "Normally Closed" (NC) Trade-off
+### 1. Thermal Stabilization & "The Rebound"
 
-- **Precision:** Data suggests NO sensors (like the Panasonic GX series) tend to be more precise.
-- **Safety:** **NC (Normally Closed)** sensors are recommended for 3D printers. If a wire breaks or a connector fails, the printer perceives a "triggered" state and stops. With an **NO** sensor, a failure will result in the printer driving the nozzle into the heat bed.
+The **Z Value Evolution** table shows how many μm the trigger point shifts per minute.
 
-### 2. The Importance of Heat Soaking
+- **Active Compensation:** Sensors like the **Prusa Super Pinda** and **Panasonic** series exhibit a "rebound" (negative μm/min after ~10 mins), where the internal circuit actively fights the physical expansion of the printer.
+- **The 2.5mm GX-H8A:** This new model performs similarly to the GX-H15A, reaching "Best" stability (0.0059 mm error) in just **3 minutes**.
 
-The "Z Value Displacement" data proves that all inductive probes require a systematic heat soaking period. Even the best sensors showed a displacement between 0.020mm and 0.263mm from cold to hot. **Never probe a cold bed if you intend to print on a hot one.**
+### 2. Shielding and Enclosures (Covered vs. Uncovered)
 
-### 3. Thermal Compensation Circuits
+Protecting the sensor from the airflow of the heat-break fan significantly impacts the "Soak Time" to reach stability:
 
-The **Prusa Super Pinda** and **Panasonic** sensors utilize internal temperature compensation. In contrast, the **OMRON TL-Q5MC2-Z** shows a nearly horizontal curve in extrapolation tests. While this looks "stable," it actually reveals the absence of a compensation circuit. This means the sensor will require a complete recalibration if you change your bed temperature (e.g., switching from PLA at 60°C to PETG at 80°C).
+- **Super Pinda:** Adding a cover reduced the "Best" soak time from **17 minutes to 12 minutes**.
+- **GX-H12A:** The cover had a negligible effect on soak time (15 vs 17 mins) but maintained the sensor's industry-leading precision (1.03 μm Standard Deviation in Phase 3).
 
-### 4. Enclosures (Covered vs. Uncovered)
+### 3. Z-Offset Error Trends
 
-Testing "Covered" versions of the Super Pinda and GX-H12A showed that mounting the sensor in an enclosed support can slightly alter the thermal curve, often slowing the heat absorption but occasionally helping with consistency in drafty environments.
+By using a min/max error calculation instead of absolute values, we see the true "window" of uncertainty.
+
+- The **OMRON TL-Q5MC1-Z** remains the most problematic, failing to reach even "Normal" stability within the 29-minute testing window (0.0487 mm error at 29 min).
+- The **Panasonic GX-H15A** reaches a near-perfect state (error of -0.0002 mm) in just 3 minutes.
+
+* * *
+
+## Summary for Users
+
+If you prioritize **print start speed**, the **Panasonic GX-H15A or GX-H8A** are the clear winners, stabilizing in under 5 minutes. If you prioritize **long-term reliability and safety**, the **Prusa Super Pinda** (with a proper 5V interface) provides the most consistent Z-offset across the widest temperature range, especially when used with a 15-20 minute heat soak.
 
 * * *
 
@@ -62,7 +82,7 @@ For users who do **not** use a heat-soaking routine, the following table illustr
 | Panasonic GX-H12A | 81.25 | 24.13 |
 | OMRON TL-Q5MC1-Z | 302.50 | 91.69 |
 
-**Note on OMRON Sensors:** Due to the extreme performance difference between the MC1 and MC2 variants sourced from China, it is suspected these may be clones. It is advised to purchase from reputable distributors like Mouser or DigiKey if using OMRON for mission-critical leveling.
+**Note on OMRON Sensors:** Due to the extreme performance difference between the MC1 and MC2 variants sourced from China, it is suspected these may be clones. It is advised to purchase from reputable distributors like Mouser or DigiKey if using OMRON for mission-critical leveling. Though, by that price tag, I would stick with a Panasonic model.
 
 ## Thermal Stabilization Analysis
 
@@ -79,7 +99,7 @@ The speed at which a sensor settles is critical for print efficiency. The follow
 
 ### Key Takeaways from the Data
 
-- **Fastest Settling:** The **Panasonic GX-H15A** shows an extremely rapid reduction in drift velocity, reaching near-zero movement faster than any other sensor.
+- **Fastest Settling:** The **Panasonic GX-H15A** and **GX-H8A** shows an extremely rapid reduction in drift velocity, reaching near-zero movement faster than any other sensor.
 - **The "Overshoot" Effect:** Both **Prusa** and **Panasonic** sensors exhibit a "rebound" effect where the Z-value begins to move in the opposite direction (negative µm/min) after approximately 10–15 minutes. This indicates the active thermal compensation circuit is counteracting the physical expansion of the printer.
 - **Clone Performance:** The **FYSETC Super Pinda** takes nearly twice as long as the original Prusa to reach a stable state, confirming that lower-cost alternatives often sacrifice the quality of the compensation components.
 
@@ -102,13 +122,105 @@ This table shows the total distance (in mm) the probe's trigger point shifted fr
 - **Layer 1 Reliability:** For a standard 0.2mm layer, a shift of **0.263 mm** (as seen in the OMRON MC1) is enough to cause a total print failure or a head crash if the printer isn't heat-soaked.
 - **The Gold Standard:** The **Prusa Super Pinda** remains the most "stable" in terms of total displacement (only 0.020 mm), making it very forgiving even if your soak time is inconsistent.
 
+
 * * *
+
+## Z-Offset Quality Options
+
+This analysis breaks down the efficiency of each sensor based on your new **Normal/Good/Best** error thresholds. These ratios represent the time investment required to reach specific precision levels (1/4, 1/5, or 1/6 of a 0.2mm layer).
+
+### 1. The "Efficiency" Ratio (Time to Precision)
+
+The data reveals a massive divide between "Fast-Stabilizers" and "Slow-Soakers."
+
+- **The Sprinters (Panasonic GX-H15A / GX-H8A):** These sensors reach the **Best** threshold (1/6 layer) in just **3 minutes**. Interestingly, they hit the **Normal** threshold almost immediately (1-2 mins), meaning there is very little "penalty" for demanding higher precision.
+- **The Marathoners (Prusa Super Pinda / GX-H12A):** These require a significant time investment to move from **Normal** to **Best**.
+
+    - **Super Pinda:** Jumps from 7 mins (Normal) to 17 mins (Best)—a **142% increase** in wait time for a 0.016mm improvement in error.
+    - **GX-H12A:** Jumps from 1 min (Normal) to 15 mins (Best).
+- **The Non-Conformists (OMRON / FYSETC):**
+
+    - The **FYSETC** takes 29 minutes just to hit the **Best** mark, making it the least efficient "compensated" sensor.
+    - The **OMRON MC1-Z** failed to reach any of the three quality tiers within the 29-minute test window, showing a persistent error of 0.0487mm.
+
+* * *
+
+### 2. Sensor Option Categorization
+
+<head></head>
+
+| **Category** | **Top Recommendation** | **Why?** |
+| --- | --- | --- |
+| **Speed & Throughput** | **Panasonic GX-H15A / H8A** | Reaches "Best" quality (0.0002mm to 0.0059mm error) in only **3 minutes**. Ideal for "print-and-go" workflows. |
+| **Set-and-Forget** | **Prusa Super Pinda** | While it takes 17 mins to reach "Best," its **total displacement** is the lowest (0.020mm). Even if you forget to soak, your crash risk is minimal. |
+| **Pure Precision** | **Panasonic GX-H12A** | Boasts the lowest Standard Deviation (0.43 $\mu m$). If your holder can block heat-break airflow, this is the most "repeatable" pulse. |
+| **Budget Safety** | **BAOLSEN N3F-H4NB** | Reaches "Best" in 12 minutes (faster than the Super Pinda) for only €14.00, while offering the safety of an NC (Normally Closed) logic. |
+
+* * *
+
+### 3. The "Covered" Variable
+
+Your theory regarding airflow interference is supported by the ratios of the **Super Pinda**:
+
+- **Uncovered:** 17 mins to reach "Best".
+- **Covered:** 12 mins to reach "Best".
+- **Result:** Shielding the sensor provides a **29% reduction** in required soak time to achieve high-tier print quality.
+
+
+* * *
+
+
+## Heat Soak Efficiency Table
+
+Use this table to determine how long you must wait to reach your desired layer quality. The times are calculated to ensure the Z-drift falls within the safe margin for your chosen precision tier.
+
+| **Sensor Option** | **Normal (0.050mm)** | **Good (0.040mm)** | **Best (0.033mm)** | **The "Sweet Spot"** |
+| --- | --- | --- | --- | --- |
+| **Panasonic GX-H15A / H8A** | 1 min | 2 min | **3 min** | **3 min** (Extreme speed) |
+| **Panasonic GX-H12A** | 1 min | 5 min | **15 min** | **5 min** (Diminishing returns after) |
+| **Prusa Super Pinda** | 7 min | 12 min | **17 min** | **12 min** (Good balance) |
+| **Covered Super Pinda** | 5 min | 10 min | **12 min** | **12 min** (Shielding pays off) |
+| **BAOLSEN N3F-H4NB** | 3 min | 7 min | **12 min** | **7 min** (Best budget value) |
+| **FYSETC Super Pinda** | 10 min | 20 min | **29 min** | **20 min** (Requires patience) |
+| **OMRON TL-Q5MC2-Z** | 2 min | 3 min | **7 min** | **7 min** (Uncompensated\*) |
+
+\*Note: While the OMRON MC2 stabilizes quickly, it lacks an active compensation circuit. This means you must manually recalibrate your Z-offset if you change your bed temperature (e.g., from 60°C to 100°C).
+
+
+* * *
+
+
+## Error Ratio Analysis
+
+The **Error-to-Time Ratio** reveals which sensors are "linear" and which have "diminishing returns":
+
+### 1. The High-Efficiency Sensors (Linear)
+
+The **Panasonic GX-H15A and H8A** have a nearly flat error-to-time ratio. You only wait **2 extra minutes** to go from "Normal" to "Best." For these sensors, there is no reason *not* to wait for the "Best" setting.
+
+### 2. The Steep Curve (Diminishing Returns)
+
+The **GX-H12A** and **Super Pinda** exhibit a steep curve.
+
+- To get that final **0.007mm** of precision (moving from Good to Best) on a GX-H12A, you have to wait an **additional 10 minutes**.
+- For most users, the **"Good"** threshold (1/5th layer height) represents the point of peak efficiency for these sensors.
+
+### 3. The "Airflow" Advantage
+
+The data on the **Covered Super Pinda** shows a significant shift in the ratio. By shielding the sensor:
+
+- You reach **"Best"** 5 minutes faster than the open version.
+- The "Good" threshold is reached in 10 minutes rather than 12.
+- **Conclusion:** If you are using a sensor with a slower compensation circuit (like the Pinda or FYSETC), a protective holder is the most effective "free" upgrade to reduce your pre-print wait time.
+
+
+* * *
+
 
 ## Summary Recommendation
 
-For the best balance of safety and speed, the **Panasonic GX-H15A** is the top performer due to its 1-minute stabilization time. However, for those on a budget, the **BAOLSEN N3F-H4NB** offers a respectable 12-minute soak time at a fraction of the cost.
+For the best balance of safety and speed, the **Panasonic GX-H15A** is the top performer due to its 3-minute stabilization time and a generous 5 mm sensing distance. However, for those on a budget, the **BAOLSEN N3F-H4NB** offers a respectable 12-minute soak time at a fraction of the cost.
 
-<head></head>
 ### Z Value Evolution Analysis
 
 The following data tracks how rapidly the sensors change their readings over time, expressed in $\mu m/min$. A value closer to zero indicates a stabilized, reliable thermal state:
@@ -119,7 +231,7 @@ The following data tracks how rapidly the sensors change their readings over tim
 
 ### Interpretation of Performance
 
-When analyzing the evolution of these values, consider these points for your wiki:
+When analyzing the evolution of these values, consider these points:
 
 - **Rapid vs. Gradual Stabilization:** Sensors like the **Panasonic GX-H12A** show consistent, predictable decay in drift rates, making them easier to compensate for in firmware.
 - **The OMRON Variance:** The extremely high evolution rates in the OMRON sensors (e.g., 74.77 $\mu m/min$ initially) confirm that they are not optimized for the thermal environment of a 3D printer bed.
@@ -303,6 +415,28 @@ These tables proves that sampling multiple times makes even the worst probe work
 
 The next set of tables will show how important heat soaking is.  
 It focus on **Phase 3** of the previous tables: Instead sampling a random spot, if we apply a reasonable heat soaking time, the first layer results are more deterministic.
+
+
+## Estimated Z-Offset time
+
+Based on sampled data, we compute a decay, which is the estimated curve of the thermal correction circuit. This table uses three different error values to compute Z-offset quality. 1/4 (Normal), 1/5 (Good) and 1/6 (Best) of a standard layer height.
+
+The Convergence column is the offset based on a cold printer state where the thermal correction circuit converges.
+
+| Z-Probe            | Convergence (mm) | Normal (min) | Error (mm) | Good (min) | Error (mm) | Best (min) | Error (mm) |
+|--------------------|:----------------:|:------------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| Prusa Super Pinda  |           0.0235 |            7 |     0.0489 |         13 |     0.0387 |         17 |     0.0325 |
+| Covered Super Pinda|           0.0277 |            1 |     0.0470 |          6 |     0.0392 |         12 |     0.0319 |
+| FYSETC Super Pinda |           0.0418 |           18 |     0.0487 |         26 |     0.0385 |         29 |     0.0330 |
+| Covered FYSETC     |           0.0503 |           21 |     0.0479 |         28 |     0.0388 |         29 |     0.0382 |
+| OMRON TL-Q5MC2-Z   |           0.2235 |            5 |    -0.0441 |          6 |    -0.0358 |          7 |    -0.0312 |
+| OMRON TL-Q5MC1-Z   |           0.2134 |           29 |     0.0487 |         29 |     0.0487 |         29 |     0.0487 |
+| Panasonic GX-H15A  |           0.1086 |            1 |    -0.0231 |          2 |    -0.0098 |          3 |    -0.0002 |
+| Panasonic GX-H12A  |           0.0416 |            1 |     0.0044 |          1 |     0.0044 |         15 |     0.0323 |
+| Covered GX-H12A    |           0.0482 |            1 |    -0.0003 |         13 |     0.0394 |         17 |     0.0329 |
+| Panasonic GX-H8A   |           0.0940 |            2 |    -0.0055 |          2 |    -0.0055 |          3 |     0.0059 |
+| BAOLSEN N3F-H4NB   |           0.0608 |            1 |    -0.0103 |          2 |     0.0001 |         12 |     0.0332 |
+
 
 ## Average Z Value (in mm)
 

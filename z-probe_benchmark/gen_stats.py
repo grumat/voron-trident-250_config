@@ -22,7 +22,9 @@ OFFSET_POWER = 20
 # Samples to evaluate for temperature offset shifts
 OFFSET_TEMP = 30
 
-SOAK_QUALITY = 0.2/6
+SOAK_QUALITY_BEST = 0.2/6
+SOAK_QUALITY_GOOD = 0.2/5
+SOAK_QUALITY_NORMAL = 0.2/4
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--data', default='./data/probe_accuracy_0.json')
@@ -108,6 +110,21 @@ class SoakStats(object):
 			z_soak = za
 		return (t_soak, z_soak, dif)
 
+	def select_by_extremes(self, max_err : float):
+		t_soak = 29
+		z_soak = self.m[29].avg - self.z_extrapolated
+		z0 = zm = self.z_extrapolated
+		for i in range(29, 0, -1):
+			za = self.m[i].avg
+			z0 = min(z0, za)
+			zm = max(zm, za)
+			dif = zm - z0
+			if dif > max_err:
+				break
+			t_soak = i
+			z_soak = za - self.z_extrapolated
+		return (t_soak, z_soak)
+
 	def MakeFit(self):
 		# Collect all data
 		ts = []
@@ -120,8 +137,8 @@ class SoakStats(object):
 		ts2 = ts.copy()
 		z2 = z.copy()
 		self.z_extrapolated = self.ExpDecayFunc(60.0)
-		# Lear peak error rate and doubles it
-		err_max = (SOAK_QUALITY + 3*max(abs(self.m[i].avg - self.ExpDecayFunc(i)) for i in range(15,30))) / 4.0
+		# Learn peak error rate and doubles it
+		err_max = (SOAK_QUALITY_BEST + 3*max(abs(self.m[i].avg - self.ExpDecayFunc(i)) for i in range(15,30))) / 4.0
 
 		# Widens the range accepting more error
 		t_soak, z_soak, err_max = self.select_by_error(err_max)
@@ -129,20 +146,20 @@ class SoakStats(object):
 		if t_soak < 15:
 			self.make_decay_(ts[t_soak:], z[t_soak:])
 			self.z_extrapolated = self.ExpDecayFunc(60.0)
+		self.decay = abs(self.ExpDecayFunc(75.0) - self.ExpDecayFunc(15.0))
 		# Now compute the absolute distance to extrapolated Z
-		self.t_soak = 29
-		self.z_soak = self.m[29].avg
-		for i in range(29, 0, -1):
-			za = self.m[i].avg
-			dif = abs(za - self.z_extrapolated)
-			if dif >= SOAK_QUALITY:
-				break
-			self.t_soak = i
-			self.z_soak = za
+		self.t_soak_best, self.z_soak_best = self.select_by_extremes(SOAK_QUALITY_BEST)
+		self.t_soak_good, self.z_soak_good = self.select_by_extremes(SOAK_QUALITY_GOOD)
+		self.t_soak_normal, self.z_soak_normal = self.select_by_extremes(SOAK_QUALITY_NORMAL)
 
 	def Print(self):
 		print("===Heat Soak Statistics===")
-		print(f"Extrapolation = {self.z_extrapolated:6.4f} mm")
+		print(f"Extrapolation: {self.z_extrapolated:6.4f} mm")
+		print(f"Decay: {self.decay:6.4f} mm/h")
+		print(f"Normal Z-offset quality: {self.z_soak_normal:6.4f} mm @{self.t_soak_normal} min")
+		print(f"Good Z-offset quality: {self.z_soak_good:6.4f} mm @{self.t_soak_good} min")
+		print(f"Best Z-offset quality: {self.z_soak_best:6.4f} mm @{self.t_soak_best} min")
+		print()
 		self.total.Print(self.z_extrapolated)
 		self.m[0].Print(self.z_extrapolated)
 		prev = 0
@@ -199,7 +216,8 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 	)
 
 	z_thr = pgo.Scatter(
-		x=[soak_stats.t_soak], y=[soak_stats.z_soak],
+		x=[soak_stats.t_soak_normal, soak_stats.t_soak_good, soak_stats.t_soak_best], 
+		y=[soak_stats.z_soak_normal + soak_stats.z_extrapolated, soak_stats.z_soak_good + soak_stats.z_extrapolated, soak_stats.z_soak_best + soak_stats.z_extrapolated],
 		mode='markers',
 		name='Heat soak threshold',
 		marker=dict(size=8, color='blue'),
@@ -317,7 +335,7 @@ def write_chart(data: list, output_file: str, chart_title: str, alt : bool, soak
 			title='°C',
 		),
 		yaxis2=dict(
-			title='Z soak = 60 min / {0:.3f} mm → {1} min / Δ {2:.3f} mm'.format(soak_stats.z_extrapolated, soak_stats.t_soak, soak_stats.z_soak-soak_stats.z_extrapolated),
+			title='Z soak = 60 min / {0:.3f} mm → {1} min / Δ {2:.3f} mm'.format(soak_stats.z_extrapolated, soak_stats.t_soak_best, soak_stats.z_soak_best-soak_stats.z_extrapolated),
 			anchor='x',
 			overlaying='y',
 			side='right',
@@ -434,7 +452,7 @@ def print_stats(data : list, title : str):
 	asdy3, adif3, sdy3, dif3 = moving_stats(phase3)
 	asdy4, adif4, sdy4, dif4 = moving_stats(phase4)
 
-	print('Stats for Moving Window of 10 Consecutive Elements:')
+	print('General Stats vs Moving Window of 10 Elements:')
 	print('- All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  {:5.2f} µm / {:5.2f} µm  |  {:5.2f} µm / {:5.2f} µm'.format(adif0, asdy0, dif0, sdy0))
 	print('- Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  {:5.2f} µm / {:5.2f} µm  |  {:5.2f} µm / {:5.2f} µm'.format(adif1, asdy1, dif1, sdy1))
 	print('- Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  {:5.2f} µm / {:5.2f} µm  |  {:5.2f} µm / {:5.2f} µm'.format(adif2, asdy2, dif2, sdy2))

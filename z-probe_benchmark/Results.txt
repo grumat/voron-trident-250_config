@@ -4,7 +4,7 @@ Start Condition:
 - Bed Temperature: 28.0
 - Nozzle Temperature: 30.2
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  100.00 µm / 25.26 µm  |   3.08 µm /  0.99 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  10.00 µm /  1.58 µm  |   3.25 µm /  0.98 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  68.75 µm / 24.24 µm  |  18.63 µm /  6.09 µm
@@ -12,7 +12,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  45.00 µm / 10.12 µm  |   3.22 µm /  1.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0235 mm
+Extrapolation: 0.0235 mm
+Decay: 0.0431 mm/h
+Normal Z-offset quality: 0.0489 mm @7 min
+Good Z-offset quality: 0.0387 mm @13 min
+Best Z-offset quality: 0.0325 mm @17 min
+
 Total
     Z avg =  0.063 mm
     Z comp =  0.039 mm
@@ -96,7 +101,7 @@ Start Condition:
 - Bed Temperature: 30.3
 - Nozzle Temperature: 32.3
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  76.25 µm / 21.73 µm  |   2.67 µm /  0.89 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   7.50 µm /  1.82 µm  |   2.04 µm /  0.71 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  66.25 µm / 23.15 µm  |  17.78 µm /  5.80 µm
@@ -104,7 +109,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  37.50 µm /  8.45 µm  |   3.19 µm /  1.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0277 mm
+Extrapolation: 0.0277 mm
+Decay: 0.0361 mm/h
+Normal Z-offset quality: 0.0470 mm @1 min
+Good Z-offset quality: 0.0392 mm @6 min
+Best Z-offset quality: 0.0319 mm @12 min
+
 Total
     Z avg =  0.058 mm
     Z comp =  0.030 mm
@@ -188,7 +198,7 @@ Start Condition:
 - Bed Temperature: 26.9
 - Nozzle Temperature: 29.5
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  126.25 µm / 32.32 µm  |   3.34 µm /  1.08 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  16.25 µm /  3.86 µm  |   2.65 µm /  0.89 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  106.25 µm / 37.04 µm  |  22.04 µm /  7.13 µm
@@ -196,7 +206,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  47.50 µm / 15.18 µm  |   2.63 µm /  0.92 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0418 mm
+Extrapolation: 0.0418 mm
+Decay: 0.0657 mm/h
+Normal Z-offset quality: 0.0487 mm @18 min
+Good Z-offset quality: 0.0385 mm @26 min
+Best Z-offset quality: 0.0330 mm @29 min
+
 Total
     Z avg =  0.097 mm
     Z comp =  0.055 mm
@@ -280,7 +295,7 @@ Start Condition:
 - Bed Temperature: 29.3
 - Nozzle Temperature: 32.4
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  141.25 µm / 39.48 µm  |   3.21 µm /  1.06 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  11.25 µm /  2.26 µm  |   1.09 µm /  0.45 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  107.50 µm / 37.85 µm  |  22.44 µm /  7.29 µm
@@ -288,7 +303,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  55.00 µm / 19.50 µm  |   2.67 µm /  0.91 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0503 mm
+Extrapolation: 0.0503 mm
+Decay: 0.0759 mm/h
+Normal Z-offset quality: 0.0479 mm @21 min
+Good Z-offset quality: 0.0388 mm @28 min
+Best Z-offset quality: 0.0382 mm @29 min
+
 Total
     Z avg =  0.112 mm
     Z comp =  0.062 mm
@@ -372,7 +392,7 @@ Start Condition:
 - Bed Temperature: 30.8
 - Nozzle Temperature: 33.1
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  230.00 µm / 72.15 µm  |   7.02 µm /  2.14 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:  15.00 µm /  2.56 µm  |   5.63 µm /  1.70 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  67.50 µm / 22.67 µm  |  18.67 µm /  5.99 µm
@@ -380,7 +400,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  95.00 µm / 30.11 µm  |   6.67 µm /  2.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.2235 mm
+Extrapolation: 0.2235 mm
+Decay: 0.0000 mm/h
+Normal Z-offset quality: -0.0441 mm @5 min
+Good Z-offset quality: -0.0358 mm @6 min
+Best Z-offset quality: -0.0312 mm @7 min
+
 Total
     Z avg =  0.201 mm
     Z comp = -0.022 mm
@@ -464,7 +489,7 @@ Start Condition:
 - Bed Temperature: 26.6
 - Nozzle Temperature: 29.5
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  302.50 µm / 91.69 µm  |   2.94 µm /  1.01 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  2.05 µm  |   0.74 µm /  0.29 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  172.50 µm / 57.87 µm  |  34.91 µm / 11.23 µm
@@ -472,7 +497,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  81.25 µm / 25.25 µm  |   2.41 µm /  0.85 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.2134 mm
+Extrapolation: 0.2134 mm
+Decay: 0.0945 mm/h
+Normal Z-offset quality: 0.0487 mm @29 min
+Good Z-offset quality: 0.0487 mm @29 min
+Best Z-offset quality: 0.0487 mm @29 min
+
 Total
     Z avg =  0.272 mm
     Z comp =  0.058 mm
@@ -556,7 +586,7 @@ Start Condition:
 - Bed Temperature: 31.2
 - Nozzle Temperature: 33.1
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  135.00 µm / 41.91 µm  |   2.61 µm /  0.86 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  1.76 µm  |   1.01 µm /  0.40 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  53.75 µm / 18.60 µm  |  14.19 µm /  4.59 µm
@@ -564,7 +594,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  55.00 µm / 16.03 µm  |   2.06 µm /  0.71 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.1086 mm
+Extrapolation: 0.1086 mm
+Decay: 0.0259 mm/h
+Normal Z-offset quality: -0.0231 mm @1 min
+Good Z-offset quality: -0.0098 mm @2 min
+Best Z-offset quality: -0.0002 mm @3 min
+
 Total
     Z avg =  0.122 mm
     Z comp =  0.013 mm
@@ -648,7 +683,7 @@ Start Condition:
 - Bed Temperature: 26.4
 - Nozzle Temperature: 29.9
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  81.25 µm / 24.13 µm  |   1.18 µm /  0.43 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   3.75 µm /  0.79 µm  |   0.44 µm /  0.17 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  41.25 µm / 13.35 µm  |   8.35 µm /  2.72 µm
@@ -656,7 +691,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  31.25 µm /  9.28 µm  |   1.21 µm /  0.45 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0416 mm
+Extrapolation: 0.0416 mm
+Decay: 0.0391 mm/h
+Normal Z-offset quality: 0.0044 mm @1 min
+Good Z-offset quality: 0.0044 mm @1 min
+Best Z-offset quality: 0.0323 mm @15 min
+
 Total
     Z avg =  0.068 mm
     Z comp =  0.027 mm
@@ -740,7 +780,7 @@ Start Condition:
 - Bed Temperature: 24.1
 - Nozzle Temperature: 26.0
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  92.50 µm / 26.98 µm  |   1.24 µm /  0.46 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  1.26 µm  |   0.58 µm /  0.22 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  36.25 µm / 11.67 µm  |   7.41 µm /  2.43 µm
@@ -748,7 +788,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  32.50 µm /  9.05 µm  |   1.22 µm /  0.47 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0482 mm
+Extrapolation: 0.0482 mm
+Decay: 0.0430 mm/h
+Normal Z-offset quality: -0.0003 mm @1 min
+Good Z-offset quality: 0.0394 mm @13 min
+Best Z-offset quality: 0.0329 mm @17 min
+
 Total
     Z avg =  0.077 mm
     Z comp =  0.029 mm
@@ -832,7 +877,7 @@ Start Condition:
 - Bed Temperature: 25.8
 - Nozzle Temperature: 28.1
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  126.25 µm / 38.65 µm  |   1.60 µm /  0.57 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   6.25 µm /  1.53 µm  |   0.68 µm /  0.25 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  52.50 µm / 17.20 µm  |  10.61 µm /  3.46 µm
@@ -840,7 +885,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  43.75 µm / 12.39 µm  |   1.67 µm /  0.60 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0940 mm
+Extrapolation: 0.0940 mm
+Decay: 0.0338 mm/h
+Normal Z-offset quality: -0.0055 mm @2 min
+Good Z-offset quality: -0.0055 mm @2 min
+Best Z-offset quality: 0.0059 mm @3 min
+
 Total
     Z avg =  0.113 mm
     Z comp =  0.019 mm
@@ -924,7 +974,7 @@ Start Condition:
 - Bed Temperature: 27.9
 - Nozzle Temperature: 30.5
 
-Stats for Moving Window of 10 Consecutive Elements:
+General Stats vs Moving Window of 10 Elements:
 - All Phases Total Diff/StdDev (all) |  Local Diff/StdDev:  98.75 µm / 28.48 µm  |   3.25 µm /  1.05 µm
 - Phase 1 Total Diff/StdDev (all)    |  Local Diff/StdDev:   8.75 µm /  2.00 µm  |   2.60 µm /  0.80 µm
 - Phase 2 Total Diff/StdDev (all)    |  Local Diff/StdDev:  48.75 µm / 16.06 µm  |  11.31 µm /  3.60 µm
@@ -932,7 +982,12 @@ Stats for Moving Window of 10 Consecutive Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  41.25 µm / 12.28 µm  |   3.59 µm /  1.13 µm
 
 ===Heat Soak Statistics===
-Extrapolation = 0.0608 mm
+Extrapolation: 0.0608 mm
+Decay: 0.0364 mm/h
+Normal Z-offset quality: -0.0103 mm @1 min
+Good Z-offset quality: 0.0001 mm @2 min
+Best Z-offset quality: 0.0332 mm @12 min
+
 Total
     Z avg =  0.084 mm
     Z comp =  0.023 mm

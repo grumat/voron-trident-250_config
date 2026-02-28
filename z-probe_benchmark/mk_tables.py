@@ -12,7 +12,8 @@ parser.add_argument('--out', default=None)
 
 
 BLOCK1 = re.compile(r'.+Local Diff/StdDev:\s+([\d\.-]+)\sµm\s/\s+([\d\.-]+)\sµm\s+\|\s+([\d\.-]+)\sµm\s/\s+([\d\.-]+)\sµm')
-EXTRAP = re.compile(r'Extrapolation = ([\d\.-]+) mm')
+EXTRAP = re.compile(r'\w+: ([\d\.-]+) mm.*')
+SOAK = re.compile(r'\w+ Z-offset quality: ([\d\.-]+) mm @(\d+) min')
 BLOCK2 = re.compile(r'\s+Z\s[acdefigmoprstv]+\s=\s+([\d\.-]+)\s[mµ]m')
 
 class Sensor:
@@ -20,6 +21,9 @@ class Sensor:
 		self.title = title
 		self.part1 = []
 		self.extrapolated = ""
+		self.decay = ""
+		self.soak_t = []
+		self.soak_z = []
 		self.avg = []
 		self.comp = []
 		self.disp = []
@@ -41,7 +45,7 @@ class Tables:
 			mark = ""
 			while not mark:
 				mark = next(cursor).rstrip()
-			if mark == "Stats for Moving Window of 10 Consecutive Elements:":
+			if mark == "General Stats vs Moving Window of 10 Elements:":
 				found = True
 				for i in range(5):
 					m = BLOCK1.match(next(cursor).rstrip())
@@ -61,6 +65,13 @@ class Tables:
 				found = True
 				m = EXTRAP.match(next(cursor).rstrip())
 				sensor.extrapolated = m[1]
+				m = EXTRAP.match(next(cursor).rstrip())
+				sensor.decay = m[1]
+				for i in range(3):
+					m = SOAK.match(next(cursor).rstrip())
+					sensor.soak_z.append(m[1])
+					sensor.soak_t.append(m[2])
+				next(cursor)	# eat blank line
 				next(cursor)	# eat title
 				for i in range(11):
 					m = BLOCK2.match(next(cursor).rstrip())
@@ -137,6 +148,15 @@ class Tables:
 		print(file=fh)
 
 		#####################################################################################
+
+		print('## Estimated Z-Offset time', file=fh)
+		print(file=fh)
+		print('| Z-Probe            | Convergence (mm) | Normal (min) | Error (mm) | Good (min) | Error (mm) | Best (min) | Error (mm) |', file=fh)
+		print('|--------------------|:----------------:|:------------:|:----------:|:----------:|:----------:|:----------:|:----------:|', file=fh)
+		for sensor in self.sensors:
+			print('| {0:19}| {1:>16} | {2:>12} | {5:>10} | {3:>10} | {6:>10} | {4:>10} | {7:>10} |'.format(sensor.title, sensor.extrapolated, *tuple(sensor.soak_t), *tuple(sensor.soak_z)), file=fh)
+		print(file=fh)
+		print(file=fh)
 
 		print('## Average Z Value (in mm)', file=fh)
 		print(file=fh)
