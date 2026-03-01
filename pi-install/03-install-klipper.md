@@ -4,7 +4,7 @@
 Switch to `klipper` user:
 
 ```sh
-su - klipper
+$ su - klipper
 ```
 
 ## Installing Via `kiauh`
@@ -12,8 +12,8 @@ su - klipper
 > This needs `git`, which was installed on the **Initial Configuration** step.
 
 ```sh
-cd ~ && git clone https://github.com/dw-0/kiauh.git
-./kiauh/kiauh.sh
+$ cd ~ && git clone https://github.com/dw-0/kiauh.git
+$ ./kiauh/kiauh.sh
 ```
 
 Follow these menu/steps:
@@ -38,7 +38,7 @@ According to *Esotherical* timeout issues with multi-MCU setups when homing and 
 Also, CPU Core 4 and 5 was set to *performance* so that they don't produce jitter. REcall that these cores are the BIG cores and have the best performance.
 
 ```sh
-sudo nano /etc/systemd/system/klipper.service
+$ sudo nano /etc/systemd/system/klipper.service
 ```
 
 ```ini
@@ -93,7 +93,7 @@ Edit `~/printer_data/config/KAMP_Settings.cfg` and uncomment `Line_Purge.cfg` an
 ...
 
 # For the DragonBurner, which runs very close to the bed I also change this settings:
-variable_purge_margin: 30
+variable_purge_margin: 25
 ```
 
 

@@ -29,13 +29,13 @@ sudo systemctl stop moonraker
 
 ## Copy Data
 
-On the old SBC:
+On the old SBC (this assumes that the IP of the new SBC is `192.168.0.30`):
 
 ```sh
-rsync -av ~/printer_data/config/ klipper@192.168.0.30:~/printer_data/config/
-rsync -av ~/printer_data/database/ klipper@192.168.0.30:~/printer_data/database/
-rsync -av ~/printer_data/gcodes/ klipper@192.168.0.30:~/printer_data/gcodes/
-rsync -av ~/printer_data/logs/ klipper@192.168.0.30:~/printer_data/logs/
+rsync -av --no-links ~/printer_data/config/ klipper@192.168.0.30:~/printer_data/config/
+rsync -av --no-links ~/printer_data/database/ klipper@192.168.0.30:~/printer_data/database/
+rsync -av --no-links ~/printer_data/gcodes/ klipper@192.168.0.30:~/printer_data/gcodes/
+rsync -av --no-links ~/printer_data/logs/ klipper@192.168.0.30:~/printer_data/logs/
 ```
 
 ## Backup of Entire NanoPC-T4 Image

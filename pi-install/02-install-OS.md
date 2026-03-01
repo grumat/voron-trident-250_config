@@ -1,5 +1,3 @@
-# OS Download
-
 # General Install Instructions (Debian Minimal)
 
 The official Debian Minimal installation is very straightforward in Windows. Download and unzip package ( in my case `rk3399-usb-debian-trixie-core-4.19-arm64-20260112.zip`).
@@ -12,7 +10,7 @@ Extract it on a known location.
 **Do not run it** until drivers and everything is working OK.
 
 
-## Download Device Driver (Single TIme Only)
+## Download Device Driver (Single Time Only)
 
 Download it from the official site:
 
@@ -98,7 +96,7 @@ Keep a LAN cable connected to help initial setup without the need of WiFi.
 To check IP address:
 
 ```sh
-ip a
+$ ip a
 ```
 
 
@@ -107,23 +105,23 @@ ip a
 Install SSH Keys for better Putty WinSCP integration:
 
 ```sh
-sudo -i
-cd ~
-mkdir .ssh			# only if not exists
-chmod 0700 .ssh
-cd .ssh
+$ sudo -i
+$ cd ~
+$ mkdir .ssh			# only if not exists
+$ chmod 0700 .ssh
+$ cd .ssh
 # Note replace by real valid keys
-echo ssh-rsa AAAA...g4GwqAvMD6PRygl grumat-20220428 >> authorized_keys
-echo ssh-rsa AAAA...PoT9AB9Lj/w== rsa-key-bjmm-20181215 >> authorized_keys
-echo ssh-rsa AAAAAAABAAABA...5Pti1IMzSwh3Qt+c6JoR SW-X4 >> authorized_keys
-chmod 0600 authorized_keys
+$ echo ssh-rsa AAAA...g4GwqAvMD6PRygl grumat-20220428 >> authorized_keys
+$ echo ssh-rsa AAAA...PoT9AB9Lj/w== rsa-key-bjmm-20181215 >> authorized_keys
+$ echo ssh-rsa AAAAAAABAAABA...5Pti1IMzSwh3Qt+c6JoR SW-X4 >> authorized_keys
+$ chmod 0600 authorized_keys
 ```
 
 
 ## Changing Hostname
 
 ```sh
-nmtui
+$ nmtui
 ```
 
 - Set System Hostname
@@ -135,13 +133,13 @@ nmtui
 We make sure to disable `networking.service`, since recent **Debian** uses **Network Manager**, which supersedes the older one. Mixing configuration among them may cause conflicts.
 
 ```sh
-apt install -y ifenslave
-systemctl disable systemd-networkd-wait-online.service
-systemctl stop networking.service
-systemctl disable networking.service
-echo "bonding" >> /etc/modules-load.d/bonding.conf
-echo "options bonding mode=active-backup miimon=100 max_bonds=1" >> /etc/modprobe.d/bonding.conf
-modprobe bonding
+$ apt install -y ifenslave
+$ systemctl disable systemd-networkd-wait-online.service
+$ systemctl stop networking.service
+$ systemctl disable networking.service
+$ echo "bonding" >> /etc/modules-load.d/bonding.conf
+$ echo "options bonding mode=active-backup miimon=100 max_bonds=1" >> /etc/modprobe.d/bonding.conf
+$ modprobe bonding
 ```
 
 ## Creating the `bond0` connection
@@ -149,7 +147,7 @@ modprobe bonding
 Check if you have `eth0` and `wlan0` up and running:
 
 ```sh
-nmcli device status
+$ nmcli device status
 ```
 
 Lets start adding the bond network (**check the IP addresses for your specific case**):
@@ -186,10 +184,10 @@ p2p-dev-wlan0  wifi-p2p  disconnected            --
 ## Update Current Packages
 
 ```sh
-sudo -i	    # use this to enter root
+$ sudo -i	    # use this to enter root
 
-apt update
-apt upgrade
+$ apt update
+$ apt upgrade
 ```
 
 
@@ -198,7 +196,7 @@ apt upgrade
 - Always using `root`, type:
 
 ```sh
-nano /etc/network/interfaces.d/can0
+$ nano /etc/network/interfaces.d/can0
 ```
 
 ```ini
@@ -261,13 +259,13 @@ $ ip a
 Always using `root`, install:
 
 ```sh
-apt install -y git
-apt install -y build-essential
-apt install -y python3 python3-pip
-apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
-apt install dosfstools
-apt install rsync
-apt install python3-serial
+$ apt install -y git
+$ apt install -y build-essential
+$ apt install -y python3 python3-pip
+$ apt install -y python3-numpy python3-matplotlib libatlas3-base libopenblas-dev
+$ apt install dosfstools
+$ apt install rsync
+$ apt install python3-serial
 ```
 
 
@@ -291,8 +289,8 @@ LC_PAPER=de_AT.UTF-8
 - Finally command:
 
 ```sh
-locale-gen
-update-locale
+$ locale-gen
+$ update-locale
 ```
 
 
@@ -328,6 +326,18 @@ $ systemctl start set-cpu-governor.service
 $ systemctl enable set-cpu-governor.service
 ```
 
+Check with:
+
+```sh
+$ cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+performance
+performance
+performance
+performance
+schedutil
+schedutil
+```
+
 ## Rename `pi` account to `klipper`
 
 Always using `root`account, do:
@@ -342,16 +352,16 @@ groupmod -n klipper pi
 Final verification:
 
 ```sh
-id klipper
-ls -ld /home/klipper
+$ id klipper
+$ ls -ld /home/klipper
 ```
 
 In the case you want to use the same SSH keys with the klipper user:
 
 ```sh
-mkdir /home/klipper/.ssh
-cp ~/.ssh/authorized_keys /home/klipper/.ssh/
-chown -R klipper:klipper /home/klipper/.ssh
+$ mkdir /home/klipper/.ssh
+$ cp ~/.ssh/authorized_keys /home/klipper/.ssh/
+$ chown -R klipper:klipper /home/klipper/.ssh
 ```
 
 
@@ -378,6 +388,6 @@ Klipper usually needs access to USB serial devices.
 Add the user to required groups:
 
 ```sh
-usermod -aG dialout,tty,video,input klipper
-newgrp dialout
+$ usermod -aG dialout,tty,video,input klipper
+$ newgrp dialout
 ```
