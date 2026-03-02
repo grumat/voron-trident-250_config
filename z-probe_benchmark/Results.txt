@@ -12,87 +12,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  45.00 µm / 10.12 µm  |   3.22 µm /  1.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0235 mm
-Decay: 0.0431 mm/h
-Normal Z-offset quality: 0.0489 mm @7 min
-Good Z-offset quality: 0.0387 mm @13 min
-Best Z-offset quality: 0.0325 mm @17 min
+Extrapolation: 0.0236 mm
+Decay: 0.0425 mm/h
+Normal Z-offset quality: 0.0498 mm @6 min
+Good Z-offset quality: 0.0397 mm @12 min
+Best Z-offset quality: 0.0331 mm @16 min
 
 Total
     Z avg =  0.063 mm
     Z comp =  0.039 mm
     Z disp =  0.036 mm
-    Z stdev = 15.176 µm
+    Z stdev = 15.002 µm
     Z diff =  56.25 µm
 After 0 min
-    Z avg =  0.095 mm
-    Z comp =  0.071 mm
-    Z disp =  0.068 mm
-    Z stdev =  4.595 µm
-    Z diff =  16.25 µm
+    Z avg =  0.098 mm
+    Z comp =  0.074 mm
+    Z disp =  0.071 mm
+    Z stdev =  1.218 µm
+    Z diff =   6.25 µm
 After 1 min
-    Z avg =  0.097 mm
-    Z comp =  0.073 mm
-    Z disp =  0.070 mm
-    Z stdev =  1.571 µm
-    Z diff =   5.00 µm
-    Z prev =  1.582 µm/min
+    Z avg =  0.095 mm
+    Z comp =  0.072 mm
+    Z disp =  0.069 mm
+    Z stdev =  1.884 µm
+    Z diff =   6.25 µm
+    Z prev = -2.574 µm/min
 After 2 min
-    Z avg =  0.091 mm
-    Z comp =  0.068 mm
-    Z disp =  0.065 mm
-    Z stdev =  2.431 µm
+    Z avg =  0.089 mm
+    Z comp =  0.066 mm
+    Z disp =  0.063 mm
+    Z stdev =  2.070 µm
     Z diff =   8.75 µm
-    Z prev = -5.125 µm/min
+    Z prev = -6.083 µm/min
 After 3 min
-    Z avg =  0.086 mm
-    Z comp =  0.062 mm
-    Z disp =  0.059 mm
-    Z stdev =  1.354 µm
-    Z diff =   5.00 µm
-    Z prev = -5.667 µm/min
+    Z avg =  0.084 mm
+    Z comp =  0.061 mm
+    Z disp =  0.058 mm
+    Z stdev =  1.359 µm
+    Z diff =   6.25 µm
+    Z prev = -4.708 µm/min
 After 5 min
-    Z avg =  0.078 mm
-    Z comp =  0.054 mm
-    Z disp =  0.051 mm
-    Z stdev =  1.045 µm
-    Z diff =   3.75 µm
-    Z prev = -3.896 µm/min
+    Z avg =  0.077 mm
+    Z comp =  0.053 mm
+    Z disp =  0.050 mm
+    Z stdev =  1.140 µm
+    Z diff =   5.00 µm
+    Z prev = -3.687 µm/min
 After 7 min
     Z avg =  0.072 mm
-    Z comp =  0.049 mm
-    Z disp =  0.046 mm
-    Z stdev =  0.673 µm
-    Z diff =   2.50 µm
-    Z prev = -2.792 µm/min
+    Z comp =  0.048 mm
+    Z disp =  0.045 mm
+    Z stdev =  0.839 µm
+    Z diff =   3.75 µm
+    Z prev = -2.583 µm/min
 After 10 min
-    Z avg =  0.067 mm
-    Z comp =  0.043 mm
-    Z disp =  0.040 mm
-    Z stdev =  1.304 µm
-    Z diff =   6.25 µm
-    Z prev = -1.903 µm/min
+    Z avg =  0.066 mm
+    Z comp =  0.042 mm
+    Z disp =  0.039 mm
+    Z stdev =  1.133 µm
+    Z diff =   5.00 µm
+    Z prev = -2.014 µm/min
 After 15 min
     Z avg =  0.058 mm
-    Z comp =  0.035 mm
-    Z disp =  0.032 mm
-    Z stdev =  0.745 µm
-    Z diff =   2.50 µm
-    Z prev = -1.667 µm/min
+    Z comp =  0.034 mm
+    Z disp =  0.031 mm
+    Z stdev =  0.812 µm
+    Z diff =   3.75 µm
+    Z prev = -1.583 µm/min
 After 20 min
-    Z avg =  0.053 mm
+    Z avg =  0.052 mm
     Z comp =  0.029 mm
     Z disp =  0.026 mm
-    Z stdev =  0.652 µm
+    Z stdev =  0.773 µm
     Z diff =   2.50 µm
-    Z prev = -1.125 µm/min
+    Z prev = -1.117 µm/min
 After 25 min
     Z avg =  0.047 mm
-    Z comp =  0.024 mm
+    Z comp =  0.023 mm
     Z disp =  0.020 mm
-    Z stdev =  0.756 µm
+    Z stdev =  0.764 µm
     Z diff =   2.50 µm
-    Z prev = -1.133 µm/min
+    Z prev = -1.117 µm/min
 
 
 Covered Super Pinda
@@ -109,87 +109,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  37.50 µm /  8.45 µm  |   3.19 µm /  1.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0277 mm
-Decay: 0.0361 mm/h
-Normal Z-offset quality: 0.0470 mm @1 min
-Good Z-offset quality: 0.0392 mm @6 min
-Best Z-offset quality: 0.0319 mm @12 min
+Extrapolation: 0.0279 mm
+Decay: 0.0352 mm/h
+Normal Z-offset quality: 0.0464 mm @1 min
+Good Z-offset quality: 0.0394 mm @5 min
+Best Z-offset quality: 0.0322 mm @11 min
 
 Total
     Z avg =  0.058 mm
     Z comp =  0.030 mm
     Z disp =  0.054 mm
-    Z stdev =  8.909 µm
-    Z diff =  33.75 µm
-After 0 min
-    Z avg =  0.062 mm
-    Z comp =  0.035 mm
-    Z disp =  0.058 mm
-    Z stdev =  9.237 µm
+    Z stdev =  8.931 µm
     Z diff =  31.25 µm
+After 0 min
+    Z avg =  0.073 mm
+    Z comp =  0.046 mm
+    Z disp =  0.070 mm
+    Z stdev =  2.147 µm
+    Z diff =   8.75 µm
 After 1 min
-    Z avg =  0.075 mm
-    Z comp =  0.047 mm
-    Z disp =  0.071 mm
-    Z stdev =  0.909 µm
-    Z diff =   2.50 µm
-    Z prev = 12.409 µm/min
-After 2 min
     Z avg =  0.074 mm
     Z comp =  0.046 mm
     Z disp =  0.070 mm
-    Z stdev =  0.786 µm
-    Z diff =   3.75 µm
-    Z prev = -0.833 µm/min
-After 3 min
-    Z avg =  0.072 mm
+    Z stdev =  0.769 µm
+    Z diff =   2.50 µm
+    Z prev =  0.824 µm/min
+After 2 min
+    Z avg =  0.073 mm
     Z comp =  0.045 mm
-    Z disp =  0.068 mm
-    Z stdev =  0.875 µm
+    Z disp =  0.069 mm
+    Z stdev =  0.850 µm
     Z diff =   2.50 µm
     Z prev = -1.458 µm/min
+After 3 min
+    Z avg =  0.070 mm
+    Z comp =  0.042 mm
+    Z disp =  0.066 mm
+    Z stdev =  1.446 µm
+    Z diff =   5.00 µm
+    Z prev = -2.625 µm/min
 After 5 min
-    Z avg =  0.068 mm
-    Z comp =  0.041 mm
-    Z disp =  0.065 mm
-    Z stdev =  0.882 µm
-    Z diff =   3.75 µm
-    Z prev = -1.954 µm/min
+    Z avg =  0.067 mm
+    Z comp =  0.039 mm
+    Z disp =  0.063 mm
+    Z stdev =  1.088 µm
+    Z diff =   6.25 µm
+    Z prev = -1.435 µm/min
 After 7 min
-    Z avg =  0.066 mm
-    Z comp =  0.038 mm
-    Z disp =  0.062 mm
-    Z stdev =  0.850 µm
+    Z avg =  0.065 mm
+    Z comp =  0.037 mm
+    Z disp =  0.061 mm
+    Z stdev =  0.834 µm
     Z diff =   3.75 µm
-    Z prev = -1.276 µm/min
+    Z prev = -1.024 µm/min
 After 10 min
-    Z avg =  0.063 mm
-    Z comp =  0.035 mm
-    Z disp =  0.059 mm
-    Z stdev =  0.737 µm
-    Z diff =   2.50 µm
-    Z prev = -1.004 µm/min
+    Z avg =  0.062 mm
+    Z comp =  0.034 mm
+    Z disp =  0.058 mm
+    Z stdev =  1.002 µm
+    Z diff =   3.75 µm
+    Z prev = -1.038 µm/min
 After 15 min
-    Z avg =  0.056 mm
-    Z comp =  0.028 mm
-    Z disp =  0.052 mm
-    Z stdev =  0.728 µm
-    Z diff =   2.50 µm
-    Z prev = -1.372 µm/min
+    Z avg =  0.055 mm
+    Z comp =  0.027 mm
+    Z disp =  0.051 mm
+    Z stdev =  0.573 µm
+    Z diff =   1.25 µm
+    Z prev = -1.360 µm/min
 After 20 min
     Z avg =  0.051 mm
-    Z comp =  0.024 mm
-    Z disp =  0.048 mm
-    Z stdev =  0.652 µm
+    Z comp =  0.023 mm
+    Z disp =  0.047 mm
+    Z stdev =  0.717 µm
     Z diff =   2.50 µm
-    Z prev = -0.917 µm/min
+    Z prev = -0.842 µm/min
 After 25 min
-    Z avg =  0.049 mm
-    Z comp =  0.021 mm
-    Z disp =  0.045 mm
-    Z stdev =  0.595 µm
+    Z avg =  0.048 mm
+    Z comp =  0.020 mm
+    Z disp =  0.044 mm
+    Z stdev =  0.756 µm
     Z diff =   2.50 µm
-    Z prev = -0.592 µm/min
+    Z prev = -0.575 µm/min
 
 
 FYSETC Super Pinda
@@ -206,87 +206,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  47.50 µm / 15.18 µm  |   2.63 µm /  0.92 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0418 mm
-Decay: 0.0657 mm/h
-Normal Z-offset quality: 0.0487 mm @18 min
-Good Z-offset quality: 0.0385 mm @26 min
-Best Z-offset quality: 0.0330 mm @29 min
+Extrapolation: 0.0409 mm
+Decay: 0.0646 mm/h
+Normal Z-offset quality: 0.0497 mm @17 min
+Good Z-offset quality: 0.0394 mm @25 min
+Best Z-offset quality: 0.0324 mm @29 min
 
 Total
     Z avg =  0.097 mm
-    Z comp =  0.055 mm
+    Z comp =  0.056 mm
     Z disp =  0.089 mm
-    Z stdev = 15.172 µm
-    Z diff =  60.00 µm
+    Z stdev = 15.274 µm
+    Z diff =  56.25 µm
 After 0 min
-    Z avg =  0.093 mm
-    Z comp =  0.051 mm
-    Z disp =  0.085 mm
-    Z stdev = 10.823 µm
-    Z diff =  40.00 µm
-After 1 min
     Z avg =  0.108 mm
     Z comp =  0.067 mm
-    Z disp =  0.101 mm
-    Z stdev =  1.267 µm
-    Z diff =   5.00 µm
-    Z prev = 15.677 µm/min
-After 2 min
+    Z disp =  0.100 mm
+    Z stdev =  1.502 µm
+    Z diff =   7.50 µm
+After 1 min
     Z avg =  0.112 mm
-    Z comp =  0.070 mm
+    Z comp =  0.071 mm
     Z disp =  0.104 mm
     Z stdev =  1.179 µm
     Z diff =   5.00 µm
-    Z prev =  3.583 µm/min
-After 3 min
+    Z prev =  3.737 µm/min
+After 2 min
     Z avg =  0.115 mm
-    Z comp =  0.073 mm
+    Z comp =  0.074 mm
     Z disp =  0.107 mm
     Z stdev =  1.443 µm
     Z diff =   6.25 µm
     Z prev =  2.917 µm/min
+After 3 min
+    Z avg =  0.117 mm
+    Z comp =  0.076 mm
+    Z disp =  0.109 mm
+    Z stdev =  1.350 µm
+    Z diff =   6.25 µm
+    Z prev =  1.708 µm/min
 After 5 min
-    Z avg =  0.121 mm
-    Z comp =  0.079 mm
-    Z disp =  0.113 mm
-    Z stdev =  1.233 µm
-    Z diff =   3.75 µm
-    Z prev =  2.750 µm/min
-After 7 min
     Z avg =  0.123 mm
-    Z comp =  0.081 mm
+    Z comp =  0.082 mm
     Z disp =  0.115 mm
-    Z stdev =  2.637 µm
+    Z stdev =  1.288 µm
+    Z diff =   5.00 µm
+    Z prev =  3.354 µm/min
+After 7 min
+    Z avg =  0.113 mm
+    Z comp =  0.072 mm
+    Z disp =  0.105 mm
+    Z stdev =  2.261 µm
     Z diff =   8.75 µm
-    Z prev =  1.292 µm/min
+    Z prev = -5.354 µm/min
 After 10 min
-    Z avg =  0.108 mm
+    Z avg =  0.107 mm
     Z comp =  0.066 mm
-    Z disp =  0.100 mm
-    Z stdev =  0.769 µm
-    Z diff =   2.50 µm
-    Z prev = -5.014 µm/min
+    Z disp =  0.099 mm
+    Z stdev =  1.055 µm
+    Z diff =   3.75 µm
+    Z prev = -1.972 µm/min
 After 15 min
-    Z avg =  0.096 mm
+    Z avg =  0.095 mm
     Z comp =  0.054 mm
-    Z disp =  0.088 mm
+    Z disp =  0.087 mm
+    Z stdev =  0.813 µm
+    Z diff =   2.50 µm
+    Z prev = -2.333 µm/min
+After 20 min
+    Z avg =  0.085 mm
+    Z comp =  0.044 mm
+    Z disp =  0.077 mm
+    Z stdev =  1.239 µm
+    Z diff =   5.00 µm
+    Z prev = -2.058 µm/min
+After 25 min
+    Z avg =  0.080 mm
+    Z comp =  0.039 mm
+    Z disp =  0.072 mm
     Z stdev =  0.850 µm
     Z diff =   2.50 µm
-    Z prev = -2.375 µm/min
-After 20 min
-    Z avg =  0.086 mm
-    Z comp =  0.044 mm
-    Z disp =  0.078 mm
-    Z stdev =  0.994 µm
-    Z diff =   5.00 µm
-    Z prev = -1.992 µm/min
-After 25 min
-    Z avg =  0.083 mm
-    Z comp =  0.041 mm
-    Z disp =  0.075 mm
-    Z stdev =  0.909 µm
-    Z diff =   3.75 µm
-    Z prev = -0.725 µm/min
+    Z prev = -0.900 µm/min
 
 
 Covered FYSETC
@@ -303,87 +303,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  55.00 µm / 19.50 µm  |   2.67 µm /  0.91 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0503 mm
-Decay: 0.0759 mm/h
-Normal Z-offset quality: 0.0479 mm @21 min
-Good Z-offset quality: 0.0388 mm @28 min
-Best Z-offset quality: 0.0382 mm @29 min
+Extrapolation: 0.0538 mm
+Decay: 0.0681 mm/h
+Normal Z-offset quality: 0.0492 mm @18 min
+Good Z-offset quality: 0.0389 mm @24 min
+Best Z-offset quality: 0.0345 mm @29 min
 
 Total
     Z avg =  0.112 mm
-    Z comp =  0.062 mm
+    Z comp =  0.059 mm
     Z disp =  0.106 mm
-    Z stdev = 17.628 µm
-    Z diff =  66.25 µm
+    Z stdev = 17.601 µm
+    Z diff =  56.25 µm
 After 0 min
-    Z avg =  0.097 mm
-    Z comp =  0.047 mm
-    Z disp =  0.091 mm
-    Z stdev =  9.780 µm
-    Z diff =  33.75 µm
-After 1 min
     Z avg =  0.112 mm
-    Z comp =  0.062 mm
+    Z comp =  0.058 mm
     Z disp =  0.106 mm
-    Z stdev =  2.360 µm
+    Z stdev =  2.394 µm
     Z diff =   8.75 µm
-    Z prev = 15.066 µm/min
-After 2 min
+After 1 min
     Z avg =  0.117 mm
-    Z comp =  0.067 mm
+    Z comp =  0.063 mm
     Z disp =  0.111 mm
     Z stdev =  2.177 µm
     Z diff =  10.00 µm
-    Z prev =  5.000 µm/min
-After 3 min
+    Z prev =  5.106 µm/min
+After 2 min
     Z avg =  0.121 mm
-    Z comp =  0.071 mm
+    Z comp =  0.067 mm
     Z disp =  0.115 mm
     Z stdev =  1.852 µm
     Z diff =   6.25 µm
     Z prev =  3.875 µm/min
+After 3 min
+    Z avg =  0.126 mm
+    Z comp =  0.072 mm
+    Z disp =  0.119 mm
+    Z stdev =  1.603 µm
+    Z diff =   6.25 µm
+    Z prev =  4.625 µm/min
 After 5 min
-    Z avg =  0.130 mm
-    Z comp =  0.079 mm
-    Z disp =  0.124 mm
-    Z stdev =  2.143 µm
-    Z diff =   7.50 µm
-    Z prev =  4.438 µm/min
+    Z avg =  0.134 mm
+    Z comp =  0.080 mm
+    Z disp =  0.128 mm
+    Z stdev =  1.331 µm
+    Z diff =   5.00 µm
+    Z prev =  4.104 µm/min
 After 7 min
-    Z avg =  0.136 mm
-    Z comp =  0.086 mm
-    Z disp =  0.130 mm
+    Z avg =  0.138 mm
+    Z comp =  0.084 mm
+    Z disp =  0.132 mm
     Z stdev =  1.007 µm
     Z diff =   3.75 µm
-    Z prev =  3.146 µm/min
+    Z prev =  1.958 µm/min
 After 10 min
-    Z avg =  0.138 mm
-    Z comp =  0.088 mm
-    Z disp =  0.132 mm
+    Z avg =  0.137 mm
+    Z comp =  0.083 mm
+    Z disp =  0.131 mm
+    Z stdev =  0.951 µm
+    Z diff =   3.75 µm
+    Z prev = -0.236 µm/min
+After 15 min
+    Z avg =  0.113 mm
+    Z comp =  0.059 mm
+    Z disp =  0.107 mm
+    Z stdev =  1.025 µm
+    Z diff =   3.75 µm
+    Z prev = -4.850 µm/min
+After 20 min
+    Z avg =  0.098 mm
+    Z comp =  0.044 mm
+    Z disp =  0.092 mm
+    Z stdev =  1.354 µm
+    Z diff =   5.00 µm
+    Z prev = -2.892 µm/min
+After 25 min
+    Z avg =  0.092 mm
+    Z comp =  0.038 mm
+    Z disp =  0.086 mm
     Z stdev =  0.786 µm
     Z diff =   2.50 µm
-    Z prev =  0.583 µm/min
-After 15 min
-    Z avg =  0.116 mm
-    Z comp =  0.066 mm
-    Z disp =  0.110 mm
-    Z stdev =  1.375 µm
-    Z diff =   5.00 µm
-    Z prev = -4.392 µm/min
-After 20 min
-    Z avg =  0.101 mm
-    Z comp =  0.050 mm
-    Z disp =  0.095 mm
-    Z stdev =  1.194 µm
-    Z diff =   5.00 µm
-    Z prev = -3.033 µm/min
-After 25 min
-    Z avg =  0.093 mm
-    Z comp =  0.042 mm
-    Z disp =  0.087 mm
-    Z stdev =  0.954 µm
-    Z diff =   3.75 µm
-    Z prev = -1.608 µm/min
+    Z prev = -1.333 µm/min
 
 
 OMRON TL-Q5MC2-Z
@@ -400,87 +400,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  95.00 µm / 30.11 µm  |   6.67 µm /  2.06 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.2235 mm
+Extrapolation: 0.2237 mm
 Decay: 0.0000 mm/h
-Normal Z-offset quality: -0.0441 mm @5 min
-Good Z-offset quality: -0.0358 mm @6 min
-Best Z-offset quality: -0.0312 mm @7 min
+Normal Z-offset quality: -0.0481 mm @4 min
+Good Z-offset quality: -0.0382 mm @5 min
+Best Z-offset quality: -0.0256 mm @7 min
 
 Total
-    Z avg =  0.201 mm
-    Z comp = -0.022 mm
-    Z disp =  0.194 mm
-    Z stdev = 40.133 µm
-    Z diff = 183.75 µm
+    Z avg =  0.205 mm
+    Z comp = -0.019 mm
+    Z disp =  0.197 mm
+    Z stdev = 34.649 µm
+    Z diff = 156.25 µm
 After 0 min
-    Z avg =  0.068 mm
-    Z comp = -0.156 mm
-    Z disp =  0.061 mm
-    Z stdev = 12.166 µm
-    Z diff =  41.25 µm
+    Z avg =  0.089 mm
+    Z comp = -0.134 mm
+    Z disp =  0.082 mm
+    Z stdev =  8.302 µm
+    Z diff =  32.50 µm
 After 1 min
-    Z avg =  0.098 mm
-    Z comp = -0.125 mm
-    Z disp =  0.091 mm
-    Z stdev =  7.561 µm
-    Z diff =  26.25 µm
-    Z prev = 30.262 µm/min
+    Z avg =  0.117 mm
+    Z comp = -0.107 mm
+    Z disp =  0.109 mm
+    Z stdev =  8.363 µm
+    Z diff =  27.50 µm
+    Z prev = 27.266 µm/min
 After 2 min
-    Z avg =  0.126 mm
-    Z comp = -0.098 mm
-    Z disp =  0.119 mm
-    Z stdev =  7.572 µm
-    Z diff =  31.25 µm
-    Z prev = 27.667 µm/min
+    Z avg =  0.140 mm
+    Z comp = -0.083 mm
+    Z disp =  0.133 mm
+    Z stdev =  7.053 µm
+    Z diff =  28.75 µm
+    Z prev = 23.958 µm/min
 After 3 min
-    Z avg =  0.148 mm
-    Z comp = -0.076 mm
-    Z disp =  0.140 mm
-    Z stdev =  7.688 µm
-    Z diff =  31.25 µm
-    Z prev = 21.750 µm/min
+    Z avg =  0.162 mm
+    Z comp = -0.062 mm
+    Z disp =  0.154 mm
+    Z stdev =  5.472 µm
+    Z diff =  20.00 µm
+    Z prev = 21.042 µm/min
 After 5 min
-    Z avg =  0.179 mm
-    Z comp = -0.044 mm
-    Z disp =  0.172 mm
-    Z stdev =  3.829 µm
-    Z diff =  15.00 µm
-    Z prev = 15.937 µm/min
-After 7 min
-    Z avg =  0.192 mm
-    Z comp = -0.031 mm
-    Z disp =  0.185 mm
-    Z stdev =  3.012 µm
-    Z diff =  13.75 µm
-    Z prev =  6.437 µm/min
-After 10 min
-    Z avg =  0.213 mm
-    Z comp = -0.011 mm
-    Z disp =  0.206 mm
-    Z stdev =  2.250 µm
+    Z avg =  0.186 mm
+    Z comp = -0.038 mm
+    Z disp =  0.178 mm
+    Z stdev =  2.731 µm
     Z diff =  10.00 µm
-    Z prev =  6.903 µm/min
+    Z prev = 12.000 µm/min
+After 7 min
+    Z avg =  0.198 mm
+    Z comp = -0.026 mm
+    Z disp =  0.191 mm
+    Z stdev =  4.028 µm
+    Z diff =  16.25 µm
+    Z prev =  6.312 µm/min
+After 10 min
+    Z avg =  0.216 mm
+    Z comp = -0.008 mm
+    Z disp =  0.209 mm
+    Z stdev =  2.695 µm
+    Z diff =  10.00 µm
+    Z prev =  5.847 µm/min
 After 15 min
     Z avg =  0.224 mm
-    Z comp =  0.001 mm
+    Z comp =  0.000 mm
     Z disp =  0.217 mm
-    Z stdev =  1.638 µm
-    Z diff =   8.75 µm
-    Z prev =  2.275 µm/min
+    Z stdev =  1.864 µm
+    Z diff =   7.50 µm
+    Z prev =  1.642 µm/min
 After 20 min
-    Z avg =  0.223 mm
+    Z avg =  0.224 mm
     Z comp = -0.000 mm
     Z disp =  0.216 mm
-    Z stdev =  2.229 µm
+    Z stdev =  2.183 µm
     Z diff =   8.75 µm
-    Z prev = -0.233 µm/min
+    Z prev = -0.058 µm/min
 After 25 min
     Z avg =  0.224 mm
     Z comp =  0.001 mm
     Z disp =  0.217 mm
-    Z stdev =  1.953 µm
-    Z diff =   7.50 µm
-    Z prev =  0.208 µm/min
+    Z stdev =  1.758 µm
+    Z diff =   6.25 µm
+    Z prev =  0.175 µm/min
 
 
 OMRON TL-Q5MC1-Z
@@ -497,87 +497,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  81.25 µm / 25.25 µm  |   2.41 µm /  0.85 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.2134 mm
-Decay: 0.0945 mm/h
-Normal Z-offset quality: 0.0487 mm @29 min
-Good Z-offset quality: 0.0487 mm @29 min
-Best Z-offset quality: 0.0487 mm @29 min
+Extrapolation: 0.2140 mm
+Decay: 0.0916 mm/h
+Normal Z-offset quality: 0.0500 mm @26 min
+Good Z-offset quality: 0.0472 mm @29 min
+Best Z-offset quality: 0.0472 mm @29 min
 
 Total
-    Z avg =  0.272 mm
-    Z comp =  0.058 mm
-    Z disp =  0.269 mm
-    Z stdev = 33.999 µm
-    Z diff = 231.25 µm
+    Z avg =  0.276 mm
+    Z comp =  0.062 mm
+    Z disp =  0.273 mm
+    Z stdev = 21.682 µm
+    Z diff = 123.75 µm
 After 0 min
-    Z avg =  0.131 mm
-    Z comp = -0.083 mm
-    Z disp =  0.128 mm
-    Z stdev = 32.396 µm
-    Z diff = 107.50 µm
-After 1 min
     Z avg =  0.205 mm
-    Z comp = -0.008 mm
+    Z comp = -0.009 mm
     Z disp =  0.202 mm
-    Z stdev = 12.676 µm
-    Z diff =  43.75 µm
-    Z prev = 74.773 µm/min
-After 2 min
+    Z stdev = 13.333 µm
+    Z diff =  45.00 µm
+After 1 min
     Z avg =  0.235 mm
     Z comp =  0.021 mm
     Z disp =  0.232 mm
     Z stdev =  5.636 µm
     Z diff =  18.75 µm
-    Z prev = 29.208 µm/min
-After 3 min
+    Z prev = 30.070 µm/min
+After 2 min
     Z avg =  0.252 mm
-    Z comp =  0.039 mm
+    Z comp =  0.038 mm
     Z disp =  0.249 mm
     Z stdev =  4.737 µm
     Z diff =  16.25 µm
     Z prev = 17.583 µm/min
+After 3 min
+    Z avg =  0.268 mm
+    Z comp =  0.054 mm
+    Z disp =  0.265 mm
+    Z stdev =  4.539 µm
+    Z diff =  15.00 µm
+    Z prev = 15.875 µm/min
 After 5 min
-    Z avg =  0.283 mm
-    Z comp =  0.069 mm
-    Z disp =  0.280 mm
-    Z stdev =  3.732 µm
-    Z diff =  12.50 µm
-    Z prev = 15.208 µm/min
+    Z avg =  0.293 mm
+    Z comp =  0.079 mm
+    Z disp =  0.290 mm
+    Z stdev =  2.765 µm
+    Z diff =   8.75 µm
+    Z prev = 12.687 µm/min
 After 7 min
-    Z avg =  0.299 mm
-    Z comp =  0.086 mm
-    Z disp =  0.296 mm
-    Z stdev =  1.161 µm
-    Z diff =   3.75 µm
-    Z prev =  8.208 µm/min
-After 10 min
-    Z avg =  0.302 mm
-    Z comp =  0.089 mm
-    Z disp =  0.299 mm
-    Z stdev =  0.500 µm
-    Z diff =   1.25 µm
-    Z prev =  1.056 µm/min
-After 15 min
-    Z avg =  0.290 mm
-    Z comp =  0.077 mm
-    Z disp =  0.287 mm
-    Z stdev =  1.028 µm
-    Z diff =   3.75 µm
-    Z prev = -2.375 µm/min
-After 20 min
-    Z avg =  0.276 mm
-    Z comp =  0.063 mm
-    Z disp =  0.273 mm
-    Z stdev =  1.021 µm
+    Z avg =  0.301 mm
+    Z comp =  0.087 mm
+    Z disp =  0.298 mm
+    Z stdev =  0.595 µm
     Z diff =   2.50 µm
-    Z prev = -2.825 µm/min
+    Z prev =  4.000 µm/min
+After 10 min
+    Z avg =  0.301 mm
+    Z comp =  0.087 mm
+    Z disp =  0.298 mm
+    Z stdev =  0.393 µm
+    Z diff =   2.50 µm
+    Z prev = -0.097 µm/min
+After 15 min
+    Z avg =  0.286 mm
+    Z comp =  0.072 mm
+    Z disp =  0.283 mm
+    Z stdev =  1.455 µm
+    Z diff =   5.00 µm
+    Z prev = -3.075 µm/min
+After 20 min
+    Z avg =  0.273 mm
+    Z comp =  0.059 mm
+    Z disp =  0.270 mm
+    Z stdev =  0.895 µm
+    Z diff =   2.50 µm
+    Z prev = -2.475 µm/min
 After 25 min
-    Z avg =  0.266 mm
-    Z comp =  0.053 mm
-    Z disp =  0.263 mm
-    Z stdev =  0.529 µm
+    Z avg =  0.265 mm
+    Z comp =  0.051 mm
+    Z disp =  0.262 mm
+    Z stdev =  0.224 µm
     Z diff =   1.25 µm
-    Z prev = -2.058 µm/min
+    Z prev = -1.683 µm/min
 
 
 Panasonic GX-H15A
@@ -691,87 +691,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  31.25 µm /  9.28 µm  |   1.21 µm /  0.45 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0416 mm
-Decay: 0.0391 mm/h
-Normal Z-offset quality: 0.0044 mm @1 min
-Good Z-offset quality: 0.0044 mm @1 min
-Best Z-offset quality: 0.0323 mm @15 min
+Extrapolation: 0.0427 mm
+Decay: 0.0362 mm/h
+Normal Z-offset quality: 0.0116 mm @1 min
+Good Z-offset quality: 0.0116 mm @1 min
+Best Z-offset quality: 0.0324 mm @13 min
 
 Total
-    Z avg =  0.068 mm
+    Z avg =  0.069 mm
     Z comp =  0.027 mm
-    Z disp =  0.064 mm
-    Z stdev = 10.323 µm
-    Z diff =  56.25 µm
+    Z disp =  0.066 mm
+    Z stdev =  8.246 µm
+    Z diff =  40.00 µm
 After 0 min
-    Z avg =  0.034 mm
-    Z comp = -0.008 mm
-    Z disp =  0.030 mm
-    Z stdev =  5.279 µm
-    Z diff =  16.25 µm
-After 1 min
     Z avg =  0.046 mm
-    Z comp =  0.004 mm
+    Z comp =  0.003 mm
     Z disp =  0.042 mm
-    Z stdev =  2.424 µm
+    Z stdev =  2.528 µm
     Z diff =   8.75 µm
-    Z prev = 12.290 µm/min
-After 2 min
+After 1 min
     Z avg =  0.054 mm
-    Z comp =  0.013 mm
+    Z comp =  0.012 mm
     Z disp =  0.050 mm
     Z stdev =  2.343 µm
     Z diff =   8.75 µm
-    Z prev =  8.292 µm/min
-After 3 min
+    Z prev =  8.445 µm/min
+After 2 min
     Z avg =  0.062 mm
-    Z comp =  0.020 mm
+    Z comp =  0.019 mm
     Z disp =  0.058 mm
     Z stdev =  2.179 µm
     Z diff =   6.25 µm
     Z prev =  7.708 µm/min
-After 5 min
-    Z avg =  0.073 mm
-    Z comp =  0.032 mm
-    Z disp =  0.069 mm
-    Z stdev =  1.315 µm
+After 3 min
+    Z avg =  0.068 mm
+    Z comp =  0.026 mm
+    Z disp =  0.064 mm
+    Z stdev =  1.500 µm
     Z diff =   3.75 µm
-    Z prev =  5.625 µm/min
+    Z prev =  6.250 µm/min
+After 5 min
+    Z avg =  0.077 mm
+    Z comp =  0.035 mm
+    Z disp =  0.073 mm
+    Z stdev =  1.074 µm
+    Z diff =   3.75 µm
+    Z prev =  4.521 µm/min
 After 7 min
-    Z avg =  0.080 mm
+    Z avg =  0.081 mm
     Z comp =  0.038 mm
-    Z disp =  0.076 mm
-    Z stdev =  0.602 µm
-    Z diff =   2.50 µm
-    Z prev =  3.354 µm/min
-After 10 min
-    Z avg =  0.080 mm
-    Z comp =  0.039 mm
     Z disp =  0.077 mm
-    Z stdev =  0.602 µm
+    Z stdev =  0.612 µm
     Z diff =   1.25 µm
-    Z prev =  0.167 µm/min
+    Z prev =  1.604 µm/min
+After 10 min
+    Z avg =  0.079 mm
+    Z comp =  0.037 mm
+    Z disp =  0.075 mm
+    Z stdev =  0.619 µm
+    Z diff =   1.25 µm
+    Z prev = -0.403 µm/min
 After 15 min
-    Z avg =  0.074 mm
-    Z comp =  0.032 mm
-    Z disp =  0.070 mm
-    Z stdev =  0.624 µm
+    Z avg =  0.072 mm
+    Z comp =  0.030 mm
+    Z disp =  0.069 mm
+    Z stdev =  0.323 µm
     Z diff =   2.50 µm
-    Z prev = -1.308 µm/min
+    Z prev = -1.358 µm/min
 After 20 min
-    Z avg =  0.069 mm
-    Z comp =  0.027 mm
-    Z disp =  0.065 mm
-    Z stdev =  0.000 µm
-    Z diff =   0.00 µm
-    Z prev = -1.033 µm/min
-After 25 min
-    Z avg =  0.065 mm
-    Z comp =  0.023 mm
-    Z disp =  0.061 mm
-    Z stdev =  0.523 µm
+    Z avg =  0.068 mm
+    Z comp =  0.025 mm
+    Z disp =  0.064 mm
+    Z stdev =  0.573 µm
     Z diff =   1.25 µm
-    Z prev = -0.806 µm/min
+    Z prev = -0.925 µm/min
+After 25 min
+    Z avg =  0.064 mm
+    Z comp =  0.021 mm
+    Z disp =  0.060 mm
+    Z stdev =  0.370 µm
+    Z diff =   1.25 µm
+    Z prev = -0.801 µm/min
 
 
 Covered GX-H12A
@@ -788,87 +788,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  32.50 µm /  9.05 µm  |   1.22 µm /  0.47 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0482 mm
-Decay: 0.0430 mm/h
-Normal Z-offset quality: -0.0003 mm @1 min
-Good Z-offset quality: 0.0394 mm @13 min
-Best Z-offset quality: 0.0329 mm @17 min
+Extrapolation: 0.0486 mm
+Decay: 0.0416 mm/h
+Normal Z-offset quality: 0.0061 mm @1 min
+Good Z-offset quality: 0.0397 mm @12 min
+Best Z-offset quality: 0.0327 mm @16 min
 
 Total
-    Z avg =  0.077 mm
+    Z avg =  0.078 mm
     Z comp =  0.029 mm
-    Z disp =  0.073 mm
-    Z stdev = 12.436 µm
-    Z diff =  65.00 µm
+    Z disp =  0.074 mm
+    Z stdev = 10.783 µm
+    Z diff =  53.75 µm
 After 0 min
-    Z avg =  0.036 mm
-    Z comp = -0.012 mm
-    Z disp =  0.033 mm
-    Z stdev =  4.353 µm
-    Z diff =  15.00 µm
+    Z avg =  0.044 mm
+    Z comp = -0.004 mm
+    Z disp =  0.041 mm
+    Z stdev =  3.262 µm
+    Z diff =  11.25 µm
 After 1 min
-    Z avg =  0.048 mm
-    Z comp = -0.000 mm
-    Z disp =  0.044 mm
-    Z stdev =  2.996 µm
+    Z avg =  0.055 mm
+    Z comp =  0.006 mm
+    Z disp =  0.051 mm
+    Z stdev =  3.009 µm
     Z diff =  10.00 µm
-    Z prev = 11.706 µm/min
+    Z prev = 10.473 µm/min
 After 2 min
-    Z avg =  0.058 mm
-    Z comp =  0.010 mm
-    Z disp =  0.054 mm
-    Z stdev =  2.820 µm
-    Z diff =  10.00 µm
-    Z prev = 10.042 µm/min
-After 3 min
-    Z avg =  0.066 mm
-    Z comp =  0.018 mm
-    Z disp =  0.063 mm
+    Z avg =  0.064 mm
+    Z comp =  0.015 mm
+    Z disp =  0.060 mm
     Z stdev =  2.370 µm
     Z diff =   7.50 µm
-    Z prev =  8.417 µm/min
+    Z prev =  9.000 µm/min
+After 3 min
+    Z avg =  0.072 mm
+    Z comp =  0.023 mm
+    Z disp =  0.068 mm
+    Z stdev =  2.235 µm
+    Z diff =   7.50 µm
+    Z prev =  7.917 µm/min
 After 5 min
-    Z avg =  0.080 mm
-    Z comp =  0.032 mm
-    Z disp =  0.077 mm
-    Z stdev =  1.603 µm
-    Z diff =   5.00 µm
-    Z prev =  6.979 µm/min
-After 7 min
-    Z avg =  0.088 mm
-    Z comp =  0.040 mm
-    Z disp =  0.085 mm
-    Z stdev =  1.057 µm
+    Z avg =  0.083 mm
+    Z comp =  0.035 mm
+    Z disp =  0.080 mm
+    Z stdev =  1.267 µm
     Z diff =   3.75 µm
-    Z prev =  3.938 µm/min
+    Z prev =  5.958 µm/min
+After 7 min
+    Z avg =  0.090 mm
+    Z comp =  0.041 mm
+    Z disp =  0.087 mm
+    Z stdev =  0.913 µm
+    Z diff =   3.75 µm
+    Z prev =  3.250 µm/min
 After 10 min
     Z avg =  0.092 mm
-    Z comp =  0.044 mm
-    Z disp =  0.089 mm
+    Z comp =  0.043 mm
+    Z disp =  0.088 mm
+    Z stdev =  0.612 µm
+    Z diff =   1.25 µm
+    Z prev =  0.583 µm/min
+After 15 min
+    Z avg =  0.083 mm
+    Z comp =  0.034 mm
+    Z disp =  0.079 mm
+    Z stdev =  0.698 µm
+    Z diff =   2.50 µm
+    Z prev = -1.792 µm/min
+After 20 min
+    Z avg =  0.077 mm
+    Z comp =  0.029 mm
+    Z disp =  0.074 mm
     Z stdev =  0.425 µm
     Z diff =   1.25 µm
-    Z prev =  1.389 µm/min
-After 15 min
-    Z avg =  0.084 mm
-    Z comp =  0.036 mm
-    Z disp =  0.080 mm
-    Z stdev =  0.456 µm
-    Z diff =   2.50 µm
-    Z prev = -1.717 µm/min
-After 20 min
-    Z avg =  0.078 mm
-    Z comp =  0.030 mm
-    Z disp =  0.074 mm
-    Z stdev =  0.529 µm
-    Z diff =   1.25 µm
-    Z prev = -1.192 µm/min
+    Z prev = -1.092 µm/min
 After 25 min
     Z avg =  0.073 mm
-    Z comp =  0.025 mm
-    Z disp =  0.070 mm
-    Z stdev =  0.624 µm
+    Z comp =  0.024 mm
+    Z disp =  0.069 mm
+    Z stdev =  0.224 µm
     Z diff =   1.25 µm
-    Z prev = -0.925 µm/min
+    Z prev = -0.958 µm/min
 
 
 Panasonic GX-H8A
@@ -885,87 +885,87 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  43.75 µm / 12.39 µm  |   1.67 µm /  0.60 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0940 mm
-Decay: 0.0338 mm/h
-Normal Z-offset quality: -0.0055 mm @2 min
-Good Z-offset quality: -0.0055 mm @2 min
-Best Z-offset quality: 0.0059 mm @3 min
+Extrapolation: 0.0956 mm
+Decay: 0.0311 mm/h
+Normal Z-offset quality: -0.0118 mm @1 min
+Good Z-offset quality: 0.0007 mm @2 min
+Best Z-offset quality: 0.0007 mm @2 min
 
 Total
-    Z avg =  0.113 mm
+    Z avg =  0.114 mm
     Z comp =  0.019 mm
-    Z disp =  0.109 mm
-    Z stdev = 15.909 µm
-    Z diff =  90.00 µm
+    Z disp =  0.111 mm
+    Z stdev = 12.549 µm
+    Z diff =  70.00 µm
 After 0 min
-    Z avg =  0.051 mm
-    Z comp = -0.043 mm
-    Z disp =  0.047 mm
-    Z stdev =  8.397 µm
-    Z diff =  27.50 µm
+    Z avg =  0.067 mm
+    Z comp = -0.029 mm
+    Z disp =  0.063 mm
+    Z stdev =  5.887 µm
+    Z diff =  20.00 µm
 After 1 min
-    Z avg =  0.073 mm
-    Z comp = -0.021 mm
-    Z disp =  0.070 mm
-    Z stdev =  5.018 µm
-    Z diff =  17.50 µm
-    Z prev = 22.200 µm/min
+    Z avg =  0.084 mm
+    Z comp = -0.012 mm
+    Z disp =  0.080 mm
+    Z stdev =  4.226 µm
+    Z diff =  15.00 µm
+    Z prev = 16.977 µm/min
 After 2 min
-    Z avg =  0.088 mm
-    Z comp = -0.006 mm
-    Z disp =  0.085 mm
-    Z stdev =  3.693 µm
-    Z diff =  11.25 µm
-    Z prev = 15.208 µm/min
-After 3 min
-    Z avg =  0.100 mm
-    Z comp =  0.006 mm
-    Z disp =  0.096 mm
-    Z stdev =  2.936 µm
+    Z avg =  0.096 mm
+    Z comp =  0.001 mm
+    Z disp =  0.093 mm
+    Z stdev =  3.178 µm
     Z diff =  10.00 µm
-    Z prev = 11.417 µm/min
+    Z prev = 12.542 µm/min
+After 3 min
+    Z avg =  0.106 mm
+    Z comp =  0.011 mm
+    Z disp =  0.103 mm
+    Z stdev =  2.581 µm
+    Z diff =   8.75 µm
+    Z prev =  9.833 µm/min
 After 5 min
-    Z avg =  0.117 mm
-    Z comp =  0.023 mm
-    Z disp =  0.113 mm
-    Z stdev =  2.131 µm
-    Z diff =   6.25 µm
-    Z prev =  8.458 µm/min
+    Z avg =  0.121 mm
+    Z comp =  0.025 mm
+    Z disp =  0.117 mm
+    Z stdev =  1.546 µm
+    Z diff =   5.00 µm
+    Z prev =  7.375 µm/min
 After 7 min
-    Z avg =  0.125 mm
-    Z comp =  0.031 mm
-    Z disp =  0.121 mm
-    Z stdev =  0.683 µm
-    Z diff =   2.50 µm
-    Z prev =  4.146 µm/min
+    Z avg =  0.126 mm
+    Z comp =  0.030 mm
+    Z disp =  0.122 mm
+    Z stdev =  0.500 µm
+    Z diff =   1.25 µm
+    Z prev =  2.542 µm/min
 After 10 min
     Z avg =  0.126 mm
-    Z comp =  0.032 mm
+    Z comp =  0.030 mm
     Z disp =  0.122 mm
-    Z stdev =  0.529 µm
+    Z stdev =  0.619 µm
     Z diff =   1.25 µm
-    Z prev =  0.306 µm/min
+    Z prev = -0.153 µm/min
 After 15 min
     Z avg =  0.120 mm
-    Z comp =  0.026 mm
+    Z comp =  0.024 mm
     Z disp =  0.116 mm
-    Z stdev =  0.224 µm
+    Z stdev =  0.529 µm
     Z diff =   1.25 µm
-    Z prev = -1.183 µm/min
+    Z prev = -1.167 µm/min
 After 20 min
-    Z avg =  0.117 mm
-    Z comp =  0.023 mm
+    Z avg =  0.116 mm
+    Z comp =  0.021 mm
     Z disp =  0.113 mm
-    Z stdev =  0.602 µm
+    Z stdev =  0.312 µm
+    Z diff =   1.25 µm
+    Z prev = -0.708 µm/min
+After 25 min
+    Z avg =  0.113 mm
+    Z comp =  0.017 mm
+    Z disp =  0.109 mm
+    Z stdev =  0.553 µm
     Z diff =   1.25 µm
     Z prev = -0.667 µm/min
-After 25 min
-    Z avg =  0.114 mm
-    Z comp =  0.020 mm
-    Z disp =  0.110 mm
-    Z stdev =  0.375 µm
-    Z diff =   1.25 µm
-    Z prev = -0.617 µm/min
 
 
 BAOLSEN N3F-H4NB
@@ -982,86 +982,86 @@ General Stats vs Moving Window of 10 Elements:
 - Phase 4 Total Diff/StdDev (all)    |  Local Diff/StdDev:  41.25 µm / 12.28 µm  |   3.59 µm /  1.13 µm
 
 ===Heat Soak Statistics===
-Extrapolation: 0.0608 mm
-Decay: 0.0364 mm/h
-Normal Z-offset quality: -0.0103 mm @1 min
-Good Z-offset quality: 0.0001 mm @2 min
-Best Z-offset quality: 0.0332 mm @12 min
+Extrapolation: 0.0612 mm
+Decay: 0.0352 mm/h
+Normal Z-offset quality: -0.0035 mm @1 min
+Good Z-offset quality: -0.0035 mm @1 min
+Best Z-offset quality: 0.0332 mm @11 min
 
 Total
     Z avg =  0.084 mm
     Z comp =  0.023 mm
-    Z disp =  0.079 mm
-    Z stdev = 11.869 µm
+    Z disp =  0.080 mm
+    Z stdev = 10.820 µm
     Z diff =  53.75 µm
 After 0 min
     Z avg =  0.048 mm
-    Z comp = -0.012 mm
+    Z comp = -0.013 mm
     Z disp =  0.044 mm
-    Z stdev =  1.427 µm
-    Z diff =   6.25 µm
-After 1 min
-    Z avg =  0.051 mm
-    Z comp = -0.010 mm
-    Z disp =  0.046 mm
-    Z stdev =  2.898 µm
-    Z diff =  10.00 µm
-    Z prev =  2.113 µm/min
-After 2 min
-    Z avg =  0.061 mm
-    Z comp =  0.000 mm
-    Z disp =  0.056 mm
-    Z stdev =  2.775 µm
-    Z diff =  11.25 µm
-    Z prev = 10.417 µm/min
-After 3 min
-    Z avg =  0.071 mm
-    Z comp =  0.010 mm
-    Z disp =  0.066 mm
-    Z stdev =  3.365 µm
-    Z diff =  11.25 µm
-    Z prev =  9.625 µm/min
-After 5 min
-    Z avg =  0.089 mm
-    Z comp =  0.028 mm
-    Z disp =  0.084 mm
-    Z stdev =  2.085 µm
+    Z stdev =  1.676 µm
     Z diff =   7.50 µm
-    Z prev =  9.021 µm/min
-After 7 min
-    Z avg =  0.093 mm
-    Z comp =  0.032 mm
-    Z disp =  0.088 mm
-    Z stdev =  0.940 µm
+After 1 min
+    Z avg =  0.058 mm
+    Z comp = -0.003 mm
+    Z disp =  0.053 mm
+    Z stdev =  3.174 µm
+    Z diff =  12.50 µm
+    Z prev =  9.522 µm/min
+After 2 min
+    Z avg =  0.067 mm
+    Z comp =  0.006 mm
+    Z disp =  0.062 mm
+    Z stdev =  3.154 µm
+    Z diff =  12.50 µm
+    Z prev =  9.375 µm/min
+After 3 min
+    Z avg =  0.078 mm
+    Z comp =  0.017 mm
+    Z disp =  0.073 mm
+    Z stdev =  3.081 µm
+    Z diff =  11.25 µm
+    Z prev = 10.833 µm/min
+After 5 min
+    Z avg =  0.091 mm
+    Z comp =  0.030 mm
+    Z disp =  0.087 mm
+    Z stdev =  0.994 µm
     Z diff =   3.75 µm
-    Z prev =  2.188 µm/min
+    Z prev =  6.708 µm/min
+After 7 min
+    Z avg =  0.095 mm
+    Z comp =  0.034 mm
+    Z disp =  0.090 mm
+    Z stdev =  1.280 µm
+    Z diff =   5.00 µm
+    Z prev =  1.771 µm/min
 After 10 min
     Z avg =  0.095 mm
-    Z comp =  0.035 mm
-    Z disp =  0.091 mm
-    Z stdev =  0.921 µm
-    Z diff =   3.75 µm
-    Z prev =  0.806 µm/min
+    Z comp =  0.034 mm
+    Z disp =  0.090 mm
+    Z stdev =  0.822 µm
+    Z diff =   2.50 µm
+    Z prev =  0.069 µm/min
 After 15 min
-    Z avg =  0.090 mm
-    Z comp =  0.030 mm
-    Z disp =  0.086 mm
-    Z stdev =  1.037 µm
-    Z diff =   3.75 µm
-    Z prev = -0.992 µm/min
+    Z avg =  0.089 mm
+    Z comp =  0.028 mm
+    Z disp =  0.085 mm
+    Z stdev =  1.233 µm
+    Z diff =   5.00 µm
+    Z prev = -1.158 µm/min
 After 20 min
     Z avg =  0.086 mm
     Z comp =  0.025 mm
     Z disp =  0.081 mm
-    Z stdev =  0.672 µm
-    Z diff =   2.50 µm
-    Z prev = -0.917 µm/min
+    Z stdev =  0.834 µm
+    Z diff =   3.75 µm
+    Z prev = -0.708 µm/min
 After 25 min
-    Z avg =  0.082 mm
-    Z comp =  0.021 mm
-    Z disp =  0.078 mm
-    Z stdev =  0.896 µm
+    Z avg =  0.081 mm
+    Z comp =  0.020 mm
+    Z disp =  0.077 mm
+    Z stdev =  0.796 µm
     Z diff =   2.50 µm
-    Z prev = -0.731 µm/min
+    Z prev = -0.850 µm/min
 
 

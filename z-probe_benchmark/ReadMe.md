@@ -30,12 +30,12 @@ The following table summarizes the key performance metrics and physical characte
 | **Sensor** | **Type** | **Price** | **Soak (Best)** | **Z @ 60min** | **Sensing Distance** | **Pros** | **Cons** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Panasonic GX-H15A** | NO | €39.00 | **3 min** | 0.109 | 5mm | Extremely fast stabilization. | High price. |
-| **Panasonic GX-H8A** | NO | €27,00 | **3 min** | 0.094 | 2.5 mm | Very fast; Compact | NO logic risk. |
+| **Panasonic GX-H8A** | NO | €27,00 | **3 min** | 0.096 | 2.5 mm | Very fast; Compact | NO logic risk. |
 | **Prusa Super Pinda** | 5V | €26.00 | 17 min | 0.024 | 2.5 mm | Most stable total displacement. | Requires 5V. |
-| **Panasonic GX-H12A** | NO | €27.00 | 15 min | 0.042 | 4 mm | Highest mechanical precision. | NO logic risk. |
+| **Panasonic GX-H12A** | NO | €27.00 | 15 min | 0.043 | 4 mm | Highest mechanical precision. | NO logic risk. |
 | **BAOLSEN N3F-H4NB** | NC | €14.00 | 12 min | 0.061 | 4 mm | Best budget stability. | NC safety. |
-| **FYSETC Super Pinda** | 5V | €17.00 | 29 min | 0.042 | 2.5 mm | Affordable. | Very slow to soak. |
-| **OMRON Q5MC1-Z** | NO | €67.00 | 29+ min | 0.224 | 5 mm |  | **Probably a chinese clone** |
+| **FYSETC Super Pinda** | 5V | €17.00 | 29 min | 0.041 | 2.5 mm | Affordable. | Very slow to soak. |
+| **OMRON Q5MC1-Z** | NO | €67.00 | 29+ min | 0.214 | 5 mm |  | **Probably a chinese clone** |
 | **OMRON Q5MC2-Z** | NC | €67.00 | 7 min | 0.224 | 5 mm | Fast "leveling." | **No compensation.** |
 
 
@@ -93,9 +93,9 @@ The speed at which a sensor settles is critical for print efficiency. The follow
 | **Z-Probe** | **1-2 Min** | **5-7 Min** | **15-20 Min** |
 | --- | --- | --- | --- |
 | **Panasonic GX-H15A** | 13.375 | 3.333 | -0.650 |
-| **Prusa Super Pinda** | -5.125 | -2.792 | -1.125 |
-| **OMRON TL-Q5MC2-Z** | 27.667 | 6.437 | -0.233 |
-| **FYSETC Super Pinda** | 3.583 | 1.292 | -1.992 |
+| **Prusa Super Pinda** | -6.083 | -2.583 | -1.117 |
+| **OMRON TL-Q5MC2-Z** | 23.958 | 6.312 | -0.058 |
+| **FYSETC Super Pinda** | 2.917 | -5.354 | -2.058 |
 
 ### Key Takeaways from the Data
 
@@ -111,15 +111,15 @@ This table shows the total distance (in mm) the probe's trigger point shifted fr
 
 | **Z-Probe** | **Total Shift (mm)** |
 | --- | --- |
-| **OMRON TL-Q5MC1-Z** | 0.263 mm |
-| **OMRON TL-Q5MC2-Z** | 0.217 mm |
-| **Panasonic GX-H15A** | 0.120 mm |
-| **Prusa Super Pinda** | 0.020 mm |
+| **OMRON TL-Q5MC1-Z** | 0.273 mm |
+| **OMRON TL-Q5MC2-Z** | 0.197 mm |
+| **Panasonic GX-H15A** | 0.119 mm |
+| **Prusa Super Pinda** | 0.036 mm |
 
 
 ### Impact on Print Quality
 
-- **Layer 1 Reliability:** For a standard 0.2mm layer, a shift of **0.263 mm** (as seen in the OMRON MC1) is enough to cause a total print failure or a head crash if the printer isn't heat-soaked.
+- **Layer 1 Reliability:** For a standard 0.2mm layer, a shift of **0.273 mm** (as seen in the OMRON MC1) is enough to cause a total print failure or a head crash if the printer isn't heat-soaked.
 - **The Gold Standard:** The **Prusa Super Pinda** remains the most "stable" in terms of total displacement (only 0.020 mm), making it very forgiving even if your soak time is inconsistent.
 
 
@@ -151,10 +151,10 @@ The data reveals a massive divide between "Fast-Stabilizers" and "Slow-Soakers."
 
 | **Category** | **Top Recommendation** | **Why?** |
 | --- | --- | --- |
-| **Speed & Throughput** | **Panasonic GX-H15A / H8A** | Reaches "Best" quality (0.0002mm to 0.0059mm error) in only **3 minutes**. Ideal for "print-and-go" workflows. |
+| **Speed & Throughput** | **Panasonic GX-H15A / H8A** | Reaches "Best" quality (0.0002mm to 0.0098mm error) in only **3 minutes**. Ideal for "print-and-go" workflows. |
 | **Set-and-Forget** | **Prusa Super Pinda** | While it takes 17 mins to reach "Best," its **total displacement** is the lowest (0.020mm). Even if you forget to soak, your crash risk is minimal. |
-| **Pure Precision** | **Panasonic GX-H12A** | Boasts the lowest Standard Deviation (0.43 $\mu m$). If your holder can block heat-break airflow, this is the most "repeatable" pulse. |
-| **Budget Safety** | **BAOLSEN N3F-H4NB** | Reaches "Best" in 12 minutes (faster than the Super Pinda) for only €14.00, while offering the safety of an NC (Normally Closed) logic. |
+| **Pure Precision** | **Panasonic GX-H12A** | Boasts the lowest Standard Deviation (0.36 $\mu m$). If your holder can block heat-break airflow, this is the most "repeatable" pulse. |
+| **Budget Safety** | **BAOLSEN N3F-H4NB** | Reaches "Best" in 11 minutes (same as the Super Pinda) for only €14.00, while offering the safety of an NC (Normally Closed) logic. |
 
 * * *
 
@@ -162,9 +162,9 @@ The data reveals a massive divide between "Fast-Stabilizers" and "Slow-Soakers."
 
 Your theory regarding airflow interference is supported by the ratios of the **Super Pinda**:
 
-- **Uncovered:** 17 mins to reach "Best".
-- **Covered:** 12 mins to reach "Best".
-- **Result:** Shielding the sensor provides a **29% reduction** in required soak time to achieve high-tier print quality.
+- **Uncovered:** 16 mins to reach "Best".
+- **Covered:** 11 mins to reach "Best".
+- **Result:** Shielding the sensor provides a **31% reduction** in required soak time to achieve high-tier print quality.
 
 
 * * *
@@ -177,12 +177,12 @@ Use this table to determine how long you must wait to reach your desired layer q
 | **Sensor Option** | **Normal (0.050mm)** | **Good (0.040mm)** | **Best (0.033mm)** | **The "Sweet Spot"** |
 | --- | --- | --- | --- | --- |
 | **Panasonic GX-H15A / H8A** | 1 min | 2 min | **3 min** | **3 min** (Extreme speed) |
-| **Panasonic GX-H12A** | 1 min | 5 min | **15 min** | **5 min** (Diminishing returns after) |
-| **Prusa Super Pinda** | 7 min | 12 min | **17 min** | **12 min** (Good balance) |
-| **Covered Super Pinda** | 5 min | 10 min | **12 min** | **12 min** (Shielding pays off) |
+| **Panasonic GX-H12A** | 1 min | 1 min | **13 min** | **5 min** (Diminishing returns after) |
+| **Prusa Super Pinda** | 6 min | 12 min | **16 min** | **12 min** (Good balance) |
+| **Covered Super Pinda** | 1 min | 5 min | **11 min** | **11 min** (Shielding pays off) |
 | **BAOLSEN N3F-H4NB** | 3 min | 7 min | **12 min** | **7 min** (Best budget value) |
-| **FYSETC Super Pinda** | 10 min | 20 min | **29 min** | **20 min** (Requires patience) |
-| **OMRON TL-Q5MC2-Z** | 2 min | 3 min | **7 min** | **7 min** (Uncompensated\*) |
+| **FYSETC Super Pinda** | 17 min | 25 min | **29 min** | **20 min** (Requires patience) |
+| **OMRON TL-Q5MC2-Z** | 4 min | 5 min | **7 min** | **7 min** (Uncompensated\*) |
 
 \*Note: While the OMRON MC2 stabilizes quickly, it lacks an active compensation circuit. This means you must manually recalibrate your Z-offset if you change your bed temperature (e.g., from 60°C to 100°C).
 
@@ -210,7 +210,7 @@ The **GX-H12A** and **Super Pinda** exhibit a steep curve.
 The data on the **Covered Super Pinda** shows a significant shift in the ratio. By shielding the sensor:
 
 - You reach **"Best"** 5 minutes faster than the open version.
-- The "Good" threshold is reached in 10 minutes rather than 12.
+- The "Good" threshold is reached in 5 minutes rather than 12.
 - **Conclusion:** If you are using a sensor with a slower compensation circuit (like the Pinda or FYSETC), a protective holder is the most effective "free" upgrade to reduce your pre-print wait time.
 
 
@@ -244,17 +244,17 @@ Your tests show that adding a cover or enclosure generally alters the thermal in
 
 | **Sensor Comparison** | **Any Soak Shift (mm)** | **Soak Time to Stability** | **Final Z @ 25min (mm)** |
 | --- | --- | --- | --- |
-| **Prusa Super Pinda** | 0.036 | 17 min | 0.047 |
-| **Covered Super Pinda** | 0.054 | **12 min** | 0.049 |
-| **FYSETC Super Pinda** | 0.089 | 29 min | 0.083 |
-| **Covered FYSETC** | 0.106 | 29 min | 0.093 |
-| **Panasonic GX-H12A** | 0.064 | 15 min | 0.065 |
-| **Covered GX-H12A** | 0.073 | 17 min | 0.073 |
+| **Prusa Super Pinda** | 0.063 | 16 min | 0.047 |
+| **Covered Super Pinda** | 0.058 | **11 min** | 0.048 |
+| **FYSETC Super Pinda** | 0.097 | 29 min | 0.080 |
+| **Covered FYSETC** | 0.112 | 29 min | 0.092 |
+| **Panasonic GX-H12A** | 0.069 | 13 min | 0.064 |
+| **Covered GX-H12A** | 0.078 | 16 min | 0.073 |
 
 ### Observations on Airflow & Shielding
 
-- **Super Pinda Improvement:** Interestingly, the **Covered Super Pinda** stabilized **5 minutes faster** (12 min vs 17 min) than the open version. This supports your theory that shielding the sensor from turbulent air helps it reach a steady internal temperature more quickly.
-- **Precision (StdDev):** The **Covered GX-H12A** maintained a very low Standard Deviation in Phase 3 (1.24 µm), nearly identical to its uncovered counterpart (1.18 µm). This suggests that while covers change the *timing* of the drift, they don't necessarily degrade the mechanical precision of the pulse.
+- **Super Pinda Improvement:** Interestingly, the **Covered Super Pinda** stabilized **5 minutes faster** (11 min vs 16 min) than the open version. This supports your theory that shielding the sensor from turbulent air helps it reach a steady internal temperature more quickly.
+- **Precision (StdDev):** The **Covered GX-H12A** maintained a very low Standard Deviation in Phase 3 (1.03 µm), nearly identical to its uncovered counterpart (0.93 µm). This suggests that while covers change the *timing* of the drift, they don't necessarily degrade the mechanical precision of the pulse.
 - **Increased Displacement:** In almost all cases (Super Pinda, FYSETC, and GX-H12A), the "Covered" version showed a slightly **higher total Z displacement** at the 25-minute mark compared to the uncovered version. This is likely because the cover traps heat, allowing the sensor body to reach a higher absolute temperature than it would if it were being cooled by ambient airflow.
 
 
@@ -425,17 +425,17 @@ The Convergence column is the offset based on a cold printer state where the the
 
 | Z-Probe            | Convergence (mm) | Normal (min) | Error (mm) | Good (min) | Error (mm) | Best (min) | Error (mm) |
 |--------------------|:----------------:|:------------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| Prusa Super Pinda  |           0.0235 |            7 |     0.0489 |         13 |     0.0387 |         17 |     0.0325 |
-| Covered Super Pinda|           0.0277 |            1 |     0.0470 |          6 |     0.0392 |         12 |     0.0319 |
-| FYSETC Super Pinda |           0.0418 |           18 |     0.0487 |         26 |     0.0385 |         29 |     0.0330 |
-| Covered FYSETC     |           0.0503 |           21 |     0.0479 |         28 |     0.0388 |         29 |     0.0382 |
-| OMRON TL-Q5MC2-Z   |           0.2235 |            5 |    -0.0441 |          6 |    -0.0358 |          7 |    -0.0312 |
-| OMRON TL-Q5MC1-Z   |           0.2134 |           29 |     0.0487 |         29 |     0.0487 |         29 |     0.0487 |
+| Prusa Super Pinda  |           0.0236 |            6 |     0.0498 |         12 |     0.0397 |         16 |     0.0331 |
+| Covered Super Pinda|           0.0279 |            1 |     0.0464 |          5 |     0.0394 |         11 |     0.0322 |
+| FYSETC Super Pinda |           0.0409 |           17 |     0.0497 |         25 |     0.0394 |         29 |     0.0324 |
+| Covered FYSETC     |           0.0538 |           18 |     0.0492 |         24 |     0.0389 |         29 |     0.0345 |
+| OMRON TL-Q5MC2-Z   |           0.2237 |            4 |    -0.0481 |          5 |    -0.0382 |          7 |    -0.0256 |
+| OMRON TL-Q5MC1-Z   |           0.2140 |           26 |     0.0500 |         29 |     0.0472 |         29 |     0.0472 |
 | Panasonic GX-H15A  |           0.1086 |            1 |    -0.0231 |          2 |    -0.0098 |          3 |    -0.0002 |
-| Panasonic GX-H12A  |           0.0416 |            1 |     0.0044 |          1 |     0.0044 |         15 |     0.0323 |
-| Covered GX-H12A    |           0.0482 |            1 |    -0.0003 |         13 |     0.0394 |         17 |     0.0329 |
-| Panasonic GX-H8A   |           0.0940 |            2 |    -0.0055 |          2 |    -0.0055 |          3 |     0.0059 |
-| BAOLSEN N3F-H4NB   |           0.0608 |            1 |    -0.0103 |          2 |     0.0001 |         12 |     0.0332 |
+| Panasonic GX-H12A  |           0.0427 |            1 |     0.0116 |          1 |     0.0116 |         13 |     0.0324 |
+| Covered GX-H12A    |           0.0486 |            1 |     0.0061 |         12 |     0.0397 |         16 |     0.0327 |
+| Panasonic GX-H8A   |           0.0956 |            1 |    -0.0118 |          2 |     0.0007 |          2 |     0.0007 |
+| BAOLSEN N3F-H4NB   |           0.0612 |            1 |    -0.0035 |          1 |    -0.0035 |         11 |     0.0332 |
 
 
 ## Average Z Value (in mm)
@@ -444,17 +444,17 @@ These values are relative to the lowest Z offset found on the data set.
 
 | Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |
 |--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-| Prusa Super Pinda  |    0.063 |  0.095 |  0.097 |  0.091 |  0.086 |  0.078 |  0.072 |  0.067 |  0.058 |  0.053 |  0.047 |
-| Covered Super Pinda|    0.058 |  0.062 |  0.075 |  0.074 |  0.072 |  0.068 |  0.066 |  0.063 |  0.056 |  0.051 |  0.049 |
-| FYSETC Super Pinda |    0.097 |  0.093 |  0.108 |  0.112 |  0.115 |  0.121 |  0.123 |  0.108 |  0.096 |  0.086 |  0.083 |
-| Covered FYSETC     |    0.112 |  0.097 |  0.112 |  0.117 |  0.121 |  0.130 |  0.136 |  0.138 |  0.116 |  0.101 |  0.093 |
-| OMRON TL-Q5MC2-Z   |    0.201 |  0.068 |  0.098 |  0.126 |  0.148 |  0.179 |  0.192 |  0.213 |  0.224 |  0.223 |  0.224 |
-| OMRON TL-Q5MC1-Z   |    0.272 |  0.131 |  0.205 |  0.235 |  0.252 |  0.283 |  0.299 |  0.302 |  0.290 |  0.276 |  0.266 |
+| Prusa Super Pinda  |    0.063 |  0.098 |  0.095 |  0.089 |  0.084 |  0.077 |  0.072 |  0.066 |  0.058 |  0.052 |  0.047 |
+| Covered Super Pinda|    0.058 |  0.073 |  0.074 |  0.073 |  0.070 |  0.067 |  0.065 |  0.062 |  0.055 |  0.051 |  0.048 |
+| FYSETC Super Pinda |    0.097 |  0.108 |  0.112 |  0.115 |  0.117 |  0.123 |  0.113 |  0.107 |  0.095 |  0.085 |  0.080 |
+| Covered FYSETC     |    0.112 |  0.112 |  0.117 |  0.121 |  0.126 |  0.134 |  0.138 |  0.137 |  0.113 |  0.098 |  0.092 |
+| OMRON TL-Q5MC2-Z   |    0.205 |  0.089 |  0.117 |  0.140 |  0.162 |  0.186 |  0.198 |  0.216 |  0.224 |  0.224 |  0.224 |
+| OMRON TL-Q5MC1-Z   |    0.276 |  0.205 |  0.235 |  0.252 |  0.268 |  0.293 |  0.301 |  0.301 |  0.286 |  0.273 |  0.265 |
 | Panasonic GX-H15A  |    0.122 |  0.069 |  0.085 |  0.099 |  0.108 |  0.122 |  0.129 |  0.132 |  0.130 |  0.127 |  0.124 |
-| Panasonic GX-H12A  |    0.068 |  0.034 |  0.046 |  0.054 |  0.062 |  0.073 |  0.080 |  0.080 |  0.074 |  0.069 |  0.065 |
-| Covered GX-H12A    |    0.077 |  0.036 |  0.048 |  0.058 |  0.066 |  0.080 |  0.088 |  0.092 |  0.084 |  0.078 |  0.073 |
-| Panasonic GX-H8A   |    0.113 |  0.051 |  0.073 |  0.088 |  0.100 |  0.117 |  0.125 |  0.126 |  0.120 |  0.117 |  0.114 |
-| BAOLSEN N3F-H4NB   |    0.084 |  0.048 |  0.051 |  0.061 |  0.071 |  0.089 |  0.093 |  0.095 |  0.090 |  0.086 |  0.082 |
+| Panasonic GX-H12A  |    0.069 |  0.046 |  0.054 |  0.062 |  0.068 |  0.077 |  0.081 |  0.079 |  0.072 |  0.068 |  0.064 |
+| Covered GX-H12A    |    0.078 |  0.044 |  0.055 |  0.064 |  0.072 |  0.083 |  0.090 |  0.092 |  0.083 |  0.077 |  0.073 |
+| Panasonic GX-H8A   |    0.114 |  0.067 |  0.084 |  0.096 |  0.106 |  0.121 |  0.126 |  0.126 |  0.120 |  0.116 |  0.113 |
+| BAOLSEN N3F-H4NB   |    0.084 |  0.048 |  0.058 |  0.067 |  0.078 |  0.091 |  0.095 |  0.095 |  0.089 |  0.086 |  0.081 |
 
 
 ## Z Value Offset To Extrapolation (in mm)
@@ -463,34 +463,34 @@ An exponential descending curve is computes as a synthetic representation of the
 
 | Z-Probe            | Extrapolation | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |
 |--------------------|:-------------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-| Prusa Super Pinda  |        0.0235 |    0.039 |  0.071 |  0.073 |  0.068 |  0.062 |  0.054 |  0.049 |  0.043 |  0.035 |  0.029 |  0.024 |
-| Covered Super Pinda|        0.0277 |    0.030 |  0.035 |  0.047 |  0.046 |  0.045 |  0.041 |  0.038 |  0.035 |  0.028 |  0.024 |  0.021 |
-| FYSETC Super Pinda |        0.0418 |    0.055 |  0.051 |  0.067 |  0.070 |  0.073 |  0.079 |  0.081 |  0.066 |  0.054 |  0.044 |  0.041 |
-| Covered FYSETC     |        0.0503 |    0.062 |  0.047 |  0.062 |  0.067 |  0.071 |  0.079 |  0.086 |  0.088 |  0.066 |  0.050 |  0.042 |
-| OMRON TL-Q5MC2-Z   |        0.2235 |   -0.022 | -0.156 | -0.125 | -0.098 | -0.076 | -0.044 | -0.031 | -0.011 |  0.001 | -0.000 |  0.001 |
-| OMRON TL-Q5MC1-Z   |        0.2134 |    0.058 | -0.083 | -0.008 |  0.021 |  0.039 |  0.069 |  0.086 |  0.089 |  0.077 |  0.063 |  0.053 |
+| Prusa Super Pinda  |        0.0236 |    0.039 |  0.074 |  0.072 |  0.066 |  0.061 |  0.053 |  0.048 |  0.042 |  0.034 |  0.029 |  0.023 |
+| Covered Super Pinda|        0.0279 |    0.030 |  0.046 |  0.046 |  0.045 |  0.042 |  0.039 |  0.037 |  0.034 |  0.027 |  0.023 |  0.020 |
+| FYSETC Super Pinda |        0.0409 |    0.056 |  0.067 |  0.071 |  0.074 |  0.076 |  0.082 |  0.072 |  0.066 |  0.054 |  0.044 |  0.039 |
+| Covered FYSETC     |        0.0538 |    0.059 |  0.058 |  0.063 |  0.067 |  0.072 |  0.080 |  0.084 |  0.083 |  0.059 |  0.044 |  0.038 |
+| OMRON TL-Q5MC2-Z   |        0.2237 |   -0.019 | -0.134 | -0.107 | -0.083 | -0.062 | -0.038 | -0.026 | -0.008 |  0.000 | -0.000 |  0.001 |
+| OMRON TL-Q5MC1-Z   |        0.2140 |    0.062 | -0.009 |  0.021 |  0.038 |  0.054 |  0.079 |  0.087 |  0.087 |  0.072 |  0.059 |  0.051 |
 | Panasonic GX-H15A  |        0.1086 |    0.013 | -0.040 | -0.023 | -0.010 | -0.000 |  0.014 |  0.021 |  0.024 |  0.021 |  0.018 |  0.015 |
-| Panasonic GX-H12A  |        0.0416 |    0.027 | -0.008 |  0.004 |  0.013 |  0.020 |  0.032 |  0.038 |  0.039 |  0.032 |  0.027 |  0.023 |
-| Covered GX-H12A    |        0.0482 |    0.029 | -0.012 | -0.000 |  0.010 |  0.018 |  0.032 |  0.040 |  0.044 |  0.036 |  0.030 |  0.025 |
-| Panasonic GX-H8A   |        0.0940 |    0.019 | -0.043 | -0.021 | -0.006 |  0.006 |  0.023 |  0.031 |  0.032 |  0.026 |  0.023 |  0.020 |
-| BAOLSEN N3F-H4NB   |        0.0608 |    0.023 | -0.012 | -0.010 |  0.000 |  0.010 |  0.028 |  0.032 |  0.035 |  0.030 |  0.025 |  0.021 |
+| Panasonic GX-H12A  |        0.0427 |    0.027 |  0.003 |  0.012 |  0.019 |  0.026 |  0.035 |  0.038 |  0.037 |  0.030 |  0.025 |  0.021 |
+| Covered GX-H12A    |        0.0486 |    0.029 | -0.004 |  0.006 |  0.015 |  0.023 |  0.035 |  0.041 |  0.043 |  0.034 |  0.029 |  0.024 |
+| Panasonic GX-H8A   |        0.0956 |    0.019 | -0.029 | -0.012 |  0.001 |  0.011 |  0.025 |  0.030 |  0.030 |  0.024 |  0.021 |  0.017 |
+| BAOLSEN N3F-H4NB   |        0.0612 |    0.023 | -0.013 | -0.003 |  0.006 |  0.017 |  0.030 |  0.034 |  0.034 |  0.028 |  0.025 |  0.020 |
 
 
 ## Z Value Evolution (in µm/min)
 
 | Z-Probe            |  0-1 Min  |  1-2 Min  |  2-3 Min  |  3-5 Min  |  5-7 Min  | 7-10 Min  | 10-15 Min | 15-20 Min | 20-25 Min |
 |--------------------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| Prusa Super Pinda  |     1.582 |    -5.125 |    -5.667 |    -3.896 |    -2.792 |    -1.903 |    -1.667 |    -1.125 |    -1.133 |
-| Covered Super Pinda|    12.409 |    -0.833 |    -1.458 |    -1.954 |    -1.276 |    -1.004 |    -1.372 |    -0.917 |    -0.592 |
-| FYSETC Super Pinda |    15.677 |     3.583 |     2.917 |     2.750 |     1.292 |    -5.014 |    -2.375 |    -1.992 |    -0.725 |
-| Covered FYSETC     |    15.066 |     5.000 |     3.875 |     4.438 |     3.146 |     0.583 |    -4.392 |    -3.033 |    -1.608 |
-| OMRON TL-Q5MC2-Z   |    30.262 |    27.667 |    21.750 |    15.937 |     6.437 |     6.903 |     2.275 |    -0.233 |     0.208 |
-| OMRON TL-Q5MC1-Z   |    74.773 |    29.208 |    17.583 |    15.208 |     8.208 |     1.056 |    -2.375 |    -2.825 |    -2.058 |
+| Prusa Super Pinda  |    -2.574 |    -6.083 |    -4.708 |    -3.687 |    -2.583 |    -2.014 |    -1.583 |    -1.117 |    -1.117 |
+| Covered Super Pinda|     0.824 |    -1.458 |    -2.625 |    -1.435 |    -1.024 |    -1.038 |    -1.360 |    -0.842 |    -0.575 |
+| FYSETC Super Pinda |     3.737 |     2.917 |     1.708 |     3.354 |    -5.354 |    -1.972 |    -2.333 |    -2.058 |    -0.900 |
+| Covered FYSETC     |     5.106 |     3.875 |     4.625 |     4.104 |     1.958 |    -0.236 |    -4.850 |    -2.892 |    -1.333 |
+| OMRON TL-Q5MC2-Z   |    27.266 |    23.958 |    21.042 |    12.000 |     6.312 |     5.847 |     1.642 |    -0.058 |     0.175 |
+| OMRON TL-Q5MC1-Z   |    30.070 |    17.583 |    15.875 |    12.687 |     4.000 |    -0.097 |    -3.075 |    -2.475 |    -1.683 |
 | Panasonic GX-H15A  |    16.749 |    13.375 |     9.583 |     7.042 |     3.333 |     1.069 |    -0.475 |    -0.650 |    -0.642 |
-| Panasonic GX-H12A  |    12.290 |     8.292 |     7.708 |     5.625 |     3.354 |     0.167 |    -1.308 |    -1.033 |    -0.806 |
-| Covered GX-H12A    |    11.706 |    10.042 |     8.417 |     6.979 |     3.938 |     1.389 |    -1.717 |    -1.192 |    -0.925 |
-| Panasonic GX-H8A   |    22.200 |    15.208 |    11.417 |     8.458 |     4.146 |     0.306 |    -1.183 |    -0.667 |    -0.617 |
-| BAOLSEN N3F-H4NB   |     2.113 |    10.417 |     9.625 |     9.021 |     2.188 |     0.806 |    -0.992 |    -0.917 |    -0.731 |
+| Panasonic GX-H12A  |     8.445 |     7.708 |     6.250 |     4.521 |     1.604 |    -0.403 |    -1.358 |    -0.925 |    -0.801 |
+| Covered GX-H12A    |    10.473 |     9.000 |     7.917 |     5.958 |     3.250 |     0.583 |    -1.792 |    -1.092 |    -0.958 |
+| Panasonic GX-H8A   |    16.977 |    12.542 |     9.833 |     7.375 |     2.542 |    -0.153 |    -1.167 |    -0.708 |    -0.667 |
+| BAOLSEN N3F-H4NB   |     9.522 |     9.375 |    10.833 |     6.708 |     1.771 |     0.069 |    -1.158 |    -0.708 |    -0.850 |
 
 
 ## Z Value Displacement (Cold to Hot Values in mm)
@@ -499,17 +499,17 @@ This table proves that calibrating a printer at cold state is just a waste of ti
 
 | Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |
 |--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-| Prusa Super Pinda  |    0.036 |  0.068 |  0.070 |  0.065 |  0.059 |  0.051 |  0.046 |  0.040 |  0.032 |  0.026 |  0.020 |
-| Covered Super Pinda|    0.054 |  0.058 |  0.071 |  0.070 |  0.068 |  0.065 |  0.062 |  0.059 |  0.052 |  0.048 |  0.045 |
-| FYSETC Super Pinda |    0.089 |  0.085 |  0.101 |  0.104 |  0.107 |  0.113 |  0.115 |  0.100 |  0.088 |  0.078 |  0.075 |
-| Covered FYSETC     |    0.106 |  0.091 |  0.106 |  0.111 |  0.115 |  0.124 |  0.130 |  0.132 |  0.110 |  0.095 |  0.087 |
-| OMRON TL-Q5MC2-Z   |    0.194 |  0.061 |  0.091 |  0.119 |  0.140 |  0.172 |  0.185 |  0.206 |  0.217 |  0.216 |  0.217 |
-| OMRON TL-Q5MC1-Z   |    0.269 |  0.128 |  0.202 |  0.232 |  0.249 |  0.280 |  0.296 |  0.299 |  0.287 |  0.273 |  0.263 |
+| Prusa Super Pinda  |    0.036 |  0.071 |  0.069 |  0.063 |  0.058 |  0.050 |  0.045 |  0.039 |  0.031 |  0.026 |  0.020 |
+| Covered Super Pinda|    0.054 |  0.070 |  0.070 |  0.069 |  0.066 |  0.063 |  0.061 |  0.058 |  0.051 |  0.047 |  0.044 |
+| FYSETC Super Pinda |    0.089 |  0.100 |  0.104 |  0.107 |  0.109 |  0.115 |  0.105 |  0.099 |  0.087 |  0.077 |  0.072 |
+| Covered FYSETC     |    0.106 |  0.106 |  0.111 |  0.115 |  0.119 |  0.128 |  0.132 |  0.131 |  0.107 |  0.092 |  0.086 |
+| OMRON TL-Q5MC2-Z   |    0.197 |  0.082 |  0.109 |  0.133 |  0.154 |  0.178 |  0.191 |  0.209 |  0.217 |  0.216 |  0.217 |
+| OMRON TL-Q5MC1-Z   |    0.273 |  0.202 |  0.232 |  0.249 |  0.265 |  0.290 |  0.298 |  0.298 |  0.283 |  0.270 |  0.262 |
 | Panasonic GX-H15A  |    0.119 |  0.065 |  0.082 |  0.095 |  0.105 |  0.119 |  0.126 |  0.129 |  0.127 |  0.123 |  0.120 |
-| Panasonic GX-H12A  |    0.064 |  0.030 |  0.042 |  0.050 |  0.058 |  0.069 |  0.076 |  0.077 |  0.070 |  0.065 |  0.061 |
-| Covered GX-H12A    |    0.073 |  0.033 |  0.044 |  0.054 |  0.063 |  0.077 |  0.085 |  0.089 |  0.080 |  0.074 |  0.070 |
-| Panasonic GX-H8A   |    0.109 |  0.047 |  0.070 |  0.085 |  0.096 |  0.113 |  0.121 |  0.122 |  0.116 |  0.113 |  0.110 |
-| BAOLSEN N3F-H4NB   |    0.079 |  0.044 |  0.046 |  0.056 |  0.066 |  0.084 |  0.088 |  0.091 |  0.086 |  0.081 |  0.078 |
+| Panasonic GX-H12A  |    0.066 |  0.042 |  0.050 |  0.058 |  0.064 |  0.073 |  0.077 |  0.075 |  0.069 |  0.064 |  0.060 |
+| Covered GX-H12A    |    0.074 |  0.041 |  0.051 |  0.060 |  0.068 |  0.080 |  0.087 |  0.088 |  0.079 |  0.074 |  0.069 |
+| Panasonic GX-H8A   |    0.111 |  0.063 |  0.080 |  0.093 |  0.103 |  0.117 |  0.122 |  0.122 |  0.116 |  0.113 |  0.109 |
+| BAOLSEN N3F-H4NB   |    0.080 |  0.044 |  0.053 |  0.062 |  0.073 |  0.087 |  0.090 |  0.090 |  0.085 |  0.081 |  0.077 |
 
 
 ## Standard Deviation (µm)
@@ -518,17 +518,17 @@ The classic standard deviation gives a picture of the noise average that is expe
 
 | Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |
 |--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-| Prusa Super Pinda  |   15.176 |  4.595 |  1.571 |  2.431 |  1.354 |  1.045 |  0.673 |  1.304 |  0.745 |  0.652 |  0.756 |
-| Covered Super Pinda|    8.909 |  9.237 |  0.909 |  0.786 |  0.875 |  0.882 |  0.850 |  0.737 |  0.728 |  0.652 |  0.595 |
-| FYSETC Super Pinda |   15.172 | 10.823 |  1.267 |  1.179 |  1.443 |  1.233 |  2.637 |  0.769 |  0.850 |  0.994 |  0.909 |
-| Covered FYSETC     |   17.628 |  9.780 |  2.360 |  2.177 |  1.852 |  2.143 |  1.007 |  0.786 |  1.375 |  1.194 |  0.954 |
-| OMRON TL-Q5MC2-Z   |   40.133 | 12.166 |  7.561 |  7.572 |  7.688 |  3.829 |  3.012 |  2.250 |  1.638 |  2.229 |  1.953 |
-| OMRON TL-Q5MC1-Z   |   33.999 | 32.396 | 12.676 |  5.636 |  4.737 |  3.732 |  1.161 |  0.500 |  1.028 |  1.021 |  0.529 |
+| Prusa Super Pinda  |   15.002 |  1.218 |  1.884 |  2.070 |  1.359 |  1.140 |  0.839 |  1.133 |  0.812 |  0.773 |  0.764 |
+| Covered Super Pinda|    8.931 |  2.147 |  0.769 |  0.850 |  1.446 |  1.088 |  0.834 |  1.002 |  0.573 |  0.717 |  0.756 |
+| FYSETC Super Pinda |   15.274 |  1.502 |  1.179 |  1.443 |  1.350 |  1.288 |  2.261 |  1.055 |  0.813 |  1.239 |  0.850 |
+| Covered FYSETC     |   17.601 |  2.394 |  2.177 |  1.852 |  1.603 |  1.331 |  1.007 |  0.951 |  1.025 |  1.354 |  0.786 |
+| OMRON TL-Q5MC2-Z   |   34.649 |  8.302 |  8.363 |  7.053 |  5.472 |  2.731 |  4.028 |  2.695 |  1.864 |  2.183 |  1.758 |
+| OMRON TL-Q5MC1-Z   |   21.682 | 13.333 |  5.636 |  4.737 |  4.539 |  2.765 |  0.595 |  0.393 |  1.455 |  0.895 |  0.224 |
 | Panasonic GX-H15A  |   14.249 |  5.918 |  4.114 |  3.369 |  2.886 |  1.677 |  0.812 |  0.747 |  0.913 |  0.692 |  0.567 |
-| Panasonic GX-H12A  |   10.323 |  5.279 |  2.424 |  2.343 |  2.179 |  1.315 |  0.602 |  0.602 |  0.624 |  0.000 |  0.523 |
-| Covered GX-H12A    |   12.436 |  4.353 |  2.996 |  2.820 |  2.370 |  1.603 |  1.057 |  0.425 |  0.456 |  0.529 |  0.624 |
-| Panasonic GX-H8A   |   15.909 |  8.397 |  5.018 |  3.693 |  2.936 |  2.131 |  0.683 |  0.529 |  0.224 |  0.602 |  0.375 |
-| BAOLSEN N3F-H4NB   |   11.869 |  1.427 |  2.898 |  2.775 |  3.365 |  2.085 |  0.940 |  0.921 |  1.037 |  0.672 |  0.896 |
+| Panasonic GX-H12A  |    8.246 |  2.528 |  2.343 |  2.179 |  1.500 |  1.074 |  0.612 |  0.619 |  0.323 |  0.573 |  0.370 |
+| Covered GX-H12A    |   10.783 |  3.262 |  3.009 |  2.370 |  2.235 |  1.267 |  0.913 |  0.612 |  0.698 |  0.425 |  0.224 |
+| Panasonic GX-H8A   |   12.549 |  5.887 |  4.226 |  3.178 |  2.581 |  1.546 |  0.500 |  0.619 |  0.529 |  0.312 |  0.553 |
+| BAOLSEN N3F-H4NB   |   10.820 |  1.676 |  3.174 |  3.154 |  3.081 |  0.994 |  1.280 |  0.822 |  1.233 |  0.834 |  0.796 |
 
 
 ## Amplitude Difference (µm)
@@ -537,15 +537,15 @@ The min an max Z values, may contaminate single samples, causing spurious hill o
 
 | Z-Probe            | Any Soak | 0 Min  | 1 Min  | 2 Min  | 3 Min  | 5 Min  | 7 Min  | 10 Min | 15 Min | 20 Min | 25 Min |
 |--------------------|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-| Prusa Super Pinda  |    56.25 |  16.25 |   5.00 |   8.75 |   5.00 |   3.75 |   2.50 |   6.25 |   2.50 |   2.50 |   2.50 |
-| Covered Super Pinda|    33.75 |  31.25 |   2.50 |   3.75 |   2.50 |   3.75 |   3.75 |   2.50 |   2.50 |   2.50 |   2.50 |
-| FYSETC Super Pinda |    60.00 |  40.00 |   5.00 |   5.00 |   6.25 |   3.75 |   8.75 |   2.50 |   2.50 |   5.00 |   3.75 |
-| Covered FYSETC     |    66.25 |  33.75 |   8.75 |  10.00 |   6.25 |   7.50 |   3.75 |   2.50 |   5.00 |   5.00 |   3.75 |
-| OMRON TL-Q5MC2-Z   |   183.75 |  41.25 |  26.25 |  31.25 |  31.25 |  15.00 |  13.75 |  10.00 |   8.75 |   8.75 |   7.50 |
-| OMRON TL-Q5MC1-Z   |   231.25 | 107.50 |  43.75 |  18.75 |  16.25 |  12.50 |   3.75 |   1.25 |   3.75 |   2.50 |   1.25 |
+| Prusa Super Pinda  |    56.25 |   6.25 |   6.25 |   8.75 |   6.25 |   5.00 |   3.75 |   5.00 |   3.75 |   2.50 |   2.50 |
+| Covered Super Pinda|    31.25 |   8.75 |   2.50 |   2.50 |   5.00 |   6.25 |   3.75 |   3.75 |   1.25 |   2.50 |   2.50 |
+| FYSETC Super Pinda |    56.25 |   7.50 |   5.00 |   6.25 |   6.25 |   5.00 |   8.75 |   3.75 |   2.50 |   5.00 |   2.50 |
+| Covered FYSETC     |    56.25 |   8.75 |  10.00 |   6.25 |   6.25 |   5.00 |   3.75 |   3.75 |   3.75 |   5.00 |   2.50 |
+| OMRON TL-Q5MC2-Z   |   156.25 |  32.50 |  27.50 |  28.75 |  20.00 |  10.00 |  16.25 |  10.00 |   7.50 |   8.75 |   6.25 |
+| OMRON TL-Q5MC1-Z   |   123.75 |  45.00 |  18.75 |  16.25 |  15.00 |   8.75 |   2.50 |   2.50 |   5.00 |   2.50 |   1.25 |
 | Panasonic GX-H15A  |    77.50 |  21.25 |  15.00 |  11.25 |  11.25 |   7.50 |   2.50 |   3.75 |   5.00 |   2.50 |   2.50 |
-| Panasonic GX-H12A  |    56.25 |  16.25 |   8.75 |   8.75 |   6.25 |   3.75 |   2.50 |   1.25 |   2.50 |   0.00 |   1.25 |
-| Covered GX-H12A    |    65.00 |  15.00 |  10.00 |  10.00 |   7.50 |   5.00 |   3.75 |   1.25 |   2.50 |   1.25 |   1.25 |
-| Panasonic GX-H8A   |    90.00 |  27.50 |  17.50 |  11.25 |  10.00 |   6.25 |   2.50 |   1.25 |   1.25 |   1.25 |   1.25 |
-| BAOLSEN N3F-H4NB   |    53.75 |   6.25 |  10.00 |  11.25 |  11.25 |   7.50 |   3.75 |   3.75 |   3.75 |   2.50 |   2.50 |
+| Panasonic GX-H12A  |    40.00 |   8.75 |   8.75 |   6.25 |   3.75 |   3.75 |   1.25 |   1.25 |   2.50 |   1.25 |   1.25 |
+| Covered GX-H12A    |    53.75 |  11.25 |  10.00 |   7.50 |   7.50 |   3.75 |   3.75 |   1.25 |   2.50 |   1.25 |   1.25 |
+| Panasonic GX-H8A   |    70.00 |  20.00 |  15.00 |  10.00 |   8.75 |   5.00 |   1.25 |   1.25 |   1.25 |   1.25 |   1.25 |
+| BAOLSEN N3F-H4NB   |    53.75 |   7.50 |  12.50 |  12.50 |  11.25 |   3.75 |   5.00 |   2.50 |   5.00 |   3.75 |   2.50 |
 

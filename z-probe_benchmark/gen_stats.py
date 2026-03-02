@@ -364,13 +364,13 @@ def real_world_stats(data : list) -> SoakStats:
 	cold = []
 	samples = []
 	for i, rec in enumerate(data):
-		if "etemp" in rec:
+		if "btemp" in rec:
 			if not start_found:
-				if rec["eset"] != 0.0:
+				if rec["bset"] != 0.0:
 					# Start of phase 3 with stable temp
-					if abs(rec["etemp"] - rec["eset"]) <= 1.0:
+					if rec["btemp"] - rec["bset"] >= 0.0:
 						start_found = True
-			elif rec["eset"] == 0.0:
+			elif rec["bset"] == 0.0:
 				# End of phase 3
 				break
 		if "z" in rec:
